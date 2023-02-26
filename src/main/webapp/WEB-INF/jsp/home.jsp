@@ -16,8 +16,8 @@
 
     </style>
 </head>
-
 <body>
+
 
 <c:import url="menu.jsp" />
 <div class="container">
@@ -53,9 +53,37 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/31/08/54/medical-4985692_960_720.jpg" alt="Máquina de raios-x">
+            <div class="card-body">
+                <h5 class="card-title">Máquina de Raios-X</h5>
+                <p class="card-text">A máquina de raios-x é um equipamento hospitalar utilizado para diagnosticar diversas condições médicas, como fraturas ósseas e problemas pulmonares.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2021/03/26/06/46/ventilator-6121351_960_720.jpg" alt="Ventilador mecânico">
+            <div class="card-body">
+                <h5 class="card-title">Ventilador Mecânico</h5>
+                <p class="card-text">O ventilador mecânico é um equipamento hospitalar utilizado para auxiliar a respiração de pacientes com problemas respiratórios graves, como pneumonia e insuficiência respiratória.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/06/22/14/24/monitor-5322183_960_720.jpg" alt="Monitor de sinais vitais">
+            <div class="card-body">
+                <h5 class="card-title">Monitor de Sinais Vitais</h5>
+                <p class="card-text">O monitor de sinais vitais é um equipamento hospitalar utilizado para monitorar as funções vitais do paciente, como a frequência cardíaca, a pressão arterial e a saturação de oxigênio no sangue.</p>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
-
+<c:import url="footer.jsp" />
 <!-- Importando os arquivos JS do Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

@@ -64,6 +64,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Sobre nós</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="controleUsuarios">Controle de Usuários</a>
+            </li>
+
         </ul>
     </div>
     <div id="log">
@@ -82,9 +87,7 @@
         </a>
     </div>
 </nav>
-<c:if test="${not empty mensagem}">
-    <p> teste </p>
-</c:if>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {

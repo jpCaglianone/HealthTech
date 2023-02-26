@@ -1,6 +1,7 @@
 package com.example.healthtech.controller;
 
 import com.example.healthtech.model.domain.Usuario;
+import com.example.healthtech.model.repository.RequisitanteRepository;
 import com.example.healthtech.model.repository.UsuarioRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,15 +12,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AcessoController {
 
-    private static String mensagem;
 
     @GetMapping("/login")
-    public String loginPage(){
-        return"acesso/login";
+    public String loginPage(Model model){
+        if (!UsuarioRepository.existeUsuario()){
+            model.addAttribute("mensagem", "Não existe nenhum usuário cadastrado!");
+        }
+        else{
+            model.addAttribute("mensagem", null);
+        }
+        return"/acesso/login";
     }
+
+    @PostMapping("login/inserir")
+    public String UsuarioLogin(@RequestParam  String email, @RequestParam String senha){
+        if(UsuarioRepository.validacao(email,senha)){
+            return "redirect:/";
+        }
+        return "redirect:/acesso/login";
+    }
+
     @GetMapping("/signin")
     public String signinPage(){
-        return"acesso/signin";
+        return"/acesso/signin";
     }
 
     @PostMapping("signin/inclusao")
@@ -30,10 +45,18 @@ public class AcessoController {
 
          if (!UsuarioRepository.incluirUsuario(usuario)){
             model.addAttribute("mensagem",  "Não foi possivel cadastrar o usuário!");
-            return "redirect:/signin";
+            return "redirect:/acesso/signin";
         }
         model.addAttribute("mensagem", "Usuário incluido com sucesso!");
         return "redirect:/";
 
     }
+
+        @GetMapping("controleUsuarios")
+        public String listaUsuarios(Model model){
+            model.addAttribute("usuarios", UsuarioRepository.obterLista());
+            model.addAttribute("mensagem", "mensagem");
+
+            return "/acesso/controleUsuarios";
+        }
 }

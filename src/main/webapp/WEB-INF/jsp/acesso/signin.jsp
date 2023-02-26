@@ -38,15 +38,15 @@
             <form action="signin/inclusao" method="post">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nomeUsuario">
+                    <input type="text" class="form-control" id="nome" name="nomeUsuario" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="emailUsuario">
+                    <input type="email" class="form-control" id="email" name="emailUsuario" required>
                 </div>
                 <div class="mb-3">
                     <label for="senha" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="senha" name="senhaUsuario" minlength="6">
+                    <input type="password" class="form-control" id="senha" name="senhaUsuario" minlength="6" required>
                 </div>
                 <div class="mb-3">
                         <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel0" value="0" checked>

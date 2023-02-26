@@ -46,21 +46,22 @@
 
 <c:import url="../menu.jsp" />
 
+<c:if test="${empty mensagem}">
 <div class="d-flex align-items-center justify-content-center vh-100">
     <div class="card shadow-lg border-0 rounded-lg mt-5">
         <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
         <div class="card-body">
-            <form>
+            <form action="login/inserir" method="post">
                 <div class="form-floating mb-3">
                     <i class="fa-solid fa-envelope"></i>
                     <label for="inputEmail">Email address</label>
-                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email" />
                     <div class="form-text"></div>
                 </div>
                 <div class="form-floating mb-3">
                     <i class="fa-solid fa-lock"></i>
                     <label for="inputPassword">Password</label>
-                    <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                    <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="senha"/>
                     <div class="form-text"></div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
@@ -71,6 +72,11 @@
         </div>
     </div>
 </div>
-
+</c:if>
+<c:if test="${not empty mensagem}">
+    <div class="alert alert-danger" role="alert">
+            ${mensagem}
+    </div>
+</c:if>
 </body>
 </html>
