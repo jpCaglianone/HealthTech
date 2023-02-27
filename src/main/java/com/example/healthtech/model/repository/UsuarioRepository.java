@@ -9,6 +9,7 @@ public class UsuarioRepository {
     private static Integer chavePrimaria = 1;
 
     public static boolean incluirUsuario (Usuario usuario) {
+        usuario.setId(chavePrimaria);
         try{
             usuarios.put(chavePrimaria, usuario);
             chavePrimaria ++;
@@ -17,12 +18,11 @@ public class UsuarioRepository {
             return false;
         }
     }
-
     public static void excluirUsuario (Integer id){
         usuarios.remove(id);
     }
-
     public static Collection<Usuario> listaUsuarios(){
+
         return usuarios.values();
     }
 
@@ -43,7 +43,16 @@ public class UsuarioRepository {
         }
     }
     public static boolean validacao (String email,String senha){
-        return true;
+        for(int i = 1; i <= usuarios.size(); i++){
+            String auxEmail = usuarios.get(i).getEmail();
+           if(auxEmail == email){
+              String auxSenha = usuarios.get(i).getSenha();
+              if(auxSenha == senha){
+                  return true;
+              }
+            }
+        }
+        return false;
     }
 
     public static Collection<Usuario> obterLista(){
@@ -51,4 +60,7 @@ public class UsuarioRepository {
         return usuarios.values();
     }
 
+    public static Integer getChavePrimaria() {
+        return chavePrimaria;
+    }
 }

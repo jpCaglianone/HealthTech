@@ -11,13 +11,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     <style>
 
     </style>
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table>
+<table border="2px">
     <thead>
     <tr>
         <th>Nome</th>
@@ -25,23 +27,25 @@
         <th>Nivel</th>
         <th>Id</th>
         <th>Senha</th>
+        <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
 
     <c:forEach var="usuario" items="${usuarios}">
         <tr>
-            <td>${usuario.getEmail()}</td>
-            <td>${usuario.getSenha()}</td>
             <td>${usuario.getNome()}</td>
+            <td>${usuario.getEmail()}</td>
             <td>${usuario.getNivel()}</td>
+            <td>${usuario.getId()}</td>
+            <td>${usuario.getSenha()}</td>
+            <td><a href="/controleUsuarios/${usuario.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<c:if test="${not empty mensagem}">
-    <p>mensagem</p>
-</c:if>
 
 <form action="/" method="get">
     <button class="btn btn-danger">Voltar</button>

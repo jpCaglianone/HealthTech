@@ -6,6 +6,7 @@ import com.example.healthtech.model.repository.UsuarioRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,7 +30,7 @@ public class AcessoController {
         if(UsuarioRepository.validacao(email,senha)){
             return "redirect:/";
         }
-        return "redirect:/acesso/login";
+        return "redirect:/login";
     }
 
     @GetMapping("/signin")
@@ -51,7 +52,6 @@ public class AcessoController {
         return "redirect:/";
 
     }
-
         @GetMapping("controleUsuarios")
         public String listaUsuarios(Model model){
             model.addAttribute("usuarios", UsuarioRepository.obterLista());
@@ -59,4 +59,13 @@ public class AcessoController {
 
             return "/acesso/controleUsuarios";
         }
+
+        @GetMapping("/controleUsuarios/{indice}/excluir")
+    public String excluirUsuario(@PathVariable Integer indice){
+            UsuarioRepository.excluirUsuario(indice);
+            return "redirect:/controleUsuarios";
+        }
+
+
+
 }

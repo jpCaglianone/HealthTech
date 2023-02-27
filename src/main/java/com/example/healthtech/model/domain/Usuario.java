@@ -1,6 +1,7 @@
 package com.example.healthtech.model.domain;
 
 public class Usuario {
+    private int id;
     private int nivelUsuario;
     private String emailUsuario;
     private String nomeUsuario;
@@ -11,6 +12,10 @@ public class Usuario {
         setEmail(email);
         setNome(nome);
         setSenha(senha);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setSenha(String senha) {
@@ -39,6 +44,10 @@ public class Usuario {
 
     public String getNome() {
         return nomeUsuario;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getNivel() {
