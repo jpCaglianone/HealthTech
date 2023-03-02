@@ -5,7 +5,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JSP Home Page with Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,6 +38,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Principal</a>
             </li>
+            <c:if test="${not empty user}">
+                <c:if test="${user.getNivel()>1}" >
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Listagens
@@ -61,21 +62,35 @@
                     <a class="dropdown-item" href="#">Equipamentos</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sobre nós</a>
-            </li>
-
+                </c:if>
+                <c:if test="${user.getNivel() == 4}">
             <li class="nav-item">
                 <a class="nav-link" href="controleUsuarios">Controle de Usuários</a>
             </li>
-
+                </c:if>
+                <c:if test="${user.getNivel() == 0}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Solicitacao</a>
+                    </li>
+                </c:if>
+            </c:if>
+            <li class="nav-item">
+                <a class="nav-link" href="sobre">Sobre nós</a>
+            </li>
         </ul>
     </div>
     <div id="log">
-        <button class="btn btn-danger" id="logout" style="display:none;">
-            <i class="fa fa-sign-out"></i> Logout
+
+        <c:if test="${not empty user}">
+        <a href="logout">
+        <button class="btn btn-danger" id="logout" >
+            <i class="fa fa-sign-out"></i> Logout, ${user.getNome()}
         </button>
-        <a href="/signin">
+        </a>
+        </c:if>
+
+        <c:if test="${empty user}">
+        <a href="signin">
             <button class="btn btn-success" id="Sign in">
                 <span class="glyphicon glyphicon-user"></span> Sign-up
             </button>
@@ -85,6 +100,7 @@
                 <span class="glyphicon glyphicon-log-in"></span> Login
             </button>
         </a>
+        </c:if>
     </div>
 </nav>
 

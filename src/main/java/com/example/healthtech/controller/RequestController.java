@@ -17,14 +17,13 @@ public class RequestController {
 
     @GetMapping("/cadastroRequisitante")
     public String cadUserPage() {
-        return "paginas/cadastroRequisitante";
+        return "paginasRequisitante/cadastroRequisitante";
     }
 
     @PostMapping(value="cadastroRequisitante/incluir")
     public String postCadRequester(@RequestParam String nome, @RequestParam String tipoRequisitante ,@RequestParam String orgao, Model model ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
 
         Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante),orgao );
-
 
         RequisitanteRepository.inclusaoRequisitante(requisitante, model);
 
@@ -38,7 +37,7 @@ public class RequestController {
 
         model.addAttribute("listaRequisitantes", RequisitanteRepository.getListaRequisitantes());
         model.addAttribute("mensagem","mensagem");
-        return "paginas/listaRequisitante";
+        return "paginasRequisitante/listaRequisitante";
     }
 
 }

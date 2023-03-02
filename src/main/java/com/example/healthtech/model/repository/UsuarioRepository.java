@@ -42,17 +42,17 @@ public class UsuarioRepository {
             return true;
         }
     }
-    public static boolean validacao (String email,String senha){
+    public static Usuario validacao (String email, String senha){
         for(int i = 1; i <= usuarios.size(); i++){
             String auxEmail = usuarios.get(i).getEmail();
-           if(auxEmail == email){
+           if(auxEmail.equals(email)){
               String auxSenha = usuarios.get(i).getSenha();
-              if(auxSenha == senha){
-                  return true;
+              if(auxSenha.equals(senha)){
+                  return usuarios.get(i);
               }
             }
         }
-        return false;
+        return null;
     }
 
     public static Collection<Usuario> obterLista(){

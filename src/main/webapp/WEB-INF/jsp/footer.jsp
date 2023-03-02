@@ -5,7 +5,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JSP Home Page with Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
@@ -58,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p class="text-center mb-0">&copy; 2023 Equipamentos Médicos. Todos os direitos reservados.</p>
+                <p class="text-center mb-0">&copy; 2023 Caglia`s Dev. Todos os direitos reservados.</p>
             </div>
         </div>
     </div>

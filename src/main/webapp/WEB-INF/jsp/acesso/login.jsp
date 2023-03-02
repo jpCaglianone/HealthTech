@@ -5,13 +5,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JSP Home Page with Bootstrap</title>
+    <title>Log in - HealthTech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha512-XXXXXXX" crossorigin="anonymous" />
 </head>
-
+<c:if test="${not empty usuario}">
+    <div class="alert alert-danger">
+        <strong>Atenção!</strong> Email e/ou senha incorreto(s).
+    </div>
+</c:if>
     <style>
         .form-text {
             position: absolute;

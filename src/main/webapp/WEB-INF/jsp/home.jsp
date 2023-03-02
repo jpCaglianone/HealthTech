@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JSP Home Page with Bootstrap</title>
+    <title>HealthTech - Tecnologia à serviço da saúde</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,11 +13,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
-
+        .card{
+            min-height: 550px;
+            margin-bottom: 50px;
+            padding: 10px;
+            box-shadow: 5px 5px 8px -2px black;
+            transition: all 0.5s;
+        }
+        .card:hover{
+            cursor: pointer;
+            background-color: #effbef;
+            transition: all 0.2s;
+            transform: scale(1.05);
+        }
+        .card-img-top{
+            height: 60%;
+        }
     </style>
 </head>
 <body>
-
+<c:if test="${not empty user}">
+    <script>
+        alert(` Usuário logado. Seja bem-vindo ${user.getNome()}`)
+    </script>
+</c:if>
 
 <c:import url="menu.jsp" />
 <div class="container">
@@ -27,7 +46,7 @@
     <div class="row my-5">
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/31/08/54/medical-4985692_960_720.jpg" alt="Máquina de raios-x">
+                <img class="card-img-top" src="https://www.tecnodesign.ind.br/imagens/informacoes/aparelho-raio-x-01.jpg" alt="Máquina de raios-x" title="Máquina de raios-x">
                 <div class="card-body">
                     <h5 class="card-title">Máquina de Raios-X</h5>
                     <p class="card-text">A máquina de raios-x é um equipamento hospitalar utilizado para diagnosticar diversas condições médicas, como fraturas ósseas e problemas pulmonares.</p>
@@ -36,7 +55,7 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2021/03/26/06/46/ventilator-6121351_960_720.jpg" alt="Ventilador mecânico">
+                <img class="card-img-top" src="https://www.marcamedica.com.br/media/catalog/product/cache/1/image/380x380/9df78eab33525d08d6e5fb8d27136e95/v/e/ventilador.jpg" alt="Ventilador pulmonar" title="Ventilador pulmonar">
                 <div class="card-body">
                     <h5 class="card-title">Ventilador Mecânico</h5>
                     <p class="card-text">O ventilador mecânico é um equipamento hospitalar utilizado para auxiliar a respiração de pacientes com problemas respiratórios graves, como pneumonia e insuficiência respiratória.</p>
@@ -45,7 +64,7 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/06/22/14/24/monitor-5322183_960_720.jpg" alt="Monitor de sinais vitais">
+                <img class="card-img-top" src="https://images.tcdn.com.br/img/img_prod/746795/monitor_de_sinais_vitais_bm3_xpro_bionet_3593_1_7bef350670007e4db6bfb8781cb1f1a7.jpg" alt="Monitor de sinais vitais" title="monitor de sinais vitais">
                 <div class="card-body">
                     <h5 class="card-title">Monitor de Sinais Vitais</h5>
                     <p class="card-text">O monitor de sinais vitais é um equipamento hospitalar utilizado para monitorar as funções vitais do paciente, como a frequência cardíaca, a pressão arterial e a saturação de oxigênio no sangue.</p>
@@ -55,28 +74,28 @@
     </div>
     <div class="col-md-4">
         <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/31/08/54/medical-4985692_960_720.jpg" alt="Máquina de raios-x">
+            <img class="card-img-top" src="https://www.medcleanprodutohospitalar.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/2/_/2_cabo-de-ecg-paciente-5-vias_11.jpg" alt="cabo de ecg" title="cabo de ecg">
             <div class="card-body">
-                <h5 class="card-title">Máquina de Raios-X</h5>
-                <p class="card-text">A máquina de raios-x é um equipamento hospitalar utilizado para diagnosticar diversas condições médicas, como fraturas ósseas e problemas pulmonares.</p>
+                <h5 class="card-title">Cabo de ECG </h5>
+                <p class="card-text">O cabo ECG é um dispositivo médico que é usado para conectar um eletrocardiograma (ECG) ao corpo do paciente.</p>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2021/03/26/06/46/ventilator-6121351_960_720.jpg" alt="Ventilador mecânico">
+            <img class="card-img-top" src="https://www.marcamedica.com.br/media/catalog/product/cache/1/image/380x380/9df78eab33525d08d6e5fb8d27136e95/f/o/folder-cardiomax-2_copy_1.jpg" alt="desfibrilador" title="desfibrilador">
             <div class="card-body">
-                <h5 class="card-title">Ventilador Mecânico</h5>
-                <p class="card-text">O ventilador mecânico é um equipamento hospitalar utilizado para auxiliar a respiração de pacientes com problemas respiratórios graves, como pneumonia e insuficiência respiratória.</p>
+                <h5 class="card-title">Desfibrilador</h5>
+                <p class="card-text">Um desfibrilador é um dispositivo médico usado para reverter certos tipos de arritmias cardíacas, que são anomalias no ritmo cardíaco que podem ser fatais se não forem tratadas rapidamente. </p>
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/06/22/14/24/monitor-5322183_960_720.jpg" alt="Monitor de sinais vitais">
+            <img class="card-img-top" src="https://fibracirurgica.vtexassets.com/arquivos/ids/195484/Aparelho-de-Pressao-Premium-Adulto-Nylon-Velcro-3245.jpg?v=637153859969100000" alt="aparelho de pressão" title="aparelho de pressão">
             <div class="card-body">
-                <h5 class="card-title">Monitor de Sinais Vitais</h5>
-                <p class="card-text">O monitor de sinais vitais é um equipamento hospitalar utilizado para monitorar as funções vitais do paciente, como a frequência cardíaca, a pressão arterial e a saturação de oxigênio no sangue.</p>
+                <h5 class="card-title">Aparelho de pressão</h5>
+                <p class="card-text">O aparelho de pressão, também conhecido como esfigmomanômetro, é um dispositivo médico usado para medir a pressão arterial de uma pessoa.  Ele é composto por uma braçadeira inflável, um manômetro (dispositivo de leitura) e um dispositivo de inflação.</p>
             </div>
         </div>
     </div>
