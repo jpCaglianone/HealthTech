@@ -2,7 +2,9 @@ package com.example.healthtech.controller;
 
 import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.repository.UsuarioRepository;
+import com.example.healthtech.model.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +18,13 @@ public class AcessoController {
     //private UsuarioService
     private static Usuario user;
 
-
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/login")
     public String loginPage(Model model){
         model.addAttribute("user",user);
-        if (!UsuarioRepository.existeUsuario()){
+        if (!usuarioService.existeUsuario()){
             model.addAttribute("user", "Não existe nenhum usuário cadastrado!");
         }
         else{
@@ -31,10 +34,9 @@ public class AcessoController {
     }
 
 
-
     @PostMapping("login/inserir")
     public String UsuarioLogin(Model model, @RequestParam  String email, @RequestParam String senha){
-        user = UsuarioRepository.validacao(email,senha);
+        user = usuarioService.validacao(email,senha);
         if(user != null){
             return "redirect:/";
         }else{
@@ -42,15 +44,10 @@ public class AcessoController {
         }
     }
 
-
-
     @GetMapping("/signin")
     public String signinPage(){
         return"/acesso/signin";
     }
-
-
-
 
 
     @PostMapping("signin/inclusao")
@@ -76,16 +73,11 @@ public class AcessoController {
 
 
 
-
-
         @GetMapping("/controleUsuarios/{indice}/excluir")
         public String excluirUsuario(@PathVariable Integer indice){
-            UsuarioRepository.excluirUsuario(indice);
+            usuarioService.excluirUsuario(indice);
             return "redirect:/controleUsuarios";
         }
-
-
-
 
 
     @GetMapping(value = "/logout")
@@ -96,14 +88,9 @@ public class AcessoController {
         return "redirect:/";
     }
 
-
-
-
     public static void setUsuarioNull() {
         user = null;
     }
-
-
 
 
     public static Usuario getUsuario() {

@@ -1,9 +1,11 @@
 package com.example.healthtech.model.repository;
 
 import com.example.healthtech.model.domain.Usuario;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class UsuarioRepository {
     private static Map<Integer, Usuario> usuarios = new HashMap<Integer, Usuario>();
     private static Integer chavePrimaria = 1;
@@ -27,6 +29,7 @@ public class UsuarioRepository {
     }
 
     public static void setUsuarios(Map<Integer, Usuario> usuarios) {
+
         UsuarioRepository.usuarios = usuarios;
     }
 
