@@ -33,7 +33,7 @@
 </head>
 <body>
 <c:if test="${not empty user}">
-    <script>
+    <script defer>
         alert(` Usuário logado. Seja bem-vindo ${user.getNome()}`)
     </script>
 </c:if>

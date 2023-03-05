@@ -22,18 +22,18 @@
 <table>
     <thead>
     <tr>
-        <th>ID</th>
         <th>Nome</th>
-        <th>Email</th>
+        <th>Tipo de instituição</th>
+        <th>Tipo de orgao</th>
     </tr>
     </thead>
     <tbody>
 
     <c:forEach var="requisitante" items="${listaRequisitantes}">
         <tr>
-            <td>${requisitante.nomeRequisitante}</td>
-            <td>${requisitante.tipoRequisitante}</td>
-            <td>${requisitante.orgaoPublico}</td>
+            <td>${requisitante.getNomeRequisitante()}</td>
+            <td>${requisitante.dominioRequisitante()}</td>
+            <td>${requisitante.descricaoOrgao()}</td>
         </tr>
     </c:forEach>
     </tbody>

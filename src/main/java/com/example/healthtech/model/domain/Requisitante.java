@@ -43,6 +43,10 @@ public class Requisitante {
         return mensagem.toString();
     }
 
+    public String descricaoOrgao(){
+        return this.orgaoPublico?"Público":"Privado";
+    }
+
     public int getTipoRequisitante() {
         return tipoRequisitante;
     }

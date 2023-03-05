@@ -11,10 +11,6 @@ public class AppContoller {
 
     @GetMapping("/")
     public String viewHomePage(Model model) {
-
-        Usuario user = AcessoController.getUsuario();
-        model.addAttribute("user",user);
-        AcessoController.setUsuarioNull();
         return "home";
     }
 

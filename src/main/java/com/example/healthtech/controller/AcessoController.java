@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("user")
 public class AcessoController {
-//@autowired\
-    //private UsuarioService
     private static Usuario user;
 
     @Autowired
@@ -25,7 +23,7 @@ public class AcessoController {
     public String loginPage(Model model){
         model.addAttribute("user",user);
         if (!usuarioService.existeUsuario()){
-            model.addAttribute("user", "Não existe nenhum usuário cadastrado!");
+            model.addAttribute("mensagem", "Não existe nenhum usuário cadastrado!");
         }
         else{
             model.addAttribute("mensagem", null);
@@ -38,6 +36,7 @@ public class AcessoController {
     public String UsuarioLogin(Model model, @RequestParam  String email, @RequestParam String senha){
         user = usuarioService.validacao(email,senha);
         if(user != null){
+            model.addAttribute("user",user);
             return "redirect:/";
         }else{
             return "redirect:/login";
@@ -83,6 +82,7 @@ public class AcessoController {
     @GetMapping(value = "/logout")
     public String logout(HttpSession session, SessionStatus status) {
         status.setComplete();
+        setUsuarioNull();
         session.removeAttribute("user");
 
         return "redirect:/";
