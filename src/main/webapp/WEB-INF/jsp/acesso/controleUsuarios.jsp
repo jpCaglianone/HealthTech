@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <style>
-
+        td{
+            padding: 1px 3px;
+        }
     </style>
 </head>
 <body>

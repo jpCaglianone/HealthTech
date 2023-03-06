@@ -67,32 +67,32 @@ public class SolicitacaoTeste {
         }
 
         try{
-            Solicitacao s1 = new Solicitacao(new Requisitante("Elberth Moraes", 2,"Público"),p1,"C");
+            Solicitacao s1 = new Solicitacao(new Requisitante("Elberth Moraes", 2,"Público", "teste", 1313423),p1,"C");
             s1.imprimirSolicitacao();
         }  catch (TipoInsumoException | TipoAquisicaoException | SolicitacaoSemProdutoException | SolicitacaoSemRequisitanteException | ValorValidoException| NomeInvalidoException  e) {
             System.out.println(e.getMessage());
         }
         try{
-            Solicitacao s2 = new Solicitacao(new Requisitante("", 2,"Privado"),p1,"C");
+            Solicitacao s2 = new Solicitacao(new Requisitante("", 2,"Privado", "teste", 1313423),p1,"C");
             System.out.println(s2.imprimirSolicitacao());
         }  catch (TipoInsumoException | TipoAquisicaoException | SolicitacaoSemProdutoException | SolicitacaoSemRequisitanteException | ValorValidoException | NomeInvalidoException e) {
             System.out.println(e.getMessage());
         }
 
         try{
-            Solicitacao s3 = new Solicitacao(new Requisitante("João Pedro", 9,"Privado"),p1,"C");
+            Solicitacao s3 = new Solicitacao(new Requisitante("João Pedro", 9,"Privado", "teste", 1313423),p1,"C");
             System.out.println(s3.imprimirSolicitacao());
         }  catch (TipoInsumoException | TipoAquisicaoException | SolicitacaoSemProdutoException | SolicitacaoSemRequisitanteException | ValorValidoException | NomeInvalidoException e) {
             System.out.println(e.getMessage());
         }
         try{
-            Solicitacao s4 = new Solicitacao(new Requisitante("João Pedro", 2,"Privado"),p2,"Z");
+            Solicitacao s4 = new Solicitacao(new Requisitante("João Pedro", 2,"Privado", "teste", 1313423),p2,"Z");
             System.out.println(s4.imprimirSolicitacao());
         }  catch (TipoInsumoException | TipoAquisicaoException | SolicitacaoSemProdutoException | SolicitacaoSemRequisitanteException | ValorValidoException | NomeInvalidoException e) {
             System.out.println(e.getMessage());
         }
         try{
-            Solicitacao s4 = new Solicitacao(new Requisitante("João Pedro", 4,"Privado"),p4,"A");
+            Solicitacao s4 = new Solicitacao(new Requisitante("João Pedro", 4,"Privado", "teste", 1313423),p4,"A");
             System.out.println(s4.imprimirSolicitacao());
         }  catch (TipoInsumoException | TipoAquisicaoException | SolicitacaoSemProdutoException | SolicitacaoSemRequisitanteException | ValorValidoException | NomeInvalidoException e) {
             System.out.println(e.getMessage());

@@ -4,14 +4,19 @@ import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TipoInsumoException;
 import com.example.healthtech.model.exception.ValorValidoException;
 
+import java.math.BigInteger;
+
 public class Requisitante {
     private String nomeRequisitante;
     private int tipoRequisitante; // 1 - Hospital 2 - Clínica, 3 - Empresa/Instituição, 4 - outros
     private boolean orgaoPublico;
+
+    private String enderecoRequisitante;
+    private long registroRequisitante;
     //private int idRequisitante;
 
 
-    public Requisitante (String nomeRequisitante, int tipoRequisitante, String orgao) throws ValorValidoException, NomeInvalidoException, TipoInsumoException {
+    public Requisitante (String nomeRequisitante, int tipoRequisitante, String orgao, String enderecoRequisitante, long registroRequisitante) throws ValorValidoException, NomeInvalidoException, TipoInsumoException {
 
         if (nomeRequisitante == null || nomeRequisitante == "".trim()){
             throw new NomeInvalidoException("O campo nome deve ser preenchido!");
@@ -22,6 +27,14 @@ public class Requisitante {
         if(!"público".equalsIgnoreCase(orgao) && !"privado".equalsIgnoreCase(orgao)){
             throw new TipoInsumoException("Só são permitidos os valores PÚBLICO ou PRIVADO");
         }
+        if (enderecoRequisitante == null || enderecoRequisitante == "".trim()){
+            throw new NomeInvalidoException("O campo endereço deve ser preenchido!");
+        }
+        if (registroRequisitante <= 0){
+            throw new ValorValidoException("Registro invlido!");
+        }
+        this.enderecoRequisitante = enderecoRequisitante;
+        this.registroRequisitante = registroRequisitante;
         this.nomeRequisitante = nomeRequisitante;
         this.tipoRequisitante = tipoRequisitante;
         if ("público".equalsIgnoreCase(orgao) ){
@@ -43,6 +56,14 @@ public class Requisitante {
         return mensagem.toString();
     }
 
+    public long getRegistroRequisitante() {
+        return registroRequisitante;
+    }
+
+    public String getEnderecoRequisitante() {
+        return enderecoRequisitante;
+    }
+
     public String descricaoOrgao(){
         return this.orgaoPublico?"Público":"Privado";
     }
@@ -57,14 +78,6 @@ public class Requisitante {
 
     public boolean isOrgaoPublico() {
         return orgaoPublico;
-    }
-
-    public void setNomeRequisitante(String nomeRequisitante) {
-        this.nomeRequisitante = nomeRequisitante;
-    }
-
-    public void setTipoRequisitante(int tipoRequisitante) {
-        this.tipoRequisitante = tipoRequisitante;
     }
 
     public void setOrgaoPublico(boolean orgaoPublico) {

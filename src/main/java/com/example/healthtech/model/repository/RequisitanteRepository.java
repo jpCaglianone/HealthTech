@@ -21,6 +21,7 @@ public class RequisitanteRepository {
 
         try {
             listaRequisitantes.add(requisitante);
+            System.out.println(requisitante);
             return true;
         } catch (Exception e) {
             return false;

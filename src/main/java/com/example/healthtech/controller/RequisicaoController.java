@@ -24,9 +24,9 @@ public class RequisicaoController {
     }
 
     @PostMapping(value="cadastroRequisitante/incluir")
-    public String postCadRequester(@RequestParam String nome, @RequestParam String tipoRequisitante ,@RequestParam String orgao, Model model ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+    public String postCadRequester(@RequestParam String nome, @RequestParam String tipoRequisitante ,@RequestParam String orgao,@RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante, Model model ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
 
-        Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante),orgao);
+        Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante),orgao, enderecoRequisitante,Long.parseLong(registroRequisitante));
         requisicaoService.inclusaoRequisitante(requisitante);
         model.addAttribute("mensagem",true);
 

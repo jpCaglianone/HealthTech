@@ -57,7 +57,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" href="/cadastroRequisitante">Requisitantes</a>
-                    <a class="dropdown-item" href="#">Acessórios</a>
+                    <a class="dropdown-item" href="/cadastroAcessorio">Acessórios</a>
                     <a class="dropdown-item" href="#">Insumos</a>
                     <a class="dropdown-item" href="#">Equipamentos</a>
                 </div>
