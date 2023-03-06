@@ -23,12 +23,12 @@ public class RequisicaoController {
         return "PaginasRequisitante/cadastroRequisitante";
     }
 
-    @PostMapping(value="cadastroRequisitante/incluir")
-    public String postCadRequester(@RequestParam String nome, @RequestParam String tipoRequisitante ,@RequestParam String orgao,@RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante, Model model ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+    @PostMapping(value = "cadastroRequisitante/incluir")
+    public String postCadRequester(@RequestParam String nome, @RequestParam String tipoRequisitante, @RequestParam String orgao, @RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante, Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
 
-        Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante),orgao, enderecoRequisitante,Long.parseLong(registroRequisitante));
+        Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante), orgao, enderecoRequisitante, Long.parseLong(registroRequisitante));
         requisicaoService.inclusaoRequisitante(requisitante);
-        model.addAttribute("mensagem",true);
+        model.addAttribute("mensagem", true);
 
         return "redirect:/";
     }
@@ -37,7 +37,8 @@ public class RequisicaoController {
     public String listRequesterPage(Model model) {
 
         model.addAttribute("listaRequisitantes", requisicaoService.listarRequisitantes());
-        model.addAttribute("mensagem","mensagem");
+        model.addAttribute("mensagem", "mensagem");
+
         return "PaginasRequisitante/listaRequisitante";
     }
 

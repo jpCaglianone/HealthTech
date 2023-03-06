@@ -11,7 +11,7 @@ public class AcessorioTeste {
         try {
             Acessorio a1 = new Acessorio("Cabo de ECG", 10,
                     99.9f, "Phillips", "Verifica os sinais vitais do paciente",
-                    "Não", 2);
+                    "Não", 2, "monitor");
             a1.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a1.toString());
         } catch (ValorValidoException e) {
@@ -23,7 +23,7 @@ public class AcessorioTeste {
         try {
             Acessorio a2 = new Acessorio("", 10,
                     99.9f, "Phillips", "Verifica os sinais vitais do paciente",
-                    "Não", 2);
+                    "Não", 2, "monitor");
             a2.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a2.toString());
         } catch (ValorValidoException e) {
@@ -35,7 +35,7 @@ public class AcessorioTeste {
         try {
             Acessorio a3 = new Acessorio("Cabo de ECG", 10,
                     99.9f, "Phillips", "",
-                    "Não", 2);
+                    "Não", 2, "monitor");
             a3.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a3.toString());
         } catch (ValorValidoException e) {
@@ -47,7 +47,7 @@ public class AcessorioTeste {
         try {
             Acessorio a4 = new Acessorio("Cabo de ECG", 10,
                     0, "Phillips", "Verifica os sinais vitais do paciente",
-                    "Não", 2);
+                    "Não", 2, "monitor");
             a4.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a4.toString());
         } catch (ValorValidoException e) {
@@ -60,7 +60,7 @@ public class AcessorioTeste {
         try {
             Acessorio a5 = new Acessorio("Cabo de ECG", 10,
                     99.9f, "Phillips", "Verifica os sinais vitais do paciente",
-                    "Não", 123);
+                    "Não", 123, "monitor");
             a5.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a5.toString());
         } catch (ValorValidoException e) {
@@ -72,7 +72,7 @@ public class AcessorioTeste {
         try {
             Acessorio a6 = new Acessorio("Cabo de ECG", 0,
                     99.9f, "Phillips", "Verifica os sinais vitais do paciente",
-                    "Não", 2);
+                    "Não", 2, "monitor");
             a6.setEquipamentoAlvo("Monitor Multiparâmetro");
             System.out.println(a6.toString());
         } catch (ValorValidoException e) {

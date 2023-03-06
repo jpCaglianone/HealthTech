@@ -8,7 +8,7 @@ public class Acessorio extends Produto{
     private String funcao;
     private boolean acompanhaEquipamento;
     private int linhaNomenclatura;
-    public Acessorio(String nomeProduto, int quantidade, float valor, String marca, String funcao, String acompanhaEquipamento, int linhaNomenclatura) throws ValorValidoException, NomeInvalidoException {
+    public Acessorio(String nomeProduto, int quantidade, float valor, String marca, String funcao, String acompanhaEquipamento, int linhaNomenclatura, String equipamentoAlvo) throws ValorValidoException, NomeInvalidoException {
 
         super(nomeProduto, quantidade, valor, marca);
 
@@ -22,9 +22,10 @@ public class Acessorio extends Produto{
             throw new NomeInvalidoException("Somente é permitido inserir SIM ou NÃO!");
         }
 
+        this.equipamentoAlvo = equipamentoAlvo;
         this.funcao = funcao;
         this.linhaNomenclatura = linhaNomenclatura;
-        if (!"sim".equalsIgnoreCase(acompanhaEquipamento)){
+        if ("sim".equalsIgnoreCase(acompanhaEquipamento)){
             this.acompanhaEquipamento = true;
         } else {
             this.acompanhaEquipamento = false;

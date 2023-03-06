@@ -40,7 +40,7 @@ public class SolicitacaoTeste {
         }
 
         try {
-            Acessorio a1 = new Acessorio("Oximetro", 20, 199.99f, "sem marca", "Serve para medir a oximetria do paciente", "Não", 1);
+            Acessorio a1 = new Acessorio("Oximetro", 20, 199.99f, "sem marca", "Serve para medir a oximetria do paciente", "Não", 1, "monitor");
             p3.add(a1);
             p4.add(a1);
         } catch (NomeInvalidoException | ValorValidoException e) {
@@ -48,7 +48,7 @@ public class SolicitacaoTeste {
         }
 
         try {
-            Acessorio a2 = new Acessorio("ECG", 1, 129.99f, "Dixtal", "Serve para aferir frequeência cardíaca", "Sim", 2);
+            Acessorio a2 = new Acessorio("ECG", 1, 129.99f, "Dixtal", "Serve para aferir frequeência cardíaca", "Sim", 2, "monitor");
             p3.add(a2);
             p4.add(a2);
         } catch (NomeInvalidoException | ValorValidoException e) {

@@ -19,6 +19,12 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
+
+<c:if test="${not empty mensagem}">
+    <div class="alert alert-danger">
+        <strong>Atenção!</strong> ${mensagem}!
+    </div>
+</c:if>
     <div class="container">
         <h1>Cadastro de acessorios</h1>
         <form action="cadastroAcessorio/incluir" method="post">
@@ -26,48 +32,48 @@
         <div id="produto">
             <div class="form-group">
                 <label for="nomeAcessorio">Nome:</label>
-                <input type="text" class="form-control" id="nomeAcessorio" name="nomeAcessorio" placeholder="Insira o nome do produto">
+                <input type="text" class="form-control" id="nomeAcessorio" name="nomeAcessorio" placeholder="Insira o nome do produto" required>
             </div>
 
 
             <div class="form-group">
                 <label for="quantidadeAcessorio">Quantidade:</label>
-                <input type="number" class="form-control" id="quantidadeAcessorio" name="quantidadeAcessorio" placeholder="Insira a quantidade" >
+                <input type="number" class="form-control" id="quantidadeAcessorio" name="quantidadeAcessorio" placeholder="Insira a quantidade" required>
             </div>
 
 
             <div class="form-group">
                 <label for="valorAcessorio">Preço:</label>
-                <input type="text" class="form-control" id="valorAcessorio" name="valorAcessorio" placeholder="Insira preço" onchange="validaNumero()">
+                <input type="text" class="form-control" id="valorAcessorio" name="valorAcessorio" placeholder="Insira preço" onchange="validaNumero()" required>
             </div>
 
 
             <div class="form-group">
                 <label for="marcaAcessorio">Marca:</label>
-                <input type="text" class="form-control" id="marcaAcessorio" name="marcaAcessorio" placeholder="Insira a marca">
+                <input type="text" class="form-control" id="marcaAcessorio" name="marcaAcessorio" placeholder="Insira a marca" required>
             </div>
         </div>
 
             <div class="form-group">
                 <label for="equipamentoAlvo">Equipamento destinado:</label>
-                <input type="text" class="form-control" id="equipamentoAlvo" name="equipamentoAlvo" placeholder="Insira o equipamento que o acessorio se destina">
+                <input type="text" class="form-control" id="equipamentoAlvo" name="equipamentoAlvo" placeholder="Insira o equipamento que o acessorio se destina" required>
             </div>
 
             <div class="form-group">
                 <label for="funcaoAcessorio">Função do acessrio:</label>
-                <input type="text" class="form-control" id="funcaoAcessorio" name="funcaoAcessorio" placeholder="Descreva a função do acessorio">
+                <input type="text" class="form-control" id="funcaoAcessorio" name="funcaoAcessorio" placeholder="Descreva a função do acessorio" required>
             </div>
 
             <div id="acompanhamento">
                 <span>Acompanha equipamento?</span>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" value="sim" id="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" value="sim" id="flexRadioDefault1" >
                     <label class="form-check-label" for="flexRadioDefault1">
                         Sim
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" id="flexRadioDefault2" value="nao" checked>
+                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" id="flexRadioDefault2" value="não" checked >
                     <label class="form-check-label" for="flexRadioDefault2">
                         Não
                     </label>

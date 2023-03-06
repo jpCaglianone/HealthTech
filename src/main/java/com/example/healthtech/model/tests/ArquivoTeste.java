@@ -34,7 +34,7 @@ public class ArquivoTeste {
                 switch (campos[0]){
                     case "a":
                         try {
-                            Acessorio a1 = new Acessorio(campos[1], Integer.parseInt(campos[2]), Float.parseFloat(campos[3]), campos[4],campos[5], campos[6],Integer.parseInt(campos[7]));
+                            Acessorio a1 = new Acessorio(campos[1], Integer.parseInt(campos[2]), Float.parseFloat(campos[3]), campos[4],campos[5], campos[6],Integer.parseInt(campos[7]), "monitor");
                             a1.setEquipamentoAlvo("Monitor Multiparâmetro");
                             produtos.add(a1);
                             System.out.println(a1.toString());
