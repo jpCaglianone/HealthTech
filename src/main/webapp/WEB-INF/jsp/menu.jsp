@@ -46,9 +46,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                     <a class="dropdown-item" href="listaRequisitante">Requisitantes</a>
-                    <a class="dropdown-item" href="#">Acessórios</a>
-                    <a class="dropdown-item" href="#">Insumos</a>
-                    <a class="dropdown-item" href="#">Equipamentos</a>
+                    <a class="dropdown-item" href="listaAcessorio">Acessórios</a>
+                    <a class="dropdown-item" href="listaInsumo">Insumos</a>
+                    <a class="dropdown-item" href="listaEquipamento">Equipamentos</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -56,10 +56,10 @@
                     Cadastros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="/cadastroRequisitante">Requisitantes</a>
-                    <a class="dropdown-item" href="/cadastroAcessorio">Acessórios</a>
-                    <a class="dropdown-item" href="#">Insumos</a>
-                    <a class="dropdown-item" href="#">Equipamentos</a>
+                    <a class="dropdown-item" href="cadastroRequisitante">Requisitantes</a>
+                    <a class="dropdown-item" href="cadastroAcessorio">Acessórios</a>
+                    <a class="dropdown-item" href="cadastroInsumo">Insumos</a>
+                    <a class="dropdown-item" href="cadastroEquipamento">Equipamentos</a>
                 </div>
             </li>
                 </c:if>

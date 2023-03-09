@@ -5,8 +5,7 @@ import com.example.healthtech.model.repository.RequisitanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public class RequisicaoService {
@@ -14,9 +13,9 @@ public class RequisicaoService {
     @Autowired
     private RequisitanteRepository requisitanteRepository;
 
-    public List<Requisitante> listarRequisitantes() {
+    public Collection<Requisitante> listarRequisitantes() {
 
-        return  requisitanteRepository.getListaRequisitantes();
+        return  requisitanteRepository.obterListaRequisitantes();
     }
 
     public boolean inclusaoRequisitante(Requisitante requisitante) {

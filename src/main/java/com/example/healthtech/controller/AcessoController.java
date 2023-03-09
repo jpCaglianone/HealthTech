@@ -54,7 +54,7 @@ public class AcessoController {
 
         Usuario user = new Usuario( emailUsuario, nomeUsuario, senhaUsuario, nivelUsuario);
 
-         if (!UsuarioRepository.incluirUsuario(user)){
+         if (!usuarioService.incluirUsuario(user)){
             model.addAttribute("mensagem",  "Não foi possivel cadastrar o usuário!");
             return "redirect:/acesso/signin";
         }
@@ -64,8 +64,7 @@ public class AcessoController {
     }
         @GetMapping("controleUsuarios")
         public String listaUsuarios(Model model){
-            model.addAttribute("usuarios", UsuarioRepository.obterLista());
-            model.addAttribute("mensagem", "mensagem");
+            model.addAttribute("usuarios", usuarioService.obterLista());
 
             return "/acesso/controleUsuarios";
         }

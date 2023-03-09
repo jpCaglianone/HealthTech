@@ -23,21 +23,13 @@ public class UsuarioService {
     public Collection<Usuario> listaUsuarios(){
        return usuarioRepository.listaUsuarios();
     }
-    public void setUsuarios(Map<Integer, Usuario> usuarios){
-        usuarioRepository.setUsuarios(usuarios);
-    }
-    public Map<Integer, Usuario> getUsuarios(){
-        return usuarioRepository.getUsuarios();
-    }
+
     public Usuario validacao (String email, String senha){
 
         return usuarioRepository.validacao(email,senha);
     }
     public Collection<Usuario> obterLista(){
         return usuarioRepository.obterLista();
-    }
-    public Integer getChavePrimaria(){
-        return usuarioRepository.getChavePrimaria();
     }
 
     public boolean existeUsuario(){

@@ -28,15 +28,6 @@ public class UsuarioRepository {
         return usuarios.values();
     }
 
-    public static void setUsuarios(Map<Integer, Usuario> usuarios) {
-
-        UsuarioRepository.usuarios = usuarios;
-    }
-
-    public static Map<Integer, Usuario> getUsuarios() {
-        return usuarios;
-    }
-
     public static boolean existeUsuario() {
         if (usuarios.size()==0){
             return false;
