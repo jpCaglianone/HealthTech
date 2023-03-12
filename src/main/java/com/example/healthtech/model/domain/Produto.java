@@ -54,6 +54,22 @@ public abstract class Produto {
         return quantidade;
     }
 
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
     public String getNomeProduto() {
         return nomeProduto;
     }

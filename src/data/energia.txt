@@ -1,0 +1,12 @@
+t;127V
+t;220V(bifásico)
+t;220v(trifásico)
+t;12V
+t;24V
+t;48V
+c;250mA
+c;500mA
+c;1A
+c;2A
+c;5A
+c;10A

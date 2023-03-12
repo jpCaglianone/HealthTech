@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         table{
-            margin: 0 auto;
+            width: 95%;
         }
         td{
             padding: 1px 3px;
@@ -24,10 +24,11 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table border="2px" cellspacing="5px" cellpadding="10px">
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
     <thead>
     <tr>
-        <th>Nome</th>
+        <th>Nome do Insumo</th>
         <th>Tipo de instituição</th>
         <th>Tipo de orgao</th>
         <th>Endereço</th>
@@ -36,21 +37,20 @@
     </thead>
     <tbody>
 
-    <c:forEach var="requisitante" items="${listaRequisitantes}">
+    <c:forEach var="insumos" items="${listaInsumo}">
         <tr>
-            <td>${requisitante.getNomeRequisitante()}</td>
-            <td>${requisitante.dominioRequisitante()}</td>
-            <td>${requisitante.descricaoOrgao()}</td>
-            <td>${requisitante.getEnderecoRequisitante()}</td>
-            <td>${requisitante.getRegistroRequisitante()}</td>
+            <td>${insumos.getNomeInsumo()}</td>
+            <td>${insumos.getMarca()}</td>
+            <td>${insumos.getQuantidade()}</td>
+            <td>${insumos.getValor()}</td>
+            <td>${insumos.getQuantidadeLote()}</td>
+            <td>${insumos.getTipoInsumo()}</td>
+            <td>${insumos.getDescricaoDescartavel()}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-
-<form action="/" method="get">
-    <button class="btn btn-danger">Voltar</button>
-</form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

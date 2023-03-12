@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         table{
-            margin: 0 auto;
+            width: 95%;
         }
         td{
             padding: 1px 3px;
@@ -23,42 +23,41 @@
     </style>
 </head>
 <body>
-<c:import url="../menu.jsp" />
-<table border="2px" cellspacing="5px" cellpadding="10px">
+<c:import url="../menu.jsp"/>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
     <thead>
     <tr>
         <th>Nome acessorio</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Preço</th>
+        <th>Marca</th>
+        <th>Quantidade</th>
+        <th>Tipo de linha</th>
+        <th>Equipamento destinado</th>
+        <th>Função</th>
+
     </tr>
     </thead>
     <tbody>
 
     <c:forEach var="acessorios" items="${listaAcessorios}">
         <tr>
-            <td>${acessorios.getLinhaNomenclatura()}</td>
+
+            <td>${acessorios.getNomeAcessorio()}</td>
+            <td>${acessorios.getValor()}</td>
+            <td>${acessorios.getMarca()}</td>
+            <td>${acessorios.getQuantidade()}</td>
+            <td>${acessorios.getDescricaoLinha()}</td>
             <td>${acessorios.getEquipamentoAlvo()}</td>
             <td>${acessorios.getFuncao()}</td>
-            <td>${acessorios.getMarca()}</td>
-            <td>${acessorios.getValor()}</td>
-            <td>${acessorios.getQuantidade()}</td>
-            <td>${acessorios.getNomeProduto()}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</div>
 <c:if test="${not empty mensagem}">
     <p>mensagem</p>
 </c:if>
-
-<form action="/" method="get">
-    <button class="btn btn-danger">Voltar</button>
-</form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

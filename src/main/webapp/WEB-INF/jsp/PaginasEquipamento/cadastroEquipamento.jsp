@@ -31,90 +31,146 @@
 
         <div id="produto">
             <div class="form-group">
-                <label for="nomeAcessorio">Nome:</label>
-                <input type="text" class="form-control" id="nomeAcessorio" name="nomeAcessorio" placeholder="Insira o nome do produto" required>
+                <label for="nomeProduto">Nome:</label>
+                <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Insira o nome do produto" required>
             </div>
 
 
             <div class="form-group">
-                <label for="quantidadeAcessorio">Quantidade:</label>
-                <input type="number" class="form-control" id="quantidadeAcessorio" name="quantidadeAcessorio" placeholder="Insira a quantidade" required>
+                <label for="quantidadeProduto">Quantidade:</label>
+                <input type="number" class="form-control" id="quantidadeProduto" name="quantidadeProduto" placeholder="Insira a quantidade" required>
             </div>
 
 
             <div class="form-group">
-                <label for="valorAcessorio">Preço:</label>
-                <input type="text" class="form-control" id="valorAcessorio" name="valorAcessorio" placeholder="Insira preço" onchange="validaNumero()" required>
+                <label for="valorProduto">Preço:</label>
+                <input type="number" class="form-control" id="valorProduto" name="valorProduto" placeholder="Insira preço" onchange="validaNumero()" required>
             </div>
 
 
             <div class="form-group">
-                <label for="marcaAcessorio">Marca:</label>
-                <input type="text" class="form-control" id="marcaAcessorio" name="marcaAcessorio" placeholder="Insira a marca" required>
+                <label for="marcaProduto">Marca:</label>
+                <input type="text" class="form-control" id="marcaProduto" name="marcaProduto" placeholder="Insira a marca" required>
             </div>
         </div>
 
             <div class="form-group">
-                <label for="equipamentoAlvo">Equipamento destinado:</label>
-                <input type="text" class="form-control" id="equipamentoAlvo" name="equipamentoAlvo" placeholder="Insira o equipamento que o acessorio se destina" required>
+                <label for="anoFabricacao">Ano de fabricação:</label>
+                <input type="number" class="form-control" id="anoFabricacao" name="anoFabricacao" placeholder="Insira o ano de fabricação do equipamento" required>
             </div>
 
             <div class="form-group">
-                <label for="funcaoAcessorio">Função do acessrio:</label>
-                <input type="text" class="form-control" id="funcaoAcessorio" name="funcaoAcessorio" placeholder="Descreva a função do acessorio" required>
+                <label for="numeroSerie">Número de série:</label>
+                <input type="text" class="form-control" id="numeroSerie" name="numeroSerie" placeholder="Insira o número de série do equipamento" required>
             </div>
 
-            <div id="acompanhamento">
-                <span>Acompanha equipamento?</span>
+            <div id="tensao">
+                <span>Tensão do equipamento</span>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" value="sim" id="flexRadioDefault1" >
+                    <input class="form-check-input" type="radio" name="tensao" value="0" id="flexRadioDefault1" >
                     <label class="form-check-label" for="flexRadioDefault1">
-                        Sim
+                        127V
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="acompanhaEquipamento" id="flexRadioDefault2" value="não" checked >
+                    <input class="form-check-input" type="radio" name="tensao" id="flexRadioDefault2" value="1" checked >
                     <label class="form-check-label" for="flexRadioDefault2">
-                        Não
+                        220V(bifásico)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tensao"  value="2"  >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        220V(trifásico)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tensao"  value="3"  >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        12V
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tensao" value="4"  >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        24V
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tensao"  value="5"  >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        48V
                     </label>
                 </div>
 
-                <div id="linha">
-                    <span>Linha: </span>
+                <div id="corrente">
+                    <span>Corrente do equipamento: </span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="linhaAcessorio" value="0" checked >
+                        <input class="form-check-input" type="radio" name="corrente" value="0" checked >
                         <label class="form-check-label" for="flexRadioDefault1">
-                            Padrão
+                            250mA
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="linhaAcessorio" value="2" >
+                        <input class="form-check-input" type="radio" name="corrente" value="1" >
                         <label class="form-check-label" for="flexRadioDefault2">
-                            Econômica
+                            500mA
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="linhaAcessorio" value="1" >
+                        <input class="form-check-input" type="radio" name="corrente" value="2" >
                         <label class="form-check-label" for="flexRadioDefault2">
-                            Premium
+                            1A
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="linhaAcessorio" value="3" >
+                        <input class="form-check-input" type="radio" name="corrente" value="3" >
                         <label class="form-check-label" for="flexRadioDefault2">
-                            Remanufaturado
+                            2A
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="corrente" value="3" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            5A
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="corrente" value="3" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            10A
                         </label>
                     </div>
                 </div>
                 </div>
+
+            <div id="estado">
+                <span>Estado do equipamento: </span>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="estado" value="usado" checked >
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Usado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="estado" value="novo" checked >
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Novo
+                    </label>
+                </div>
+            </div>
 
 
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <button class="btn btn-danger" onclick="limparCampos()">Limpar</button>
         </form>
     </div>
-
+<c:if test="${not empty mensagem}">
+    <script>
+        alert(mensagem);
+    </script>
+</c:if>
 <script>
     /*
     let numeroInserido = [];

@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         table{
-            margin: 0 auto;
+            width: 95%;
         }
         td{
             padding: 1px 3px;
@@ -24,41 +24,42 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table border="2px" cellspacing="5px" cellpadding="10px">
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
     <thead>
     <tr>
-        <th>Nome acessorio</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Nome do equipamento</th>
+        <th>Quantidade</th>
+        <th>Valor inteiro</th>
+        <th>Marca</th>
+        <th>Estado atual</th>
+        <th>Tipo de alimentação</th>
+        <th>Número de série</th>
+        <th>Ano de fabricação</th>
+        <th>Valor atual</th>
     </tr>
     </thead>
     <tbody>
 
-    <c:forEach var="acessorios" items="${listaAcessorios}">
+    <c:forEach var="equipamentos" items="${listaEquipamento}">
         <tr>
-            <td>${acessorios.getLinhaNomenclatura()}</td>
-            <td>${acessorios.getEquipamentoAlvo()}</td>
-            <td>${acessorios.getFuncao()}</td>
-            <td>${acessorios.getMarca()}</td>
-            <td>${acessorios.getValor()}</td>
-            <td>${acessorios.getQuantidade()}</td>
-            <td>${acessorios.getNomeProduto()}</td>
+            <td>${equipamentos.getNomeProduto()}</td>
+            <td>${equipamentos.getQuantidade()}</td>
+            <td>${equipamentos.getValor()}</td>
+            <td>${equipamentos.getMarca()}</td>
+            <td>${equipamentos.getEstado()}</td>
+            <td>${equipamentos.getTipoAlimentacao()}</td>
+            <td>${equipamentos.getNumeroSerie()}</td>
+            <td>${equipamentos.getAnoFabricacao()}</td>
+            <td>${equipamentos.getValorEstado()}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</div>
 <c:if test="${not empty mensagem}">
     <p>mensagem</p>
 </c:if>
-
-<form action="/" method="get">
-    <button class="btn btn-danger">Voltar</button>
-</form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

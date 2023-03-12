@@ -1,0 +1,20 @@
+
+O numero do pedido é 1  
+O nome do requisitante do pedido é João Pedro 
+O requisitante se trata de um(a) Clínica de dominio Privado 
+A data da solicitação foi 2022-12-19T20:37:20.764238600 
+Segue abaixo os produtos solicitados e acompanhado do valor unitário, quantidade e subtotal 
+Para equipamentos usados temos desconto de 55% | Para orgãos públicos é acrescido uma taxa de 20%  |Para acessórios que acompanham equipamento, o valor sai no subtotal, por[em não é considerado no valor total  
+O total da solicitação foi de R$0,00
+--------------------------------------------------------------------------------------------------------------------------------------
+O numero do pedido é 2  
+O nome do requisitante do pedido é Elberth Moraes 
+O requisitante se trata de um(a) Clínica de dominio Privado 
+A data da solicitação foi 2022-12-19T20:37:20.786259400 
+Segue abaixo os produtos solicitados e acompanhado do valor unitário, quantidade e subtotal 
+Nome do produto: Cabo de ECG | Valor unitário: R$129,99 | Quantidade solicitada: 10 | O valor subtotal é de R$1299,90
+Nome do produto: Ventilador Pulmonar | Valor unitário: R$57899,99 | Quantidade solicitada: 2 | O valor subtotal é de R$115799,98
+Nome do produto: "Seringa" | Valor unitário: R$0,50 | Quantidade solicitada: 4 | O valor subtotal é de R$2,00
+Para equipamentos usados temos desconto de 55% | Para orgãos públicos é acrescido uma taxa de 20%  |Para acessórios que acompanham equipamento, o valor sai no subtotal, por[em não é considerado no valor total  
+O total da solicitação foi de R$52129,99
+--------------------------------------------------------------------------------------------------------------------------------------

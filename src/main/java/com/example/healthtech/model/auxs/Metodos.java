@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static com.example.healthtech.model.auxs.Constantes.diretorio;
 
-public class Metodos {
+public class  Metodos {
 
     private static int id = 0;
     private static ArrayList tensao = new ArrayList<>();

@@ -1,10 +1,17 @@
 package com.example.healthtech.controller;
 
+import com.example.healthtech.model.domain.Equipamento;
+import com.example.healthtech.model.exception.AnoInvalidoException;
+import com.example.healthtech.model.exception.NomeInvalidoException;
+import com.example.healthtech.model.exception.TensaoInvalidaException;
+import com.example.healthtech.model.exception.ValorValidoException;
 import com.example.healthtech.model.service.EquipamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EquipamentoController {
@@ -22,26 +29,27 @@ public class EquipamentoController {
         return "PaginasEquipamento/cadastroEquipamento";
     }
 
-/*
+
     @PostMapping("/cadastroEquipamento/incluir")
-    public String AcessorioInclusao(@RequestParam String nomeAcessorio, @RequestParam String quantidadeAcessorio, @RequestParam String marcaAcessorio,
-                                    @RequestParam String valorAcessorio, @RequestParam String equipamentoAlvo, @RequestParam String acompanhaEquipamento,
-                                    @RequestParam String linhaAcessorio, @RequestParam String funcaoAcessorio, Model model) throws NomeInvalidoException, ValorValidoException {
+    public String AcessorioInclusao(Model model, @RequestParam String nomeProduto , @RequestParam String quantidadeProduto, @RequestParam String valorProduto
+            , @RequestParam String marcaProduto, @RequestParam String anoFabricacao, @RequestParam String tensao, @RequestParam String corrente
+            ,@RequestParam String estado, @RequestParam String numeroSerie) throws NomeInvalidoException, ValorValidoException, AnoInvalidoException, TensaoInvalidaException {
+
 
         mensagem = null;
-        Acessorio acessorio= new Acessorio(nomeAcessorio, Integer.parseInt(quantidadeAcessorio), Float.parseFloat(valorAcessorio),
-                marcaAcessorio, funcaoAcessorio, acompanhaEquipamento, Integer.parseInt(linhaAcessorio), equipamentoAlvo);
-        if (!acessorioService.incluirAcessorios(acessorio)) {
+        Equipamento equipamento= new Equipamento(estado,Integer.parseInt(anoFabricacao), nomeProduto, Integer.parseInt(quantidadeProduto),Float.parseFloat(valorProduto),marcaProduto,Integer.parseInt(corrente),Integer.parseInt(tensao), numeroSerie);
+        if (!equipamentoService.incluirAcessorios(equipamento)) {
             mensagem = "Não foi possivel incluir o acessório!";
             model.addAttribute("mensagem",  mensagem);
             return "redirect:/cadastroAcessorio";
         }
         mensagem = "Acessório incluido com sucesso!";
         model.addAttribute("mensagem", mensagem );
-        return "redirect:/cadastroAcessorio";
+
+        return "redirect:/cadastroEquipamento";
 
     }
-*/
+
     @GetMapping("listaEquipamento")
     public String ListaAcessoriosPage(Model model){
 

@@ -13,10 +13,10 @@ public class InsumoService {
     @Autowired
     InsumoRepository insumoRepository;
 
-    public Collection<Insumo> listarEquipamentos(){
+    public Collection<Insumo> listarInsumos(){
         return insumoRepository.obterListaInsumos();
     }
-    public boolean incluirAcessorios(Insumo insumo){
+    public boolean incluirInsumos(Insumo insumo){
         return insumoRepository.incluirInsumos(insumo);
     }
 }

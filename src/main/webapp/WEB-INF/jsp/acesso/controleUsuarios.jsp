@@ -21,7 +21,8 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table border="2px">
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
     <thead>
     <tr>
         <th>Nome</th>
@@ -48,7 +49,7 @@
     </c:forEach>
     </tbody>
 </table>
-
+</div>
 <form action="/" method="get">
     <button class="btn btn-danger">Voltar</button>
 </form>

@@ -31,6 +31,12 @@ public class Insumo extends Produto{
 
     }
 
+    public String getNomeInsumo(){
+        return super.getNomeProduto();
+    }
+    public String getDescricaoDescartavel(){
+        return isDescartavel()?"Permanente":"Descartável";
+    }
     public int getQuantidadeLote() {
         return quantidadeLote;
     }

@@ -16,75 +16,85 @@
     <style>
             label{margin-left: 20px;}
     </style>
+    <c:if test="${not empty mensagem}">
+        <script>
+            alert(mensagem);
+        </script>
+    </c:if>
 </head>
 <body>
 <c:import url="../menu.jsp" />
     <div class="container">
-        <h1>Cadastro de usuário</h1>
-        <form action="cadastroRequisitante/incluir" method="post">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o seu nome">
-            </div>
-            <div class="form-group">
-                <label for="enderecoRequisitante">Endereço do requisitante:</label>
-                <input type="text" class="form-control" id="enderecoRequisitante" name="enderecoRequisitante" placeholder="Insira o tipo de requisitante">
-            </div>
-            <div class="form-group">
-                <label for="registroRequisitante">Registro do requisitante:</label>
-                <input type="number" class="form-control" id="registroRequisitante" name="registroRequisitante" placeholder="Insira o Registro do requisitante">
-            </div>
-            <div id="orgao">
-                <fieldset>
-                    <legend>Tipo de orgão</legend>
+        <h1>Cadastro de Insumos</h1>
+        <form action="cadastroInsumo/incluir" method="post">
+
+            <div id="produto">
+                <div class="form-group">
+                    <label for="nomeInsumo">Nome:</label>
+                    <input type="text" class="form-control" id="nomeInsumo" name="nomeInsumo" placeholder="Insira o nome do insumo" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="quantidadeInsumo">Quantidade:</label>
+                    <input type="number" class="form-control" id="quantidadeInsumo" name="quantidadeInsumo" placeholder="Insira a quantidade" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="valorInsumo">Preço:</label>
+                    <input type="number" class="form-control" id="valorInsumo" name="valorInsumo" placeholder="Insira preço"  required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="marcaInsumo">Marca:</label>
+                    <input type="text" class="form-control" id="marcaInsumo" name="marcaInsumo" placeholder="Insira a marca" required>
+                </div>
+
+            <div id="tipoInsumo">
+                <span>Tipo do insumo</span>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="orgao" value="Público" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Público
+                    <input class="form-check-input" type="radio" name="tipoInsumo" value="dependente" >
+                    <label class="form-check-label" for="tipoInsumo">
+                        Dependente de dispositivo
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="orgao" id="flexRadioDefault2" value="Privado" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Privado
+                    <input class="form-check-input" type="radio" name="tipoInsumo"  value="independente" checked >
+                    <label class="form-check-label" for="tipoInsumo">
+                        Independente de dispositivo
                     </label>
                 </div>
-                </fieldset>
             </div>
 
-            <div id="entidade">
-                <fieldset>
-                    <legend>Tipo de entidade</legend>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" value="1" id="radioEntidade1">
-                <label class="form-check-label" for="radioEntidade1">
-                    Hospital
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" id="radioEntidade2" value="2" checked>
-                <label class="form-check-label" for="radioEntidade2">
-                    Clinica
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" value="3" id="radioEntidade3">
-                <label class="form-check-label" for="radioEntidade3">
-                    Empresa/Instituição
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" id="radioEntidade4" value="4">
-                <label class="form-check-label" for="radioEntidade4">
-                    Outro
-                </label>
-            </div>
-                </fieldset>
-            </div>
+                <div id="durabilidadeInsumo">
+                    <span>Durabilidade do insumo</span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="durabilidadeInsumo" value="Descartável" >
+                        <label class="form-check-label" for="durabilidadeInsumo">
+                            Descartável
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="durabilidadeInsumo"  value="permanente" checked >
+                        <label class="form-check-label" for="durabilidadeInsumo">
+                            Permanente
+                        </label>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label for="quantidadeLote">Quantidade por lote:</label>
+                    <input type="number" class="form-control" id="quantidadeLote" name="quantidadeLote" placeholder="Insira a quantidade por lote" required>
+                </div>
+
+            </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

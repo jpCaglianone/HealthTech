@@ -23,7 +23,7 @@ public class Equipamento extends Produto{
             throw new AnoInvalidoException("O ano não pode ser menor que " + Constantes.anoMenor + " ou maior que " + Metodos.ano());
         }
 
-        if (tensao < 0 || tensao >= Metodos.getTensao().size()){
+        if (tensao < 0 || tensao >= Constantes.tensoes.length){
             StringBuilder mensagem = new StringBuilder();
             mensagem.append("É permitido digitar somente uma opção válida de tensão");
             for (int i = 0; i < Metodos.getTensao().size(); i++){
@@ -31,7 +31,7 @@ public class Equipamento extends Produto{
             }
             throw new TensaoInvalidaException(mensagem);
         }
-        if (corrente < 0 || corrente >= Metodos.getCorrente().size()){
+        if (corrente < 0 || corrente >= Constantes.correntes.length){
             StringBuilder mensagem = new StringBuilder();
             mensagem.append("É permitido digitar somente uma opção válida de corrente");
             for (int i = 0; i < Metodos.getCorrente().size(); i++){
@@ -46,12 +46,18 @@ public class Equipamento extends Produto{
 
         this.numeroSerie = numeroSerie;
         this.anoFabricacao = anoFabricacao;
-        this.tipoAlimentacao = Metodos.getTensao().get(tensao) + "/" + Metodos.getCorrente().get(corrente);
+        this.tipoAlimentacao = Constantes.tensoes[tensao] + "/" + Constantes.correntes[corrente];
         if ("usado".equalsIgnoreCase(estado)){
             this.usado = true;
         } else {
             this.usado = false;
         }
+
+
+    }
+
+    public String getEstado(){
+        return isUsado()?"Usado":"Novo";
     }
 
     public boolean isUsado() {
@@ -72,12 +78,22 @@ public class Equipamento extends Produto{
 
     @Override
     public float calcularValorTotal() {
-        float total = this.getValor();
-        if (this.isUsado()){
-            total *= 0.45; //perde 55% do valor total se for uysado
-        }
+        float total = getValorEstado();
         total *= getQuantidade();
         return total;
+    }
+
+    public float getValorEstado(){
+        float valor_estado = this.getValor();
+        if (this.isUsado()){
+            valor_estado *= 0.45; //perde 55% do valor total se for usado
+        }
+        return valor_estado;
+    }
+
+    @Override
+    public float getValor() {
+        return super.getValor();
     }
 
     @Override
@@ -95,6 +111,7 @@ public class Equipamento extends Produto{
 
         return mensagem.toString();
     }
+
 
 
 }

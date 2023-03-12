@@ -32,7 +32,22 @@ public class Acessorio extends Produto{
         }
 
     }
-
+    public String getDescricaoLinha(){
+        switch (getLinhaNomenclatura()){
+            case 0:
+               return("Padrão");
+            case 1:
+                return("Premium");
+            case 2:
+                return("Econômica");
+            case 3:
+                return("Remanufaturado");
+        }
+        return "N/A";
+    }
+    public String getNomeAcessorio(){
+        return super.getNomeProduto();
+    }
     @Override
     public float calcularValorTotal() {
         if (isAcompanhaEquipamento()){
