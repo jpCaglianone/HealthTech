@@ -4,7 +4,6 @@ import com.example.healthtech.model.domain.Insumo;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TipoInsumoException;
 import com.example.healthtech.model.exception.ValorValidoException;
-import com.example.healthtech.model.service.EquipamentoService;
 import com.example.healthtech.model.service.InsumoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
