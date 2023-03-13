@@ -17,13 +17,11 @@ public class UsuarioLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         Usuario admin = new Usuario("admin@ht.com","admin", "123admin", 4);
         usuarioService.incluirUsuario(admin);
+        System.out.println("Usuário admin inserido com sucesso");
 
         for(int i = 0; i <= 3; i++){
             Usuario user = new Usuario("usuario_" + i + "@ht.com", "usuario" + i, i + "-abc123", i);
             System.out.println("Usuario usuario" + i + " inserido com sucesso!");
         }
-
     }
-
-
 }
