@@ -2,6 +2,3 @@ Seringa;10;2599;Descarpak;independente;permanente;10
 Seringa;10;2599;Descarpak;independente;permanente;10
 Seringa;10;2599;Descarpak;independente;permanente;10
 Seringa;10;2599;Descarpak;independente;permanente;10
-
-
-

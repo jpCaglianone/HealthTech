@@ -14,7 +14,7 @@ public class EquipamentoService {
     public Collection<Equipamento> listarEquipamentos(){
         return equipamentoRepository.obterListaEquipamentos();
     }
-    public boolean incluirAcessorios(Equipamento equipamento){
+    public boolean incluirEquipamentos(Equipamento equipamento){
         return equipamentoRepository.incluirEquipamentos(equipamento);
     }
 }

@@ -1,4 +1,3 @@
 Cabo de ECG;10;99.90;Dixtal;Utilizado para monitorar sinais cardíacos do paciente;Não;2;Monitor Multiparâmetro;
 Sensor de oximetria;5;129.90;Phillips;Utilizado para medir a oxigenação do paciente;Sim;1;Monitor Multiparâmetro;
 Célular de oxigênio;2;299.90;Mindray;Utilizado no ventilador pulmonar para controlo e fornecimento de oxigênio;Sim;0;Ventilador Pulmonar;
-

@@ -9,7 +9,12 @@
 
 
     <style>
-
+footer{
+    background-image: linear-gradient(90deg, #d7d7d7, #b5deaf);
+    margin-top: 50px;
+    font-size: 14px;
+    font-family: "Times New Roman",Cambria,sans-serif;
+}
     </style>
 </head>
 <body>

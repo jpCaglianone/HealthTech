@@ -38,7 +38,7 @@ public class EquipamentoController {
 
         mensagem = null;
         Equipamento equipamento= new Equipamento(estado,Integer.parseInt(anoFabricacao), nomeProduto, Integer.parseInt(quantidadeProduto),Float.parseFloat(valorProduto),marcaProduto,Integer.parseInt(corrente),Integer.parseInt(tensao), numeroSerie);
-        if (!equipamentoService.incluirAcessorios(equipamento)) {
+        if (!equipamentoService.incluirEquipamentos(equipamento)) {
             mensagem = "Não foi possivel incluir o acessório!";
             model.addAttribute("mensagem",  mensagem);
             return "redirect:/cadastroAcessorio";

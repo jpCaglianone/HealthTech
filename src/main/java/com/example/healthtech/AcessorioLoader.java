@@ -12,27 +12,28 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.FileReader;
-/*
-@Order(2)
+
+@Order(5)
 @Component
 public class AcessorioLoader implements ApplicationRunner {
 
     @Autowired
     AcessorioService acessorioService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        String arquivoAcessorio = "acessorios.txt";
         try {
-            String arquivoAcessorio = "acessorios.txt";
-            try {
-                FileReader fileR = new FileReader("src\\data\\" + arquivoAcessorio);
-                BufferedReader leitura = new BufferedReader(fileR);
+            FileReader fileR = new FileReader("src\\data\\" + arquivoAcessorio);
+            BufferedReader leitura = new BufferedReader(fileR);
 
-                String linha = leitura.readLine();
-                String[] campos = null;
-                while (linha != null) {
+            String linha = leitura.readLine();
+            String[] campos = null;
+            while (linha != null) {
 
-                    campos = linha.split(";");
-                    // Acessorio.setId(1);
+                campos = linha.split(";");
+                // Acessorio.setId(1);
 
                     Acessorio acessorio = new Acessorio(
                             campos[0],
@@ -45,19 +46,19 @@ public class AcessorioLoader implements ApplicationRunner {
                             campos[7]);
 
                     acessorioService.incluirAcessorios(acessorio);
-                    System.out.println("A inclusão do acessorio " + acessorio + " foi realizada com sucesso!");
-                    linha = leitura.readLine();
-                }
 
-                leitura.close();
-                fileR.close();
-            } catch (NomeInvalidoException | ValorValidoException e) {
-                System.out.println("Não foi possivel carregar os dados do arquivo acessorios.txt. Verifique a construção do arquivo e tente novamente!");
+
+                System.out.println("A inclusão do acessorio  foi realizada com sucesso!");
+                linha = leitura.readLine();
             }
+
+            leitura.close();
+            fileR.close();
         }
-        finally {
-            System.out.println("Foi");
+        catch (NomeInvalidoException | ValorValidoException e) {
+
+
+            System.out.println("Não foi possivel carregar os dados do arquivo acessorios.txt. Verifique a construção do arquivo e tente novamente!");
         }
     }
 }
-*/

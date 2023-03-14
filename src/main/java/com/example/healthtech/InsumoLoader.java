@@ -37,21 +37,24 @@ public class InsumoLoader  implements ApplicationRunner {
             while (linha != null) {
                 campos = linha.split(";");
 
-         /*       Insumo insumo = new Insumo(campos[0],
+                Insumo insumo = new Insumo(campos[0],
                         Integer.parseInt(campos[1]),
                         Float.parseFloat(campos[2]),
                         campos[3],
                         campos[4],
                         campos[5],
-                        Integer.parseInt(campos[6]));*/
+                        Integer.parseInt(campos[6]));
+
+                insumoService.incluirInsumos(insumo);
+
                 linha = leitura.readLine();
             }
             leitura.close();
             fileR.close();
 
         }
-       // catch (TipoInsumoException | NomeInvalidoException | ValorValidoException e){
-        catch (Exception e){
+       catch (TipoInsumoException | NomeInvalidoException | ValorValidoException e){
+
             System.out.println("Não foi possível inserir os dados do arquivo insumos.txt. Verifique o arquivo e tente novamente!" + e);
         }
         finally {
