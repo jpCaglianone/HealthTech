@@ -13,14 +13,31 @@ public class RequisicaoService {
     @Autowired
     private RequisitanteRepository requisitanteRepository;
 
+    public boolean excluir (Integer id){
+        try{
+            requisitanteRepository.deleteById(id);
+            System.out.println("Requisitante excluido com sucesso!");
+            return true;
+        }
+        catch(Exception e){
+            System.out.println("Erro exclusão requisitante: " + e);
+            return false;
+        }
+    }
+
     public Collection<Requisitante> listarRequisitantes() {
 
-        return  requisitanteRepository.obterListaRequisitantes();
+        return  (Collection<Requisitante>) requisitanteRepository.findAll();
     }
 
     public boolean inclusaoRequisitante(Requisitante requisitante) {
-
-       return requisitanteRepository.inclusaoRequisitante(requisitante);
+        try {
+            requisitanteRepository.save(requisitante);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+       //return requisitanteRepository.inclusaoRequisitante(requisitante);
     }
 
 

@@ -3,7 +3,6 @@ package com.example.healthtech.controller;
 
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.exception.*;
-import com.example.healthtech.model.repository.RequisitanteRepository;
 import com.example.healthtech.model.service.RequisicaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

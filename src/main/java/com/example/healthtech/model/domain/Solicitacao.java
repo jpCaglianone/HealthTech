@@ -4,6 +4,7 @@ import com.example.healthtech.model.auxs.Metodos;
 import com.example.healthtech.model.exception.SolicitacaoSemProdutoException;
 import com.example.healthtech.model.exception.SolicitacaoSemRequisitanteException;
 import com.example.healthtech.model.exception.TipoAquisicaoException;
+import jakarta.persistence.Entity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

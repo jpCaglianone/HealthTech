@@ -3,10 +3,14 @@ package com.example.healthtech.model.domain;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TipoInsumoException;
 import com.example.healthtech.model.exception.ValorValidoException;
+import jakarta.persistence.*;
 
-import java.math.BigInteger;
-
+@Entity
+@Table(name = "Requisitante_tabela")
 public class Requisitante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nomeRequisitante;
     private int tipoRequisitante; // 1 - Hospital 2 - Clínica, 3 - Empresa/Instituição, 4 - outros
     private boolean orgaoPublico;
@@ -44,6 +48,10 @@ public class Requisitante {
         }
     }
 
+    public Requisitante() {
+
+    }
+
     @Override
     public String toString(){
         StringBuilder mensagem = new StringBuilder();
@@ -72,7 +80,7 @@ public class Requisitante {
         return tipoRequisitante;
     }
 
-    public String getNomeRequisitante() {
+    public  String getNomeRequisitante() {
         return nomeRequisitante;
     }
 
@@ -93,5 +101,13 @@ public class Requisitante {
             default -> "";
         };
         return dominio;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

@@ -20,6 +20,8 @@ public class RequisitanteLoader implements ApplicationRunner {
 
     @Autowired
     RequisicaoService requisicaoService;
+
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
@@ -45,6 +47,7 @@ public class RequisitanteLoader implements ApplicationRunner {
 
                 requisicaoService.inclusaoRequisitante(requisitante);
                 linha = leitura.readLine();
+
             }
             leitura.close();
             fileR.close();
