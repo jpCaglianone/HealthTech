@@ -37,6 +37,7 @@
         <th>Número de série</th>
         <th>Ano de fabricação</th>
         <th>Valor atual</th>
+        <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
@@ -52,6 +53,9 @@
             <td>${equipamentos.getNumeroSerie()}</td>
             <td>${equipamentos.getAnoFabricacao()}</td>
             <td>${equipamentos.getValorEstado()}</td>
+            <td><a href="/listaEquipamento/${equipamentos.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

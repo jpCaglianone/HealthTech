@@ -33,6 +33,10 @@
         <th>Tipo de orgao</th>
         <th>Endereço</th>
         <th>Registro</th>
+        <c:if test="${nivelUsuario==4}" >
+             <th>Cadastrado por:</th>
+        </c:if>
+        <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
@@ -44,6 +48,13 @@
             <td>${requisitante.descricaoOrgao()}</td>
             <td>${requisitante.getEnderecoRequisitante()}</td>
             <td>${requisitante.getRegistroRequisitante()}</td>
+            <c:if test="${nivelUsuario==4}" >
+                <th>${requisitante.usuario.getNome()}</th>
+            </c:if>
+
+            <td><a href="/listaRequisitante/${requisitante.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

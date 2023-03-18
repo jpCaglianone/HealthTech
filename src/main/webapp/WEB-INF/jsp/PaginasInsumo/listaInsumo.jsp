@@ -33,6 +33,7 @@
         <th>Tipo de orgao</th>
         <th>Endereço</th>
         <th>Registro</th>
+        <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,9 @@
             <td>${insumos.getQuantidadeLote()}</td>
             <td>${insumos.getTipoInsumo()}</td>
             <td>${insumos.getDescricaoDescartavel()}</td>
+            <td><a href="/listaInsumo/${insumo.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

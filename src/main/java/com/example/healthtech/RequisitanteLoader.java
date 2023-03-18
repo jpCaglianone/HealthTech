@@ -1,6 +1,7 @@
 package com.example.healthtech;
 
 import com.example.healthtech.model.domain.Requisitante;
+import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TipoInsumoException;
 import com.example.healthtech.model.exception.ValorValidoException;
@@ -38,6 +39,9 @@ public class RequisitanteLoader implements ApplicationRunner {
             while (linha != null) {
                 campos = linha.split(";");
 
+                Usuario usuario = new Usuario();
+                usuario.setId(Integer.parseInt(campos[5]));
+
                 Requisitante requisitante = new Requisitante(
                         campos[0],
                         Integer.parseInt(campos[1]),
@@ -45,6 +49,7 @@ public class RequisitanteLoader implements ApplicationRunner {
                         campos[3],
                         Long.parseLong(campos[4]));
 
+                requisitante.setUsuario(usuario);
                 requisicaoService.inclusaoRequisitante(requisitante);
                 linha = leitura.readLine();
 

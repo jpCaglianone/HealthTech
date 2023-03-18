@@ -2,3 +2,8 @@ body{
     background-image: url("fundo site ht.jpg");
 
 }
+.lixeira{
+    background-image: url("/lixeira.jpg");
+    height: 35px;
+    width: 30px;
+}

@@ -17,6 +17,9 @@ public class Requisitante {
 
     private String enderecoRequisitante;
     private long registroRequisitante;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
     //private int idRequisitante;
 
 
@@ -109,5 +112,13 @@ public class Requisitante {
 
     public Integer getId() {
         return id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

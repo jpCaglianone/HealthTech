@@ -1,7 +1,6 @@
 package com.example.healthtech.controller;
 
 import com.example.healthtech.model.domain.Usuario;
-import com.example.healthtech.model.repository.UsuarioRepository;
 import com.example.healthtech.model.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,10 @@ public class AcessoController {
 
     @PostMapping("login/inserir")
     public String UsuarioLogin(Model model, @RequestParam  String email, @RequestParam String senha){
-        user = usuarioService.validacao(email,senha);
+
+        Usuario user = new Usuario(email,senha);
+        user = usuarioService.validacao(user);
+        //user = new Usuario( "emailUsuario", "nomeUsuario", "senhaUsuario", 4); //jpcaglianone retirar
         if(user != null){
             model.addAttribute("user",user);
             return "redirect:/";
@@ -64,7 +66,7 @@ public class AcessoController {
     }
         @GetMapping("controleUsuarios")
         public String listaUsuarios(Model model){
-            model.addAttribute("usuarios", usuarioService.obterLista());
+            model.addAttribute("usuarios", usuarioService.listaUsuarios());
 
             return "/acesso/controleUsuarios";
         }

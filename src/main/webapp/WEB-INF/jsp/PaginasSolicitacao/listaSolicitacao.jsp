@@ -9,6 +9,7 @@
         Listagem de Requisitantes - HealthTech
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -32,6 +33,7 @@
         <th>Tipo de orgao</th>
         <th>Endereço</th>
         <th>Registro</th>
+        <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
@@ -43,6 +45,9 @@
             <td>${requisitante.descricaoOrgao()}</td>
             <td>${requisitante.getEnderecoRequisitante()}</td>
             <td>${requisitante.getRegistroRequisitante()}</td>
+            <td><a href="/listaSolicitacao/${s.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

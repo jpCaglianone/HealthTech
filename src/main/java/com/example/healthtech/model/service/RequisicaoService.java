@@ -25,6 +25,11 @@ public class RequisicaoService {
         }
     }
 
+    public Collection<Requisitante> listarRequisitantes(Integer id) {
+
+        //return  (Collection<Requisitante>) requisitanteRepository.findAll();
+        return requisitanteRepository.listarRequisitantes(id);
+    }
     public Collection<Requisitante> listarRequisitantes() {
 
         return  (Collection<Requisitante>) requisitanteRepository.findAll();
