@@ -56,10 +56,20 @@ public class EquipamentoController {
 
     @GetMapping("listaEquipamento")
     public String ListaAcessoriosPage(Model model){
-
+        if (mensagem != null){
+            model.addAttribute("mensagem", mensagem);
+        }
         model.addAttribute("listaEquipamento", equipamentoService.listarEquipamentos());
 
         return "PaginasEquipamento/listaEquipamento";
+    }
+
+
+    @GetMapping("listaEquipamento/{indice}/excluir")
+    public String excluirEquipamento(@PathVariable Integer indice){
+        equipamentoService.excluirEquipamentos(indice);
+        mensagem = "O equipamento de id " + indice + " foi excluído com sucesso!";
+        return "redirect:/listaEquipamento";
     }
 
 }

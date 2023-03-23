@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -49,9 +50,21 @@ public class AcessorioController {
 
     @GetMapping("listaAcessorio")
     public String ListaAcessoriosPage(Model model){
-
+        if (mensagem != null){
+            model.addAttribute("mensagem", mensagem);
+        }
+        mensagem = null;
         model.addAttribute("listaAcessorios", acessorioService.listarAcessorios());
 
         return "PaginasAcessorio/listaAcessorio";
     }
+
+
+    @GetMapping("listaAcessorio/{indice}/excluir")
+    public String excluirAcessorio(@PathVariable Integer indice, Model model){
+        acessorioService.excluirAcessorios(indice);
+        mensagem = "O acessorio de id " + indice + " foi excluído com sucesso!";
+        return "redirect:/listaAcessorio";
+    }
+
 }

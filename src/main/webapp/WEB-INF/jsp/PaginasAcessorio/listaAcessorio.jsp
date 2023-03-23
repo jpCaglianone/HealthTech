@@ -25,10 +25,18 @@
 </head>
 <body>
 <c:import url="../menu.jsp"/>
+
+<c:if test="${not empty mensagem}">
+    <script defer>
+        alert(`${mensagem}`)
+    </script>
+</c:if>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover">
     <thead>
     <tr>
+        <th>ID Produto</th>
         <th>Nome acessorio</th>
         <th>Preço</th>
         <th>Marca</th>
@@ -43,15 +51,16 @@
 
     <c:forEach var="acessorios" items="${listaAcessorios}">
         <tr>
-            <td>${acessorios.getNomeAcessorio()}</td>
+            <td>${acessorios.getId()}</td>
+            <td>${acessorios.getNomeProduto()}</td>
             <td>${acessorios.getValor()}</td>
             <td>${acessorios.getMarca()}</td>
             <td>${acessorios.getQuantidade()}</td>
-            <td>${acessorios.getDescricaoLinha()}</td>
+            <td>${acessorios.descricaoLinha()}</td>
             <td>${acessorios.getEquipamentoAlvo()}</td>
-            <td>${acessorios.getFuncao()}</td>
+            <td>${acessorios.funcao()}</td>
             <td>
-                <a href="/controleUsuarios/${usuario.getId()}/excluir">
+                <a href="listaAcessorio/${acessorios.getId()}/excluir">
                     <div class="lixeira"> </div>
             </a>
             </td>
@@ -60,9 +69,6 @@
     </tbody>
 </table>
 </div>
-<c:if test="${not empty mensagem}">
-    <p>mensagem</p>
-</c:if>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -28,6 +28,7 @@
     <table class="table table-striped table-hover">
     <thead>
     <tr>
+        <th>ID Produto</th>
         <th>Nome do equipamento</th>
         <th>Quantidade</th>
         <th>Valor inteiro</th>
@@ -44,15 +45,16 @@
 
     <c:forEach var="equipamentos" items="${listaEquipamento}">
         <tr>
+            <td>${equipamentos.getId()}</td>
             <td>${equipamentos.getNomeProduto()}</td>
             <td>${equipamentos.getQuantidade()}</td>
             <td>${equipamentos.getValor()}</td>
             <td>${equipamentos.getMarca()}</td>
-            <td>${equipamentos.getEstado()}</td>
-            <td>${equipamentos.getTipoAlimentacao()}</td>
-            <td>${equipamentos.getNumeroSerie()}</td>
-            <td>${equipamentos.getAnoFabricacao()}</td>
-            <td>${equipamentos.getValorEstado()}</td>
+            <td>${equipamentos.estado()}</td>
+            <td>${equipamentos.tipoAlimentacao()}</td>
+            <td>${equipamentos.numeroSerie()}</td>
+            <td>${equipamentos.anoFabricacao()}</td>
+            <td>${equipamentos.valorEstado()}</td>
             <td><a href="/listaEquipamento/${equipamentos.getId()}/excluir">
                 <i class="fas fa-trash"></i>
             </a></td>
@@ -61,9 +63,6 @@
     </tbody>
 </table>
 </div>
-<c:if test="${not empty mensagem}">
-    <p>mensagem</p>
-</c:if>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

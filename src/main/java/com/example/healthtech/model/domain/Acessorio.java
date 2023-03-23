@@ -48,7 +48,7 @@ public class Acessorio extends Produto{
     }
 
 
-    public String DescricaoLinha(){
+    public String descricaoLinha(){
         switch (linhaNomenclatura()){
             case 0:
                return("Padrão");
@@ -60,9 +60,6 @@ public class Acessorio extends Produto{
                 return("Remanufaturado");
         }
         return "N/A";
-    }
-    public String NomeAcessorio(){
-        return super.getNomeProduto();
     }
     @Override
     public float calcularValorTotal() {

@@ -1,7 +1,6 @@
 package com.example.healthtech.model.service;
 
 import com.example.healthtech.model.domain.Equipamento;
-import com.example.healthtech.model.repository.Antigo_EquipamentoRepository;
 import com.example.healthtech.model.repository.EquipamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +21,14 @@ public class EquipamentoService {
         }catch (Exception e){
             return  false;
         }
+    }
+
+    public void excluirEquipamentos (Integer id){
+        equipamentoRepository.deleteById(id);
+    }
+    public Iterable<Equipamento> listaEquipamentos(){
+
+        return  equipamentoRepository.findAll();
+
     }
 }

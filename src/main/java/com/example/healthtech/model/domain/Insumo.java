@@ -42,9 +42,6 @@ public class Insumo extends Produto{
 
 
 
-    public String nomeInsumo(){
-        return super.getNomeProduto();
-    }
     public String descricaoDescartavel(){
         return descartavel()?"Permanente":"Descartável";
     }

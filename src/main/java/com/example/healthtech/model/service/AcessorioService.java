@@ -2,7 +2,6 @@ package com.example.healthtech.model.service;
 
 import com.example.healthtech.model.domain.Acessorio;
 import com.example.healthtech.model.repository.AcessorioRepository;
-import com.example.healthtech.model.repository.Antigo_AcessorioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +24,15 @@ public class AcessorioService {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public void excluirAcessorios (Integer id){
+        acessorioRepository.deleteById(id);
+    }
+    public Iterable<Acessorio> listaAcessorios(){
+
+        return  acessorioRepository.findAll();
+
     }
 
 }

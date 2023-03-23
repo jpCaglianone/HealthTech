@@ -52,7 +52,7 @@ public class InsumoController {
 
         }
 
-    @GetMapping("listaInsumo")
+    @GetMapping("/listaInsumo")
     public String ListaInsumoPage(Model model){
 
         model.addAttribute("listaInsumo", insumoService.listarInsumos());

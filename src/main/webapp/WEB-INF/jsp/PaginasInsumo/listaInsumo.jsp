@@ -28,6 +28,7 @@
     <table class="table table-striped table-hover">
     <thead>
     <tr>
+        <th>ID Produto</th>
         <th>Nome do Insumo</th>
         <th>Tipo de instituição</th>
         <th>Tipo de orgao</th>
@@ -40,14 +41,15 @@
 
     <c:forEach var="insumos" items="${listaInsumo}">
         <tr>
-            <td>${insumos.getNomeInsumo()}</td>
+            <td>${insumos.getId()}</td>
+            <td>${insumos.getNomeProduto()}</td>
             <td>${insumos.getMarca()}</td>
             <td>${insumos.getQuantidade()}</td>
             <td>${insumos.getValor()}</td>
-            <td>${insumos.getQuantidadeLote()}</td>
-            <td>${insumos.getTipoInsumo()}</td>
-            <td>${insumos.getDescricaoDescartavel()}</td>
-            <td><a href="/listaInsumo/${insumo.getId()}/excluir">
+            <td>${insumos.quantidadeLote()}</td>
+            <td>${insumos.tipoInsumo()}</td>
+            <td>${insumos.descricaoDescartavel()}</td>
+            <td><a href="listaInsumo/${insumo.getId()}/excluir">
                 <i class="fas fa-trash"></i>
             </a></td>
         </tr>
