@@ -1,1 +1,4 @@
 novo;2023;Tomografia Computadorizada;1;2000000;GE - General Eletric;4;3;A34-1pBo23
+usado;2012;Monitor multiparâmetro;1;10000;Dixtal;2;2;4fwesd3342
+usado;2003;Ventilador Pulmonar;2;70000;Maquet;1;1;gf0wru8f33452152
+novo;2022;Raio-x;1;200000;Shimadzu;5;4;354265-q423

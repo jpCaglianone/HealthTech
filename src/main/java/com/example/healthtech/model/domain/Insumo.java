@@ -1,7 +1,12 @@
 package com.example.healthtech.model.domain;
 
 import com.example.healthtech.model.exception.*;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "insumo_tabela")
 public class Insumo extends Produto{
+
 
     private String tipoInsumo;
     private boolean descartavel;
@@ -31,21 +36,27 @@ public class Insumo extends Produto{
 
     }
 
-    public String getNomeInsumo(){
+    public Insumo() {
+
+    }
+
+
+
+    public String nomeInsumo(){
         return super.getNomeProduto();
     }
-    public String getDescricaoDescartavel(){
-        return isDescartavel()?"Permanente":"Descartável";
+    public String descricaoDescartavel(){
+        return descartavel()?"Permanente":"Descartável";
     }
-    public int getQuantidadeLote() {
+    public int quantidadeLote() {
         return quantidadeLote;
     }
 
-    public String getTipoInsumo() {
+    public String tipoInsumo() {
         return tipoInsumo;
     }
 
-    public boolean isDescartavel() {
+    public boolean descartavel() {
         return descartavel;
     }
 
@@ -53,8 +64,8 @@ public class Insumo extends Produto{
     public float calcularValorTotal() {
         float total;
         total = getValor();
-        total *= getQuantidadeLote() * super.getQuantidade();
-        if(!isDescartavel()){
+        total *= quantidadeLote() * super.getQuantidade();
+        if(!descartavel()){
          total *=1.3;
         }
         return total;
@@ -63,11 +74,11 @@ public class Insumo extends Produto{
     @Override
     public String toString(){
         StringBuilder mensagem = new StringBuilder();
-        mensagem.append(this.getTipoInsumo());
+        mensagem.append(this.tipoInsumo());
         mensagem.append(";");
-        mensagem.append(this.getQuantidadeLote());
+        mensagem.append(this.quantidadeLote());
         mensagem.append(";");
-        mensagem.append(this.isDescartavel()?"Descartável":"Permanente");
+        mensagem.append(this.descartavel()?"Descartável":"Permanente");
 
         return String.valueOf(mensagem);
     }

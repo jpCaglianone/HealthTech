@@ -1,8 +1,6 @@
 package com.example.healthtech.model.service;
 
-import com.example.healthtech.model.domain.Equipamento;
 import com.example.healthtech.model.domain.Insumo;
-import com.example.healthtech.model.repository.EquipamentoRepository;
 import com.example.healthtech.model.repository.InsumoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +12,16 @@ public class InsumoService {
     InsumoRepository insumoRepository;
 
     public Collection<Insumo> listarInsumos(){
-        return insumoRepository.obterListaInsumos();
+        return (Collection<Insumo>) insumoRepository.findAll();
     }
     public boolean incluirInsumos(Insumo insumo){
-        return insumoRepository.incluirInsumos(insumo);
+
+        try{
+            insumoRepository.save(insumo);
+            return true;
+        }
+        catch (Exception e){
+            return  false;
+        }
     }
 }

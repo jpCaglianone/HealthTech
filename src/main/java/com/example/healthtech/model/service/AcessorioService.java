@@ -2,6 +2,7 @@ package com.example.healthtech.model.service;
 
 import com.example.healthtech.model.domain.Acessorio;
 import com.example.healthtech.model.repository.AcessorioRepository;
+import com.example.healthtech.model.repository.Antigo_AcessorioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,16 @@ public class AcessorioService {
     AcessorioRepository acessorioRepository;
 
     public Collection<Acessorio> listarAcessorios(){
-        return acessorioRepository.obterListaAcessorios();
+        return (Collection<Acessorio>) acessorioRepository.findAll();
     }
     public boolean incluirAcessorios(Acessorio acessorio){
-        return acessorioRepository.incluirAcessorios(acessorio);
+
+        try{
+            acessorioRepository.save(acessorio);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }

@@ -4,7 +4,10 @@ package com.example.healthtech.model.domain;
 import com.example.healthtech.model.auxs.Constantes;
 import com.example.healthtech.model.auxs.Metodos;
 import com.example.healthtech.model.exception.*;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "equipamento_tabela")
 public class Equipamento extends Produto{
 
     private int anoFabricacao;
@@ -56,36 +59,42 @@ public class Equipamento extends Produto{
 
     }
 
-    public String getEstado(){
-        return isUsado()?"Usado":"Novo";
+    public Equipamento() {
+
     }
 
-    public boolean isUsado() {
+
+
+    public String estado(){
+        return usado()?"Usado":"Novo";
+    }
+
+    public boolean usado() {
         return usado;
     }
 
-    public String getTipoAlimentacao() {
+    public String tipoAlimentacao() {
         return tipoAlimentacao;
     }
 
-    public String getNumeroSerie() {
+    public String numeroSerie() {
         return numeroSerie;
     }
 
-    public int getAnoFabricacao() {
+    public int anoFabricacao() {
         return anoFabricacao;
     }
 
     @Override
     public float calcularValorTotal() {
-        float total = getValorEstado();
+        float total = valorEstado();
         total *= getQuantidade();
         return total;
     }
 
-    public float getValorEstado(){
+    public float valorEstado(){
         float valor_estado = this.getValor();
-        if (this.isUsado()){
+        if (this.usado()){
             valor_estado *= 0.45; //perde 55% do valor total se for usado
         }
         return valor_estado;
@@ -99,13 +108,13 @@ public class Equipamento extends Produto{
     @Override
     public String toString(){
         StringBuilder mensagem = new StringBuilder();
-        mensagem.append(this.getAnoFabricacao());
+        mensagem.append(this.anoFabricacao());
         mensagem.append(";");
-        mensagem.append(this.getTipoAlimentacao());
+        mensagem.append(this.tipoAlimentacao());
         mensagem.append(";");
-        mensagem.append(this.isUsado()?"Usado":"Novo");
+        mensagem.append(this.usado()?"Usado":"Novo");
         mensagem.append(";");
-        mensagem.append(this.getNumeroSerie());
+        mensagem.append(this.numeroSerie());
         mensagem.append(";");
         mensagem.append(this.calcularValorTotal());
 

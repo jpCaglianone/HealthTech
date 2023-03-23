@@ -1,6 +1,7 @@
 package com.example.healthtech.controller;
 
 import com.example.healthtech.model.domain.Equipamento;
+import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.AnoInvalidoException;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TensaoInvalidaException;
@@ -9,11 +10,10 @@ import com.example.healthtech.model.service.EquipamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@SessionAttributes("user")
 public class EquipamentoController {
 
 
@@ -23,7 +23,11 @@ public class EquipamentoController {
     EquipamentoService equipamentoService;
 
     @GetMapping("/cadastroEquipamento")
-    public String EquipamentoListPage(Model model){
+    public String EquipamentoListPage(@SessionAttribute("user") Usuario usuario, Model model){
+
+        if (usuario == null || usuario.getNivel()<=2){
+            return "redirect:/"; //pode colocar uma página de acesso restrito
+        }
 
         model.addAttribute("mensagem", mensagem);
         return "PaginasEquipamento/cadastroEquipamento";

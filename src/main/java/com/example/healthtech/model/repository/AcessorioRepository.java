@@ -1,35 +1,13 @@
 package com.example.healthtech.model.repository;
 
+
 import com.example.healthtech.model.domain.Acessorio;
-import com.example.healthtech.model.domain.Usuario;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
-
 @Repository
-public class AcessorioRepository {
-    private static Map<Integer, Acessorio> acessorios = new HashMap<Integer, Acessorio>();
-    private static Integer chavePrimaria = 1;
+public interface AcessorioRepository extends CrudRepository<Acessorio,Integer> {
 
-    public static boolean incluirAcessorios (Acessorio acessorio) {
-
-        try{
-            acessorios.put(chavePrimaria, acessorio);
-            chavePrimaria ++;
-            return true;
-        }catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static void excluirAcessorio (Integer id){
-        acessorios.remove(id);
-    }
-
-
-    public static Collection<Acessorio> obterListaAcessorios(){
-
-        return acessorios.values();
-    }
 
 }
+

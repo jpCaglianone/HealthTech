@@ -2,12 +2,19 @@ package com.example.healthtech.model.domain;
 
 
 import com.example.healthtech.model.exception.*;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="acessorio_tabela")
 public class Acessorio extends Produto{
 
+    private String nome;
     private String equipamentoAlvo;
     private String funcao;
     private boolean acompanhaEquipamento;
     private int linhaNomenclatura;
+
+
     public Acessorio(String nomeProduto, int quantidade, float valor, String marca, String funcao, String acompanhaEquipamento, int linhaNomenclatura, String equipamentoAlvo) throws ValorValidoException, NomeInvalidoException {
 
         super(nomeProduto, quantidade, valor, marca);
@@ -22,6 +29,7 @@ public class Acessorio extends Produto{
             throw new NomeInvalidoException("Somente é permitido inserir SIM ou NÃO!");
         }
 
+        this.nome = nomeProduto;
         this.equipamentoAlvo = equipamentoAlvo;
         this.funcao = funcao;
         this.linhaNomenclatura = linhaNomenclatura;
@@ -32,8 +40,16 @@ public class Acessorio extends Produto{
         }
 
     }
-    public String getDescricaoLinha(){
-        switch (getLinhaNomenclatura()){
+
+
+
+    public Acessorio() {
+        super();
+    }
+
+
+    public String DescricaoLinha(){
+        switch (linhaNomenclatura()){
             case 0:
                return("Padrão");
             case 1:
@@ -45,12 +61,12 @@ public class Acessorio extends Produto{
         }
         return "N/A";
     }
-    public String getNomeAcessorio(){
+    public String NomeAcessorio(){
         return super.getNomeProduto();
     }
     @Override
     public float calcularValorTotal() {
-        if (isAcompanhaEquipamento()){
+        if (acompanhaEquipamento()){
             return 0;
         } else {
             float total = getValor();
@@ -59,7 +75,7 @@ public class Acessorio extends Produto{
         }
     }
 
-    public int getLinhaNomenclatura() {
+    public int linhaNomenclatura() {
         return linhaNomenclatura;
     }
 
@@ -67,11 +83,11 @@ public class Acessorio extends Produto{
         return equipamentoAlvo;
     }
 
-    public String getFuncao() {
+    public String funcao() {
         return funcao;
     }
 
-    public boolean isAcompanhaEquipamento() {
+    public boolean acompanhaEquipamento() {
         return acompanhaEquipamento;
     }
 
@@ -83,7 +99,7 @@ public class Acessorio extends Produto{
     public String toString(){
 
         StringBuilder mensagem = new StringBuilder();
-        mensagem.append(getFuncao());
+        mensagem.append(funcao());
         mensagem.append(";");
         if (getEquipamentoAlvo()!="".trim() || getEquipamentoAlvo()!=null){
             mensagem.append(getEquipamentoAlvo());
@@ -91,10 +107,10 @@ public class Acessorio extends Produto{
             mensagem.append("Sem equipamento alvo");
         }
         mensagem.append(";");
-        mensagem.append(isAcompanhaEquipamento()?"Vai com o equipamento": "Vendido a parte");
+        mensagem.append(acompanhaEquipamento()?"Vai com o equipamento": "Vendido a parte");
         mensagem.append(";");
         
-        switch (getLinhaNomenclatura()){
+        switch (linhaNomenclatura()){
             case 0:
                 mensagem.append("Padrão");
                 break;

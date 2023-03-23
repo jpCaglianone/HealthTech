@@ -1,12 +1,23 @@
 package com.example.healthtech.model.domain;
 
 import com.example.healthtech.model.exception.*;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="produto_tabela")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nomeProduto;
     private int quantidade;
     private float valor;
     private String marca;
+
+
+
 
     public Produto(String nomeProduto, int quantidade, float valor, String marca) throws ValorValidoException, NomeInvalidoException {
         if (valor <= 0) {
@@ -28,6 +39,18 @@ public abstract class Produto {
         this.quantidade = quantidade;
     }
 
+    public Produto() {
+
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String toString() {
         StringBuilder mensagem = new StringBuilder();
@@ -41,6 +64,7 @@ public abstract class Produto {
 
         return mensagem.toString();
     }
+
 
     public String getMarca() {
         return marca;

@@ -23,6 +23,7 @@ public class Requisitante {
     //private int idRequisitante;
 
 
+
     public Requisitante (String nomeRequisitante, int tipoRequisitante, String orgao, String enderecoRequisitante, long registroRequisitante) throws ValorValidoException, NomeInvalidoException, TipoInsumoException {
 
         if (nomeRequisitante == null || nomeRequisitante == "".trim()){
@@ -120,5 +121,11 @@ public class Requisitante {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

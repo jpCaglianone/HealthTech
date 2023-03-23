@@ -1,4 +1,3 @@
 Seringa;10;2599;Descarpak;independente;permanente;10
-Seringa;10;2599;Descarpak;independente;permanente;10
-Seringa;10;2599;Descarpak;independente;permanente;10
-Seringa;10;2599;Descarpak;independente;permanente;10
+equipo;7;4599;BBraun;dependente;descartável;5
+luvas;20;1199;Laud;independente;descartável;30

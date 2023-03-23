@@ -18,6 +18,9 @@ public class Usuario {
     @JoinColumn(name = "idUsuario")
     private List<Requisitante> requisitantes;
 
+
+
+
     public Usuario() {
     }
     public Usuario(String emailUsuario,String senhaUsuario) {
@@ -79,4 +82,6 @@ public class Usuario {
     public void setRequisitantes(List<Requisitante> requisitantes) {
         this.requisitantes = requisitantes;
     }
+
+
 }
