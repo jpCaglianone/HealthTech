@@ -3,6 +3,8 @@ package com.example.healthtech.model.domain;
 import com.example.healthtech.model.exception.*;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="produto_tabela")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -15,6 +17,12 @@ public abstract class Produto {
     private int quantidade;
     private float valor;
     private String marca;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+    @ManyToMany(mappedBy = "produtos")
+    private List<Solicitacao> solicitacoes;
 
 
 

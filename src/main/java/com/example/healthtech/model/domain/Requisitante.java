@@ -24,6 +24,7 @@ public class Requisitante {
 
 
 
+
     public Requisitante (String nomeRequisitante, int tipoRequisitante, String orgao, String enderecoRequisitante, long registroRequisitante) throws ValorValidoException, NomeInvalidoException, TipoInsumoException {
 
         if (nomeRequisitante == null || nomeRequisitante == "".trim()){

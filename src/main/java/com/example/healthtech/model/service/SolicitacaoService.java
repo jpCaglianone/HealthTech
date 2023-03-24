@@ -1,6 +1,7 @@
 package com.example.healthtech.model.service;
 
 import com.example.healthtech.model.domain.Solicitacao;
+import com.example.healthtech.model.repository.Antigo_SolicitacaoRepository;
 import com.example.healthtech.model.repository.SolicitacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,13 @@ public class SolicitacaoService {
     SolicitacaoRepository solicitacaoRepository;
 
     public Collection<Solicitacao> listarSolicitacoes() {
-        return solicitacaoRepository.obterListaSolicitacoes();
+        return (Collection<Solicitacao>) solicitacaoRepository.findAll();
     }
 
-    public boolean incluirSolicitacoes(Solicitacao solicitacao) {
-        return solicitacaoRepository.incluirSolicitacoes(solicitacao);
+    public void incluirSolicitacoes(Solicitacao solicitacao) {
+
+            solicitacaoRepository.save(solicitacao);
+
+
     }
 }

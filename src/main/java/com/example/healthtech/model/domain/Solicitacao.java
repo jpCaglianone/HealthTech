@@ -4,19 +4,32 @@ import com.example.healthtech.model.auxs.Metodos;
 import com.example.healthtech.model.exception.SolicitacaoSemProdutoException;
 import com.example.healthtech.model.exception.SolicitacaoSemRequisitanteException;
 import com.example.healthtech.model.exception.TipoAquisicaoException;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+@Entity
+@Table(name = "solicitacao_tabela")
 public class Solicitacao {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int id;
+
     private float valorSolicitacao;
     private int idSolicitacao;
     private LocalDateTime dataSolicitacao;
     private boolean tipoAquisicao; //true = compra , false - aluguel
+
+
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idSolicitante")
     private Requisitante requisitante;
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<Produto> produtos;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Solicitacao (Requisitante requisitante, List<Produto> produtos, String tipoAquisicao) throws SolicitacaoSemProdutoException, SolicitacaoSemRequisitanteException, TipoAquisicaoException {
         if (produtos == null){
@@ -40,6 +53,42 @@ public class Solicitacao {
 
        Metodos.setId();
 
+    }
+
+    public Solicitacao() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Requisitante getRequisitante() {
+        return requisitante;
+    }
+
+    public void setRequisitante(Requisitante requisitante) {
+        this.requisitante = requisitante;
     }
 
     @Override

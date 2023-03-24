@@ -17,7 +17,12 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Requisitante> requisitantes;
-
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Produto> produtos;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Solicitacao> solicitacoes;
 
 
 
