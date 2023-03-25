@@ -62,7 +62,7 @@
             <td>
                 <a href="listaAcessorio/${acessorios.getId()}/excluir">
                     <div class="lixeira"> </div>
-            </a>
+                </a>
             </td>
         </tr>
     </c:forEach>

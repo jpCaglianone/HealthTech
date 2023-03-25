@@ -22,6 +22,7 @@ public class UsuarioService {
             System.out.println("Usuario incluido com sucesso!");
             return true;
         }catch (Exception e){
+            System.out.println("ERRO USUARIO - " + e);
             return false;
         }
 

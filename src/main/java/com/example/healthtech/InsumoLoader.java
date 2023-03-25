@@ -2,6 +2,7 @@ package com.example.healthtech;
 
 import com.example.healthtech.model.domain.Insumo;
 import com.example.healthtech.model.domain.Requisitante;
+import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TipoInsumoException;
 import com.example.healthtech.model.exception.ValorValidoException;
@@ -23,6 +24,10 @@ public class InsumoLoader  implements ApplicationRunner {
     InsumoService insumoService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        Usuario usuario = new Usuario();
+        usuario.setId(4);
+
         String arquivoAcessorio = "insumos.txt";
         String diretorioArquivos="src\\data\\";
 
@@ -44,7 +49,7 @@ public class InsumoLoader  implements ApplicationRunner {
                         campos[4],
                         campos[5],
                         Integer.parseInt(campos[6]));
-
+                insumo.setUsuario(usuario);
                 insumoService.incluirInsumos(insumo);
 
                 linha = leitura.readLine();

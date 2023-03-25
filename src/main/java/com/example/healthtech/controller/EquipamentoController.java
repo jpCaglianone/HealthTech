@@ -37,11 +37,13 @@ public class EquipamentoController {
     @PostMapping("/cadastroEquipamento/incluir")
     public String AcessorioInclusao(Model model, @RequestParam String nomeProduto , @RequestParam String quantidadeProduto, @RequestParam String valorProduto
             , @RequestParam String marcaProduto, @RequestParam String anoFabricacao, @RequestParam String tensao, @RequestParam String corrente
-            ,@RequestParam String estado, @RequestParam String numeroSerie) throws NomeInvalidoException, ValorValidoException, AnoInvalidoException, TensaoInvalidaException {
+            ,@RequestParam String estado, @RequestParam String numeroSerie,@SessionAttribute("user") Usuario usuario)
+            throws NomeInvalidoException, ValorValidoException, AnoInvalidoException, TensaoInvalidaException {
 
 
         mensagem = null;
         Equipamento equipamento= new Equipamento(estado,Integer.parseInt(anoFabricacao), nomeProduto, Integer.parseInt(quantidadeProduto),Float.parseFloat(valorProduto),marcaProduto,Integer.parseInt(corrente),Integer.parseInt(tensao), numeroSerie);
+        equipamento.setUsuario(usuario);
         if (!equipamentoService.incluirEquipamentos(equipamento)) {
             mensagem = "Não foi possivel incluir o acessório!";
             model.addAttribute("mensagem",  mensagem);

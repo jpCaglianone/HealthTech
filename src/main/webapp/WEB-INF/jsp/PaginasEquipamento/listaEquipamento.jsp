@@ -9,6 +9,7 @@
         Listagem de Requisitantes - HealthTech
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -55,9 +56,11 @@
             <td>${equipamentos.numeroSerie()}</td>
             <td>${equipamentos.anoFabricacao()}</td>
             <td>${equipamentos.valorEstado()}</td>
-            <td><a href="/listaEquipamento/${equipamentos.getId()}/excluir">
-                <i class="fas fa-trash"></i>
-            </a></td>
+            <td>
+                <a href="listaEquipamento/${equipamentos.getId()}/excluir">
+                    <div class="lixeira"> </div>
+                </a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

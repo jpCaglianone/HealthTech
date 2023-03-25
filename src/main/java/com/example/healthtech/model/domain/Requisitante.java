@@ -21,7 +21,9 @@ public class Requisitante {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
     //private int idRequisitante;
-
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idSolicitante")
+    private Solicitacao solicitacao;
 
 
 
@@ -67,6 +69,14 @@ public class Requisitante {
         mensagem.append(this.orgaoPublico?"Público":"Privado");
 
         return mensagem.toString();
+    }
+
+    public Solicitacao getSolicitacao() {
+        return solicitacao;
+    }
+
+    public void setSolicitacao(Solicitacao solicitacao) {
+        this.solicitacao = solicitacao;
     }
 
     public long getRegistroRequisitante() {

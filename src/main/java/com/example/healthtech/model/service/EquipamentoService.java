@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+
 @Service
 public class EquipamentoService {
     @Autowired
@@ -19,6 +20,7 @@ public class EquipamentoService {
             equipamentoRepository.save(equipamento);
             return true;
         }catch (Exception e){
+            System.out.println("ERRO EQUIPAMENTO - " + e);
             return  false;
         }
     }
@@ -30,5 +32,10 @@ public class EquipamentoService {
 
         return  equipamentoRepository.findAll();
 
+    }
+
+    public Object listarEquipamentoPorId (Integer id){
+
+        return equipamentoRepository.findById(id);
     }
 }

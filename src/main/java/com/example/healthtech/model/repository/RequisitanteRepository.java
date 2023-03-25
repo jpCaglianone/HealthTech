@@ -12,4 +12,7 @@ public interface RequisitanteRepository extends CrudRepository<Requisitante,Inte
 
     @Query("from Requisitante r where r.usuario.id = :id")
     List<Requisitante> listarRequisitantes(Integer id);
+
+
+
 }

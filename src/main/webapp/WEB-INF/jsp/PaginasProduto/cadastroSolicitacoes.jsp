@@ -45,11 +45,9 @@
             <td>${requisitante.descricaoOrgao()}</td>
             <td>${requisitante.getEnderecoRequisitante()}</td>
             <td>${requisitante.getRegistroRequisitante()}</td>
-            <td>
-                <a href="listaRequisitante/${requisitante.getId()}/excluir">
-                    <div class="lixeira"> </div>
-                </a>
-            </td>
+            <td><a href="/listaSolicitacao/${solicitacao.getId()}/excluir">
+                <i class="fas fa-trash"></i>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

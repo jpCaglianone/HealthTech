@@ -2,9 +2,11 @@
 package com.example.healthtech;
 
 import com.example.healthtech.model.domain.Acessorio;
+import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.ValorValidoException;
 import com.example.healthtech.model.service.AcessorioService;
+import com.example.healthtech.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,8 +22,14 @@ public class AcessorioLoader implements ApplicationRunner {
     @Autowired
     AcessorioService acessorioService;
 
+    @Autowired
+    UsuarioService usuarioService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
 
         String arquivoAcessorio = "acessorios.txt";
         try {
@@ -45,7 +53,10 @@ public class AcessorioLoader implements ApplicationRunner {
                             Integer.parseInt(campos[6]),
                             campos[7]);
 
+
+                    acessorio.setUsuario(usuario);
                     acessorioService.incluirAcessorios(acessorio);
+
 
 
                 System.out.println("A inclusão do acessorio  foi realizada com sucesso!");

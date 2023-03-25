@@ -21,7 +21,12 @@ public class InsumoService {
             return true;
         }
         catch (Exception e){
+            System.out.println("ERRO INSUMO - " + e);
             return  false;
         }
+    }
+
+    public void excluirInsumos (Integer id){
+        insumoRepository.deleteById(id);
     }
 }

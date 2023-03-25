@@ -2,6 +2,7 @@ package com.example.healthtech;
 
 
 import com.example.healthtech.model.domain.Equipamento;
+import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.AnoInvalidoException;
 import com.example.healthtech.model.exception.NomeInvalidoException;
 import com.example.healthtech.model.exception.TensaoInvalidaException;
@@ -27,6 +28,10 @@ public class EquipamentoLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        Usuario usuario = new Usuario();
+        usuario.setId(4);
+
+
         String arquivoEquipamento = "equipamentos.txt";
         try {
             FileReader fileR = new FileReader("src\\data\\" + arquivoEquipamento);
@@ -50,7 +55,7 @@ public class EquipamentoLoader implements ApplicationRunner {
                             Integer.parseInt(campos[7]),
                             campos[8]
                     );
-
+                    equipamento.setUsuario(usuario);
                     equipamentoService.incluirEquipamentos(equipamento);
 
                 System.out.println("A inclusão do equipamento  foi realizada com sucesso!");

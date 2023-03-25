@@ -1,10 +1,8 @@
 package com.example.healthtech;
 
-import com.example.healthtech.model.auxs.Metodos;
 import com.example.healthtech.model.domain.*;
 import com.example.healthtech.model.exception.*;
-import com.example.healthtech.model.service.SolicitacaoService;
-import com.example.healthtech.model.service.UsuarioService;
+import com.example.healthtech.model.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -13,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Order(6)
 @Component
@@ -21,24 +20,41 @@ public class SolicitacaoLoader implements ApplicationRunner {
     private SolicitacaoService solicitacaoService;
 
     @Autowired
+    private ProdutoService produtoService;
+
+    @Autowired
+    private RequisicaoService requisicaoService;
+
+
+    @Autowired
     private UsuarioService usuarioService;
     @Override
     public void run(ApplicationArguments args) {
-        Metodos.arqEnergia();
-
-        List<Produto> p1 = new ArrayList<Produto>();
+//        Metodos.arqEnergia();
+//
+        List<Produto> p1 = new ArrayList<>();
 
         try {
             Equipamento e1 = new Equipamento("Novo", 2000, "Cardioversor", 4, 7456.54f, "Cardiomax", 4, 2, "3t24/tgwes");
             p1.add(e1);
-        } catch (NomeInvalidoException | TensaoInvalidaException | ValorValidoException e) {
-            System.out.println(e.getMessage());
+        }catch (Exception e){
+            System.out.println("Erro ao cadastrar o equipamento da solicitação!");
+        } catch (NomeInvalidoException e) {
+            throw new RuntimeException(e);
+        } catch (ValorValidoException e) {
+            throw new RuntimeException(e);
         } catch (AnoInvalidoException e) {
             throw new RuntimeException(e);
+        } catch (TensaoInvalidaException e) {
+            throw new RuntimeException(e);
         }
+
+        produtoService.incluirProduto(p1.get(0));
+
         Requisitante requisitante = null;
         try {
-            requisitante = new Requisitante("João Pedro",3,"privado","Rua tal",8416);
+            requisitante = new Requisitante("leandro",3,"privado","Rua tal",8416);
+
         } catch (ValorValidoException e) {
             throw new RuntimeException(e);
         } catch (NomeInvalidoException e) {
@@ -46,6 +62,9 @@ public class SolicitacaoLoader implements ApplicationRunner {
         } catch (TipoInsumoException e) {
             throw new RuntimeException(e);
         }
+        requisicaoService.inclusaoRequisitante(requisitante);
+
+
 
         Solicitacao s1 = null;
         try {
@@ -60,10 +79,7 @@ public class SolicitacaoLoader implements ApplicationRunner {
         usuarioService.incluirUsuario(admin0);
 
         s1.setUsuario(admin0);
-
-         solicitacaoService.incluirSolicitacoes(s1);
-
-        System.out.println("Solicitação realizada com sucesso!");
+        solicitacaoService.incluirSolicitacoes(s1);
 
 
     }

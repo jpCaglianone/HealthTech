@@ -40,6 +40,7 @@ public class RequisicaoService {
             requisitanteRepository.save(requisitante);
             return true;
         } catch (Exception e) {
+            System.out.println("ERRO REQUISITANTE - " + e);
             return false;
         }
        //return requisitanteRepository.inclusaoRequisitante(requisitante);

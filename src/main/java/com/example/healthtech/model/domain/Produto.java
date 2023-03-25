@@ -26,7 +26,6 @@ public abstract class Produto {
 
 
 
-
     public Produto(String nomeProduto, int quantidade, float valor, String marca) throws ValorValidoException, NomeInvalidoException {
         if (valor <= 0) {
             throw new ValorValidoException("O valor deve ser maior que 0!");
@@ -73,6 +72,13 @@ public abstract class Produto {
         return mensagem.toString();
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public String getMarca() {
         return marca;

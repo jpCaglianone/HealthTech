@@ -63,8 +63,6 @@ public class Equipamento extends Produto{
 
     }
 
-
-
     public String estado(){
         return usado()?"Usado":"Novo";
     }

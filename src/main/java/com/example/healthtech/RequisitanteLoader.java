@@ -1,11 +1,11 @@
 package com.example.healthtech;
 
-import com.example.healthtech.model.domain.Requisitante;
-import com.example.healthtech.model.domain.Usuario;
-import com.example.healthtech.model.exception.NomeInvalidoException;
-import com.example.healthtech.model.exception.TipoInsumoException;
-import com.example.healthtech.model.exception.ValorValidoException;
+import com.example.healthtech.model.auxs.Metodos;
+import com.example.healthtech.model.domain.*;
+import com.example.healthtech.model.exception.*;
 import com.example.healthtech.model.service.RequisicaoService;
+import com.example.healthtech.model.service.SolicitacaoService;
+import com.example.healthtech.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @Order(2)
 @Component
@@ -25,6 +27,11 @@ public class RequisitanteLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+
+
+
+
 
 
         String arquivoAcessorio = "requisitantes.txt";
@@ -63,5 +70,6 @@ public class RequisitanteLoader implements ApplicationRunner {
         finally {
             System.out.println("Dados do arquivo " + arquivoAcessorio + " carregados com sucesso!");
         }
+
     }
 }

@@ -22,6 +22,7 @@ public class AcessorioService {
             acessorioRepository.save(acessorio);
             return true;
         }catch (Exception e){
+            System.out.println("ERRO ACESSORIO - " + e);
             return false;
         }
     }

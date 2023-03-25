@@ -19,7 +19,12 @@ public class SolicitacaoService {
 
     public void incluirSolicitacoes(Solicitacao solicitacao) {
 
-            solicitacaoRepository.save(solicitacao);
+            try {
+                solicitacaoRepository.save(solicitacao);
+                System.out.println("Solicitação incluida com sucesso");
+            }catch (Exception e){
+                System.out.println(e);
+            }
 
 
     }
