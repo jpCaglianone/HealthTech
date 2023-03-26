@@ -21,6 +21,14 @@
 <c:import url="../menu.jsp" />
     <div class="container">
         <h1>Cadastro de usuário</h1>
+
+        <form action="/cep" class="orm-inline" method="post">
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" class="form-control" id="cep" name="cep"  placeholder="Insira o cep">
+                <button type="submit" class="btn btn-primary">Busca CEP</button>
+            </div>
+        </form>
         <form action="cadastroRequisitante/incluir" method="post">
             <div class="form-group">
                 <label for="nome">Nome:</label>

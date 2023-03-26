@@ -6,6 +6,7 @@ import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.*;
 import com.example.healthtech.model.service.RequisicaoService;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @SessionAttributes("user")
 public class RequisicaoController {
+
 
     @Autowired
     private RequisicaoService requisicaoService;
