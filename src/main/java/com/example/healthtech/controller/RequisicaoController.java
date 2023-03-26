@@ -1,6 +1,7 @@
 package com.example.healthtech.controller;
 
 
+import com.example.healthtech.model.domain.Endereco;
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.exception.*;
@@ -23,9 +24,17 @@ public class RequisicaoController {
     }
 
     @PostMapping(value = "cadastroRequisitante/incluir")
-    public String postCadRequester(@SessionAttribute("user")Usuario usuario, @RequestParam String nome, @RequestParam String tipoRequisitante, @RequestParam String orgao, @RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante, Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+    public String postCadRequester(@SessionAttribute("user")Usuario usuario, @RequestParam String nome,
+                                   @RequestParam String tipoRequisitante, @RequestParam String orgao,
+                                   @RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante,
+                                   Endereco endereco, Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+
+
 
         Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante), orgao, enderecoRequisitante, Long.parseLong(registroRequisitante));
+
+
+        requisitante.setEndereco(endereco);
         requisitante.setUsuario(usuario);
         requisicaoService.inclusaoRequisitante(requisitante);
 

@@ -14,16 +14,18 @@ public class Requisitante {
     private String nomeRequisitante;
     private int tipoRequisitante; // 1 - Hospital 2 - Clínica, 3 - Empresa/Instituição, 4 - outros
     private boolean orgaoPublico;
-
     private String enderecoRequisitante;
     private long registroRequisitante;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
-    //private int idRequisitante;
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "idSolicitante")
+    @JoinColumn(name = "idSolicitacao")
     private Solicitacao solicitacao;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
 
 
 
@@ -77,6 +79,14 @@ public class Requisitante {
 
     public void setSolicitacao(Solicitacao solicitacao) {
         this.solicitacao = solicitacao;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public long getRegistroRequisitante() {
@@ -134,7 +144,21 @@ public class Requisitante {
         this.usuario = usuario;
     }
 
+    public void setEnderecoRequisitante(String enderecoRequisitante) {
+        this.enderecoRequisitante = enderecoRequisitante;
+    }
 
+    public void setRegistroRequisitante(long registroRequisitante) {
+        this.registroRequisitante = registroRequisitante;
+    }
+
+    public void setNomeRequisitante(String nomeRequisitante) {
+        this.nomeRequisitante = nomeRequisitante;
+    }
+
+    public void setTipoRequisitante(int tipoRequisitante) {
+        this.tipoRequisitante = tipoRequisitante;
+    }
 
     public void setId(int id) {
         this.id = id;

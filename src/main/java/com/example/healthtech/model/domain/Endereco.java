@@ -14,6 +14,18 @@ public class Endereco {
     private String bairro;
     private String localidade;
     private String uf;
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idRequisitante")
+    private Requisitante requisitante;
+
+
+    public Requisitante getRequisitante() {
+        return requisitante;
+    }
+
+    public void setRequisitante(Requisitante requisitante) {
+        this.requisitante = requisitante;
+    }
 
     public Integer getId() {
         return id;

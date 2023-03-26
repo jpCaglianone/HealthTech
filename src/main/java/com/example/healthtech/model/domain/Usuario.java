@@ -23,7 +23,9 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Solicitacao> solicitacoes;
-
+//    @OneToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "idEndereco")
+//    private Endereco endereco;
 
 
     public Usuario() {
@@ -39,6 +41,14 @@ public class Usuario {
         setNome(nome);
         setSenha(senha);
     }
+
+//    public Endereco getEndereco() {
+//        return endereco;
+//    }
+//
+//    public void setEndereco(Endereco endereco) {
+//        this.endereco = endereco;
+//    }
 
     public void setId(int id) {
         this.id = id;

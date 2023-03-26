@@ -82,6 +82,8 @@
                 </fieldset>
             </div>
 
+            <c:import url="cadastroEndereco.jsp" />
+
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
