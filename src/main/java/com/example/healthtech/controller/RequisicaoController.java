@@ -20,6 +20,8 @@ public class RequisicaoController {
     @Autowired
     private RequisicaoService requisicaoService;
 
+
+
     @GetMapping("/cadastroRequisitante")
     public String cadUserPage() {
         return "PaginasRequisitante/cadastroRequisitante";
