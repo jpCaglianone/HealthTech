@@ -53,7 +53,7 @@ public class SolicitacaoLoader implements ApplicationRunner {
 
         Requisitante requisitante = null;
         try {
-            requisitante = new Requisitante("leandro",3,"privado","Rua tal",8416);
+            requisitante = new Requisitante("leandro",3,"privado",8416);
 
         } catch (ValorValidoException e) {
             throw new RuntimeException(e);

@@ -32,7 +32,7 @@
         <th>Nome</th>
         <th>Tipo de instituição</th>
         <th>Tipo de orgao</th>
-        <th>Endereço</th>
+<%--        <th>Endereço</th>--%>
         <th>Registro</th>
         <c:if test="${nivelUsuario==4}" >
              <th>Cadastrado por:</th>
@@ -47,7 +47,7 @@
             <td>${requisitante.getNomeRequisitante()}</td>
             <td>${requisitante.dominioRequisitante()}</td>
             <td>${requisitante.descricaoOrgao()}</td>
-            <td>${requisitante.getEnderecoRequisitante()}</td>
+<%--            <td>${requisitante.getEnderecoRequisitante()}</td>--%>
             <td>${requisitante.getRegistroRequisitante()}</td>
             <c:if test="${nivelUsuario==4}" >
                 <th>${requisitante.usuario.getNome()}</th>

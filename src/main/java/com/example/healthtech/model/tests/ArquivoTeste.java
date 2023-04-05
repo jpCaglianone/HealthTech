@@ -63,7 +63,7 @@ public class ArquivoTeste {
                         break;
                     case "s":
                         try {
-                            solicitacao = new Solicitacao(new Requisitante(campos[1], Integer.parseInt(campos[2]), campos[3],"teste", 1313423), produtos, campos[4]);
+                            solicitacao = new Solicitacao(new Requisitante(campos[1], Integer.parseInt(campos[2]), campos[3], 1313423), produtos, campos[4]);
                             escrita.write("\n");
                             escrita.write(solicitacao.imprimirSolicitacao());
                             escrita.write("\n");
@@ -74,7 +74,7 @@ public class ArquivoTeste {
                         break;
                     case "r":
                         try {
-                            Requisitante r1 = new Requisitante(campos[1], Integer.parseInt(campos[2]),campos[3], "teste", 1313423);
+                            Requisitante r1 = new Requisitante(campos[1], Integer.parseInt(campos[2]),campos[3],  1313423);
                             System.out.println(r1.toString());
                         } catch (ValorValidoException | TipoInsumoException | NomeInvalidoException e) {
                             System.out.println(e.getMessage());

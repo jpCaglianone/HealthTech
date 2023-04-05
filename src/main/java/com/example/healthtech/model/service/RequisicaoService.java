@@ -46,5 +46,15 @@ public class RequisicaoService {
        //return requisitanteRepository.inclusaoRequisitante(requisitante);
     }
 
+    public String excluirRequisitante(Integer id) {
+
+        try{
+            requisitanteRepository.deleteById(id);
+            return "Requisitante de id " + id + "deletado com sucesso!";
+        }
+        catch (Exception e){
+            return "Requisitante não pode ser deletado. Log do erro: " + e;
+        }
+    }
 
 }

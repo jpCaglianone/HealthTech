@@ -13,14 +13,6 @@ public class EnderecoService {
 
 
     public Endereco buscaPorCep(String cep){
-       /* Endereco endereco = new Endereco();
-        endereco.setCep(cep);
-        endereco.setBairro("Rio comprido");
-        endereco.setComplemento("apartamento 201");
-        endereco.setLocalidade("ZN");
-        endereco.setLogradouro("Rua Tenente Vieira Sampaio, 154");
-        endereco.setUf("RJ");
-        */
 
         return enderecoClient.buscaPorCep(cep);
     }

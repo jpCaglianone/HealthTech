@@ -62,10 +62,8 @@ public class EquipamentoController {
             model.addAttribute("mensagem", mensagem);
         }
         model.addAttribute("listaEquipamento", equipamentoService.listarEquipamentos());
-
         return "PaginasEquipamento/listaEquipamento";
     }
-
 
     @GetMapping("listaEquipamento/{indice}/excluir")
     public String excluirEquipamento(@PathVariable Integer indice){

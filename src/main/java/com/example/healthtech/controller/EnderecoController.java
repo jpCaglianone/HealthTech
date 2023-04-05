@@ -16,13 +16,10 @@ public class EnderecoController {
     @PostMapping("/cep")
     public String buscaCep(@RequestParam String cep, Model model){
 
-        Endereco endereco = new Endereco();
-        endereco.setCep(cep);
-    System.out.println(enderecoService.buscaPorCep(cep));
+        System.out.println(enderecoService.buscaPorCep(cep).getCep());
         model.addAttribute("endereco", enderecoService.buscaPorCep(cep));
 
         return "PaginasRequisitante/cadastroRequisitante";
     }
 
 }
-git

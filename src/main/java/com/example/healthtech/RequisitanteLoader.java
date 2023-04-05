@@ -29,11 +29,6 @@ public class RequisitanteLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
 
-
-
-
-
-
         String arquivoAcessorio = "requisitantes.txt";
         String diretorioArquivos="src\\data\\";
 
@@ -47,14 +42,13 @@ public class RequisitanteLoader implements ApplicationRunner {
                 campos = linha.split(";");
 
                 Usuario usuario = new Usuario();
-                usuario.setId(Integer.parseInt(campos[5]));
+                usuario.setId(Integer.parseInt(campos[4]));
 
                 Requisitante requisitante = new Requisitante(
                         campos[0],
                         Integer.parseInt(campos[1]),
                         campos[2],
-                        campos[3],
-                        Long.parseLong(campos[4]));
+                        Long.parseLong(campos[3]));
 
                 requisitante.setUsuario(usuario);
                 requisicaoService.inclusaoRequisitante(requisitante);

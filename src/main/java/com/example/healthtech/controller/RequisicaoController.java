@@ -1,6 +1,5 @@
 package com.example.healthtech.controller;
 
-
 import com.example.healthtech.model.domain.Endereco;
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.domain.Usuario;
@@ -16,11 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes("user")
 public class RequisicaoController {
 
-
+    private String mensagem;
     @Autowired
     private RequisicaoService requisicaoService;
-
-
 
     @GetMapping("/cadastroRequisitante")
     public String cadUserPage() {
@@ -28,20 +25,17 @@ public class RequisicaoController {
     }
 
     @PostMapping(value = "cadastroRequisitante/incluir")
-    public String postCadRequester(@SessionAttribute("user")Usuario usuario, @RequestParam String nome,
-                                   @RequestParam String tipoRequisitante, @RequestParam String orgao,
-                                   @RequestParam String enderecoRequisitante, @RequestParam String registroRequisitante,
-                                   Endereco endereco, Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+    public String postCadRequester(@SessionAttribute("user")Usuario usuario,
+                                    Requisitante requisitante, Endereco endereco,
+                                    Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
 
+       System.out.println(endereco.getCep());
 
+     //   Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante), orgao,  Long.parseLong(registroRequisitante));
+//        requisitante.setEndereco(endereco);
 
-        Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante), orgao, enderecoRequisitante, Long.parseLong(registroRequisitante));
-
-
-        requisitante.setEndereco(endereco);
         requisitante.setUsuario(usuario);
         requisicaoService.inclusaoRequisitante(requisitante);
-
 
         model.addAttribute("mensagem", true);
 
@@ -62,6 +56,12 @@ public class RequisicaoController {
         model.addAttribute("mensagem", "mensagem");
 
         return "PaginasRequisitante/listaRequisitante";
+    }
+
+    @GetMapping("listaRequisitante/{indice}/excluir")
+    public String excluirRequisitante(@PathVariable Integer indice){
+        mensagem = requisicaoService.excluirRequisitante(indice);
+        return "redirect:/listaRequisitante";
     }
 
 }

@@ -38,14 +38,14 @@
     </thead>
     <tbody>
 
-    <c:forEach var="requisitante" items="${listaRequisitantes}">
+    <c:forEach var="produto" items="${listaProdutos}">
         <tr>
-            <td>${requisitante.getNomeRequisitante()}</td>
-            <td>${requisitante.dominioRequisitante()}</td>
-            <td>${requisitante.descricaoOrgao()}</td>
-            <td>${requisitante.getEnderecoRequisitante()}</td>
-            <td>${requisitante.getRegistroRequisitante()}</td>
-            <td><a href="/listaSolicitacao/${solicitacao.getId()}/excluir">
+            <td>${produto.getNomeProduto()}</td>
+            <td>${produto.getQuantidade()}</td>
+            <td>${produto.getValor()}</td>
+            <td>${produto.getMarca()}</td>
+            <td>${produto.getId()}</td>
+            <td><a href="/listaProduto/${produto.getId()}/excluir">
                 <i class="fas fa-trash"></i>
             </a></td>
         </tr>

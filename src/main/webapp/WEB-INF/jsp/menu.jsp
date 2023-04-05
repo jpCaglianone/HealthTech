@@ -46,6 +46,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                     <a class="dropdown-item" href="listaRequisitante">Requisitantes</a>
+                    <a class="dropdown-item" href="listaProduto">Produtos</a>
                     <a class="dropdown-item" href="listaAcessorio">Acessórios</a>
                     <a class="dropdown-item" href="listaInsumo">Insumos</a>
                     <a class="dropdown-item" href="listaEquipamento">Equipamentos</a>

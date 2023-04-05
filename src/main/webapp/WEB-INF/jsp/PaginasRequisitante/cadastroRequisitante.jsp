@@ -25,19 +25,16 @@
         <form action="/cep" class="orm-inline" method="post">
             <div class="form-group">
                 <label for="cep">CEP:</label>
-                <input type="text" class="form-control" id="cep" name="cep"  placeholder="Insira o cep">
+                <input type="number" class="form-control" id="cep" name="cep"  placeholder="Insira o cep" required>
                 <button type="submit" class="btn btn-primary">Busca CEP</button>
             </div>
         </form>
         <form action="cadastroRequisitante/incluir" method="post">
             <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o seu nome">
+                <label for="nomeRequisitante">Nome:</label>
+                <input type="text" class="form-control" id="nomeRequisitante" name="nomeRequisitante" placeholder="Insira o seu nome">
             </div>
-            <div class="form-group">
-                <label for="enderecoRequisitante">Endereço do requisitante:</label>
-                <input type="text" class="form-control" id="enderecoRequisitante" name="enderecoRequisitante" placeholder="Insira o tipo de requisitante">
-            </div>
+
             <div class="form-group">
                 <label for="registroRequisitante">Registro do requisitante:</label>
                 <input type="number" class="form-control" id="registroRequisitante" name="registroRequisitante" placeholder="Insira o Registro do requisitante">
@@ -90,7 +87,7 @@
                 </fieldset>
             </div>
 
-            <c:import url="cadastroEndereco.jsp" />
+<        <c:import url="cadastroEndereco.jsp" />
 
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

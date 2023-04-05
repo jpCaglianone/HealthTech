@@ -29,11 +29,18 @@ public class ProdutoService {
     }
 
 
-    public void excluir(Integer id) {
-        produtoRepository.deleteById(id);
+    public String excluirProduto(Integer id) {
+
+        try{
+            produtoRepository.deleteById(id);
+            return "Produto de id " + id + "deletado com sucesso!";
+        }
+        catch (Exception e){
+            return "Produto não pode ser deletado. Log do erro: " + e;
+        }
     }
 
-    public Collection<Produto> listarEquipamentos(){
+    public Collection<Produto> listarProdutos(){
         return (Collection<Produto>) produtoRepository.findAll();
     }
 
