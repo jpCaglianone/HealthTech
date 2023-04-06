@@ -11,5 +11,9 @@ import java.util.List;
 
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto,Integer> {
+    @Query("from Produto p where p.usuario.id = :userId ORDER BY p.valor ASC")
+    List<Produto> obterLista(Integer userId);
 
+    @Query("from Produto p ORDER BY p.valor ASC")
+    List<Produto> obterListaCompleta();
 }

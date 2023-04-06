@@ -10,19 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" integrity="sha512-XXXXXXX" crossorigin="anonymous" />
-</head>
-<c:if test="${not empty usuario}">
-    <div class="alert alert-danger">
-        <strong>Atenção!</strong> Email e/ou senha incorreto(s).
-    </div>
-</c:if>
+
     <style>
+        #formulario{
+            margin-top: 200px;
+        }
         .form-text {
-            position: absolute;
+            margin-top: 10px;
             right: 0;
-            bottom: 1.75rem;
             z-index: 2;
-            display: block;
             width: 2.5rem;
             height: 2.5rem;
             line-height: 2.5rem;
@@ -34,10 +30,6 @@
         .form-control:not(:placeholder-shown) ~ .form-text {
             color: #0d6efd;
         }
-        .vh-100 {
-            height: 100vh;
-        }
-
         .card {
             max-width: 500px;
             width: 100%;
@@ -48,10 +40,33 @@
 
 <body>
 
+
 <c:import url="../menu.jsp" />
 
 <c:if test="${empty mensagem}">
-<div class="d-flex align-items-center justify-content-center vh-100">
+
+
+    <c:if test="${not empty alerta}">
+        <div class="alert alert-danger" id="mensagem">
+                ${alerta}
+        </div>
+        <style>
+
+            #mensagem {
+                display: flex;
+                justify-content: center;
+                float:top;
+            }
+        </style>
+        <script defer>
+            setTimeout(function() {
+                $("#mensagem").fadeOut(5000);
+            }, 2500);
+        </script>
+    </c:if>
+
+
+<div class="d-flex align-items-center justify-content-center" id="formulario">
     <div class="card shadow-lg border-0 rounded-lg mt-5">
         <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
         <div class="card-body">

@@ -36,15 +36,14 @@ public class UsuarioService {
 
     }
 
-//    public  Usuario validacao (String email, String senha){
-//
-//        //return usuarioRepository.validacao(email,senha);
-//        return usuarioRepository;
-//    }
 
     public Usuario validacao (Usuario usuario){
-
-        return usuarioRepository.validacao(usuario.getEmail(), usuario.getSenha());
+        try{
+            return usuarioRepository.validacao(usuario.getEmail(), usuario.getSenha());
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     public boolean existeUsuario(){

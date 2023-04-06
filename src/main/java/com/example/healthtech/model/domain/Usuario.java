@@ -23,9 +23,6 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Solicitacao> solicitacoes;
-//    @OneToOne(cascade = CascadeType.PERSIST)
-//    @JoinColumn(name = "idEndereco")
-//    private Endereco endereco;
 
 
     public Usuario() {

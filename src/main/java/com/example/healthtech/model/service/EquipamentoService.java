@@ -1,19 +1,25 @@
 package com.example.healthtech.model.service;
 
+import com.example.healthtech.model.domain.Acessorio;
 import com.example.healthtech.model.domain.Equipamento;
 import com.example.healthtech.model.repository.EquipamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class EquipamentoService {
     @Autowired
     EquipamentoRepository equipamentoRepository;
 
-    public Collection<Equipamento> listarEquipamentos(){
-        return (Collection<Equipamento>) equipamentoRepository.findAll();
+    public List<Equipamento> listaEquipamentos(int id){
+        return  equipamentoRepository.obterLista(id);
+    }
+
+    public Collection<Equipamento> listarTodosEquipamentos(){
+        return equipamentoRepository.obterListaCompleta();
     }
     public boolean incluirEquipamentos(Equipamento equipamento){
         try{
@@ -34,8 +40,4 @@ public class EquipamentoService {
 
     }
 
-    public Object listarEquipamentoPorId (Integer id){
-
-        return equipamentoRepository.findById(id);
-    }
 }

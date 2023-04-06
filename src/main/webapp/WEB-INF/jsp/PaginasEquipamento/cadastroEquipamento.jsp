@@ -18,42 +18,34 @@
     </style>
 </head>
 <body>
-<c:import url="../menu.jsp" />
+
 
 <c:if test="${not empty mensagem}">
-    <div class="alert alert-danger">
-        <strong>Atenção!</strong> ${mensagem}!
+    <div class="alert alert-success" id="mensagem">
+            ${mensagem}
     </div>
+    <style>
+
+        #mensagem {
+            display: flex;
+            justify-content: center;
+            float:top;
+        }
+    </style>
+    <script defer>
+        setTimeout(function() {
+            $("#mensagem").fadeOut(5000);
+        }, 2500);
+    </script>
 </c:if>
+
+<c:import url="../menu.jsp" />
+
     <div class="container">
         <h1>Cadastro de acessorios</h1>
         <form action="cadastroEquipamento/incluir" method="post">
 
-        <div id="produto">
-            <div class="form-group">
-                <label for="nomeProduto">Nome:</label>
-                <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Insira o nome do produto" required>
-            </div>
-
-
-            <div class="form-group">
-                <label for="quantidadeProduto">Quantidade:</label>
-                <input type="number" class="form-control" id="quantidadeProduto" name="quantidadeProduto" placeholder="Insira a quantidade" required>
-            </div>
-
-
-            <div class="form-group">
-                <label for="valorProduto">Preço:</label>
-                <input type="number" class="form-control" id="valorProduto" name="valorProduto" placeholder="Insira preço" onchange="validaNumero()" required>
-            </div>
-
-
-            <div class="form-group">
-                <label for="marcaProduto">Marca:</label>
-                <input type="text" class="form-control" id="marcaProduto" name="marcaProduto" placeholder="Insira a marca" required>
-            </div>
-        </div>
-
+            <c:import url="../PaginasProduto/cadastroProduto.jsp" />
             <div class="form-group">
                 <label for="anoFabricacao">Ano de fabricação:</label>
                 <input type="number" class="form-control" id="anoFabricacao" name="anoFabricacao" placeholder="Insira o ano de fabricação do equipamento" required>
@@ -166,37 +158,11 @@
             <button class="btn btn-danger" onclick="limparCampos()">Limpar</button>
         </form>
     </div>
-<c:if test="${not empty mensagem}">
-    <script>
-        alert(mensagem);
-    </script>
-</c:if>
-<script>
-    /*
-    let numeroInserido = [];
-       let numero = (document.getElementById("valorAcessorio"));
-        numero.addEventListener("keypress", () => {
-            alert(numero.value.length)
-            let numeroVigente = numero.value[numero.value.length]
-            alert(numeroVigente);
-            if ((numeroVigente <= 0 || numeroVigente >= 9)  && numeroVigente!="."){
-                numero.value.pop();
-                alert(numeroVigente)
-            }
-        })
 
-     */
-</script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVQ8ew"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
 </body>
 
 </body>

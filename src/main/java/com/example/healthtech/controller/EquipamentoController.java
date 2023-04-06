@@ -35,14 +35,8 @@ public class EquipamentoController {
 
 
     @PostMapping("/cadastroEquipamento/incluir")
-    public String AcessorioInclusao(Model model, @RequestParam String nomeProduto , @RequestParam String quantidadeProduto, @RequestParam String valorProduto
-            , @RequestParam String marcaProduto, @RequestParam String anoFabricacao, @RequestParam String tensao, @RequestParam String corrente
-            ,@RequestParam String estado, @RequestParam String numeroSerie,@SessionAttribute("user") Usuario usuario)
-            throws NomeInvalidoException, ValorValidoException, AnoInvalidoException, TensaoInvalidaException {
-
-
+    public String AcessorioInclusao(Model model, Equipamento equipamento,@SessionAttribute("user") Usuario usuario) {
         mensagem = null;
-        Equipamento equipamento= new Equipamento(estado,Integer.parseInt(anoFabricacao), nomeProduto, Integer.parseInt(quantidadeProduto),Float.parseFloat(valorProduto),marcaProduto,Integer.parseInt(corrente),Integer.parseInt(tensao), numeroSerie);
         equipamento.setUsuario(usuario);
         if (!equipamentoService.incluirEquipamentos(equipamento)) {
             mensagem = "Não foi possivel incluir o acessório!";
@@ -56,14 +50,19 @@ public class EquipamentoController {
 
     }
 
+
     @GetMapping("listaEquipamento")
-    public String ListaAcessoriosPage(Model model){
-        if (mensagem != null){
-            model.addAttribute("mensagem", mensagem);
+    public String ListaAcessoriosPage(Model model, @SessionAttribute("user") Usuario usuario){
+        if (usuario.getNivel() == 4) {
+            model.addAttribute("listaEquipamento", equipamentoService.listarTodosEquipamentos());
         }
-        model.addAttribute("listaEquipamento", equipamentoService.listarEquipamentos());
+        else {
+            model.addAttribute("listaEquipamento", equipamentoService.listaEquipamentos(usuario.getId()));
+        }
         return "PaginasEquipamento/listaEquipamento";
     }
+
+
 
     @GetMapping("listaEquipamento/{indice}/excluir")
     public String excluirEquipamento(@PathVariable Integer indice){

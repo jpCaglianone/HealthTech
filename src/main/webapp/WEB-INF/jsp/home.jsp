@@ -33,11 +33,22 @@
     </style>
 </head>
 <body>
-<c:if test="${not empty user}">
-    <script defer>
-        alert(` Usuário logado. Seja bem-vindo ${user.getNome()}`)
-    </script>
-</c:if>
+    <c:if test="${not empty user}">
+        <div class="alert alert-success" id="mensagem">
+            Usuário ${user.getNome()} logado com sucesso!
+        </div>
+        <style>
+            #mensagem {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <script defer>
+            setTimeout(function() {
+                $("#mensagem").fadeOut(5000);
+            }, 2500);
+        </script>
+    </c:if>
 
 <c:import url="menu.jsp" />
 <div class="container">
@@ -105,7 +116,7 @@
 
 <c:import url="footer.jsp" />
 <!-- Importando os arquivos JS do Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
 </body>

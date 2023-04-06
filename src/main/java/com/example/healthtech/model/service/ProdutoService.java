@@ -40,8 +40,12 @@ public class ProdutoService {
         }
     }
 
-    public Collection<Produto> listarProdutos(){
-        return (Collection<Produto>) produtoRepository.findAll();
+    public Collection<Produto> listarProdutos(int id){
+        return (Collection<Produto>) produtoRepository.obterLista(id);
+    }
+
+    public Collection<Produto> listarTodosProdutos(){
+        return (Collection<Produto>) produtoRepository.obterListaCompleta();
     }
 
 

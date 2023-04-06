@@ -1,5 +1,6 @@
 package com.example.healthtech.model.repository;
 
+import com.example.healthtech.model.domain.Produto;
 import com.example.healthtech.model.domain.Requisitante;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -11,8 +12,9 @@ import java.util.List;
 public interface RequisitanteRepository extends CrudRepository<Requisitante,Integer> {
 
     @Query("from Requisitante r where r.usuario.id = :id")
-    List<Requisitante> listarRequisitantes(Integer id);
+    List<Requisitante> obterLista(Integer id);
 
-
+    @Query("from Requisitante r ORDER BY r.nomeRequisitante ASC")
+    List<Requisitante> obterListaCompleta();
 
 }

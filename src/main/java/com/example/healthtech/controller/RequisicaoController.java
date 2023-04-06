@@ -48,9 +48,9 @@ public class RequisicaoController {
         int nivelUsuario = usuario.getNivel();
 
         if (nivelUsuario!=4) {
-            model.addAttribute("listaRequisitantes", requisicaoService.listarRequisitantes(nivelUsuario));
+            model.addAttribute("listaRequisitantes", requisicaoService.listaRequisitante(usuario.getId()));
         }else{
-            model.addAttribute("listaRequisitantes", requisicaoService.listarRequisitantes());
+            model.addAttribute("listaRequisitantes", requisicaoService.listarTodosRequisitantes());
         }
         model.addAttribute("nivelUsuario", nivelUsuario);
         model.addAttribute("mensagem", "mensagem");

@@ -1,11 +1,13 @@
 package com.example.healthtech.model.service;
 
+import com.example.healthtech.model.domain.Insumo;
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.repository.RequisitanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class RequisicaoService {
@@ -25,14 +27,12 @@ public class RequisicaoService {
         }
     }
 
-    public Collection<Requisitante> listarRequisitantes(Integer id) {
-
-        //return  (Collection<Requisitante>) requisitanteRepository.findAll();
-        return requisitanteRepository.listarRequisitantes(id);
+    public List<Requisitante> listaRequisitante(int id){
+        return  requisitanteRepository.obterLista(id);
     }
-    public Collection<Requisitante> listarRequisitantes() {
 
-        return  (Collection<Requisitante>) requisitanteRepository.findAll();
+    public Collection<Requisitante> listarTodosRequisitantes(){
+        return requisitanteRepository.obterListaCompleta();
     }
 
     public boolean inclusaoRequisitante(Requisitante requisitante) {

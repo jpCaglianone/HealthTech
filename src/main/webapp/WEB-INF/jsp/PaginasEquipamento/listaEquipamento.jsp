@@ -25,7 +25,7 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<div class="table-responsive">
+<div class="table-responsive col-10" id="tabela">
     <table class="table table-striped table-hover">
     <thead>
     <tr>

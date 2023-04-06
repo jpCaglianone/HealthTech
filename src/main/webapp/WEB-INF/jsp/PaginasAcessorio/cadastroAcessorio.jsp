@@ -18,50 +18,46 @@
     </style>
 </head>
 <body>
-<c:import url="../menu.jsp" />
+
 
 <c:if test="${not empty mensagem}">
-    <div class="alert alert-danger">
-        <strong>Atenção!</strong> ${mensagem}!
+    <div class="alert alert-success" id="mensagem">
+            ${mensagem}
     </div>
+    <style>
+
+        #mensagem {
+            display: flex;
+            justify-content: center;
+            float:top;
+        }
+    </style>
+    <script defer>
+        setTimeout(function() {
+            $("#mensagem").fadeOut(5000);
+        }, 2500);
+    </script>
 </c:if>
+
+
+
+
+<c:import url="../menu.jsp" />
+
     <div class="container">
         <h1>Cadastro de acessorios</h1>
         <form action="cadastroAcessorio/incluir" method="post">
 
-        <div id="produto">
-            <div class="form-group">
-                <label for="nomeAcessorio">Nome:</label>
-                <input type="text" class="form-control" id="nomeAcessorio" name="nomeAcessorio" placeholder="Insira o nome do produto" required>
-            </div>
-
+            <c:import url="../PaginasProduto/cadastroProduto.jsp" />
 
             <div class="form-group">
-                <label for="quantidadeAcessorio">Quantidade:</label>
-                <input type="number" class="form-control" id="quantidadeAcessorio" name="quantidadeAcessorio" placeholder="Insira a quantidade" required>
+                <label for="funcao">Função do acessorio:</label>
+                <input type="text" class="form-control" id="funcao" name="funcao" placeholder="Descreva a função do acessorio" required>
             </div>
-
-
-            <div class="form-group">
-                <label for="valorAcessorio">Preço:</label>
-                <input type="text" class="form-control" id="valorAcessorio" name="valorAcessorio" placeholder="Insira preço" onchange="validaNumero()" required>
-            </div>
-
-
-            <div class="form-group">
-                <label for="marcaAcessorio">Marca:</label>
-                <input type="text" class="form-control" id="marcaAcessorio" name="marcaAcessorio" placeholder="Insira a marca" required>
-            </div>
-        </div>
 
             <div class="form-group">
                 <label for="equipamentoAlvo">Equipamento destinado:</label>
                 <input type="text" class="form-control" id="equipamentoAlvo" name="equipamentoAlvo" placeholder="Insira o equipamento que o acessorio se destina" required>
-            </div>
-
-            <div class="form-group">
-                <label for="funcaoAcessorio">Função do acessrio:</label>
-                <input type="text" class="form-control" id="funcaoAcessorio" name="funcaoAcessorio" placeholder="Descreva a função do acessorio" required>
             </div>
 
             <div id="acompanhamento">
@@ -116,31 +112,12 @@
     </div>
 
 <script>
-    /*
-    let numeroInserido = [];
-       let numero = (document.getElementById("valorAcessorio"));
-        numero.addEventListener("keypress", () => {
-            alert(numero.value.length)
-            let numeroVigente = numero.value[numero.value.length]
-            alert(numeroVigente);
-            if ((numeroVigente <= 0 || numeroVigente >= 9)  && numeroVigente!="."){
-                numero.value.pop();
-                alert(numeroVigente)
-            }
-        })
 
-     */
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVQ8ew"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
 </body>
 
 </body>

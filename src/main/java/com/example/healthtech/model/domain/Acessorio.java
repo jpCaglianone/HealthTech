@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 @Table(name="acessorio_tabela")
 public class Acessorio extends Produto{
 
-    private String nome;
     private String equipamentoAlvo;
     private String funcao;
     private boolean acompanhaEquipamento;
@@ -29,7 +28,6 @@ public class Acessorio extends Produto{
             throw new NomeInvalidoException("Somente é permitido inserir SIM ou NÃO!");
         }
 
-        this.nome = nomeProduto;
         this.equipamentoAlvo = equipamentoAlvo;
         this.funcao = funcao;
         this.linhaNomenclatura = linhaNomenclatura;

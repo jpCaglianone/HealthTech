@@ -25,14 +25,15 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table border="2px" cellspacing="5px" cellpadding="10px">
+<div class="table-responsive col-10" id="tabela">
+    <table class="table table-striped table-hover">
     <thead>
     <tr>
-        <th>Nome</th>
-        <th>Tipo de instituição</th>
-        <th>Tipo de orgao</th>
-        <th>Endereço</th>
-        <th>Registro</th>
+        <th>Nome do Produto</th>
+        <th>Quantidade</th>
+        <th>Valor unitarioo</th>
+        <th>Marca</th>
+        <th>ID do produto</th>
         <th>Exclusão</th>
     </tr>
     </thead>
@@ -46,23 +47,15 @@
             <td>${produto.getMarca()}</td>
             <td>${produto.getId()}</td>
             <td><a href="/listaProduto/${produto.getId()}/excluir">
-                <i class="fas fa-trash"></i>
+                <div class="lixeira"> </div>
             </a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVQ8ew"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 </body>
 
 </body>

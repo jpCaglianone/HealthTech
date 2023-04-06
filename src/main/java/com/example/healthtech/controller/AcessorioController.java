@@ -28,14 +28,13 @@ public class AcessorioController {
 
 
     @PostMapping("/cadastroAcessorio/incluir")
-    public String AcessorioInclusao(@RequestParam String nomeAcessorio, @RequestParam String quantidadeAcessorio, @RequestParam String marcaAcessorio,
-                                    @RequestParam String valorAcessorio, @RequestParam String equipamentoAlvo, @RequestParam String acompanhaEquipamento,
-                                    @RequestParam String linhaAcessorio, @RequestParam String funcaoAcessorio,
-                                    @SessionAttribute("user") Usuario usuario,Model model) throws NomeInvalidoException, ValorValidoException {
+    public String AcessorioInclusao(Acessorio acessorio,
+                                    @SessionAttribute("user") Usuario usuario,Model model)  {
 
         mensagem = null;
-        Acessorio acessorio= new Acessorio(nomeAcessorio, Integer.parseInt(quantidadeAcessorio), Float.parseFloat(valorAcessorio),
-             marcaAcessorio, funcaoAcessorio, acompanhaEquipamento, Integer.parseInt(linhaAcessorio), equipamentoAlvo);
+        System.out.println(acessorio.funcao());
+//        Acessorio acessorio= new Acessorio(nomeAcessorio, Integer.parseInt(quantidadeAcessorio), Float.parseFloat(valorAcessorio),
+//             marcaAcessorio, funcaoAcessorio, acompanhaEquipamento, Integer.parseInt(linhaAcessorio), equipamentoAlvo);
         acessorio.setUsuario(usuario);
         if (!acessorioService.incluirAcessorios(acessorio)) {
             mensagem = "Não foi possivel incluir o acessório!";
@@ -48,16 +47,18 @@ public class AcessorioController {
 
     }
 
-    @GetMapping("listaAcessorio")
-    public String ListaAcessoriosPage(Model model){
-        if (mensagem != null){
-            model.addAttribute("mensagem", mensagem);
-        }
-        mensagem = null;
-        model.addAttribute("listaAcessorios", acessorioService.listarAcessorios());
 
+    @GetMapping("/listaAcessorio")
+    public String ListaAcessoriosPage(Model model, @SessionAttribute("user") Usuario usuario){
+        if (usuario.getNivel() == 4) {
+            model.addAttribute("listaAcessorios", acessorioService.listarTodosAcessorios());
+        }
+        else {
+            model.addAttribute("listaAcessorios", acessorioService.listarAcessorios(usuario.getId()));
+        }
         return "PaginasAcessorio/listaAcessorio";
     }
+
 
     @GetMapping("listaAcessorio/{indice}/excluir")
     public String excluirAcessorio(@PathVariable Integer indice, Model model){

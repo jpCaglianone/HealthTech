@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("user")
 public class AcessoController {
     private static Usuario user;
+    private String alerta;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -27,6 +28,9 @@ public class AcessoController {
         else{
             model.addAttribute("mensagem", null);
         }
+
+        model.addAttribute("alerta",alerta);
+
         return"acesso/login";
     }
 
@@ -34,13 +38,16 @@ public class AcessoController {
     @PostMapping("login/inserir")
     public String UsuarioLogin(Model model, @RequestParam  String email, @RequestParam String senha){
 
+        alerta = null;
         Usuario user = new Usuario(email,senha);
         user = usuarioService.validacao(user);
-        //user = new Usuario( "emailUsuario", "nomeUsuario", "senhaUsuario", 4); //jpcaglianone retirar
+
         if(user != null){
-            model.addAttribute("user",user);
+            model.addAttribute("mensagem","Usuário " + user.getNome() + " logado com sucesso!");
+            model.addAttribute("user", user);
             return "redirect:/";
         }else{
+            alerta = "Email ou senha inválidos!";
             return "redirect:/login";
         }
     }

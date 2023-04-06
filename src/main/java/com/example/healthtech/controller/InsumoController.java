@@ -52,13 +52,20 @@ public class InsumoController {
 
         }
 
+
+
     @GetMapping("/listaInsumo")
-    public String ListaInsumoPage(Model model){
-
-        model.addAttribute("listaInsumo", insumoService.listarInsumos());
-
+    public String ListaAcessoriosPage(Model model, @SessionAttribute("user") Usuario usuario){
+        if (usuario.getNivel() == 4) {
+            model.addAttribute("listaInsumo", insumoService.listarTodosInsumos());
+        }
+        else {
+            model.addAttribute("listaInsumo", insumoService.listaInsumo(usuario.getId()));
+        }
         return "PaginasInsumo/listaInsumo";
     }
+
+
 
     @GetMapping("listaInsumo/{indice}/excluir")
     public String excluirInsumo(@PathVariable Integer indice){
