@@ -10,3 +10,11 @@ body{
 #tabela{
     margin: 50px auto;
 }
+
+label{
+    margin-left:20px;
+}
+
+main {
+    display: none;
+}

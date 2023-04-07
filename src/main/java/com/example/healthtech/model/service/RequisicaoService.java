@@ -43,7 +43,6 @@ public class RequisicaoService {
             System.out.println("ERRO REQUISITANTE - " + e);
             return false;
         }
-       //return requisitanteRepository.inclusaoRequisitante(requisitante);
     }
 
     public String excluirRequisitante(Integer id) {

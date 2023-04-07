@@ -28,13 +28,18 @@ public class AcessorioController {
 
 
     @PostMapping("/cadastroAcessorio/incluir")
-    public String AcessorioInclusao(Acessorio acessorio,
-                                    @SessionAttribute("user") Usuario usuario,Model model)  {
+    public String AcessorioInclusao( @RequestParam String nomeProduto
+            , @RequestParam String quantidade, @RequestParam String valor
+            , @RequestParam String marca, @RequestParam String funcao
+            , @RequestParam String equipamentoAlvo, @RequestParam String acompanhaEquipamento
+            , @RequestParam String linhaAcessorio, @SessionAttribute("user") Usuario usuario,Model model)
+            throws NomeInvalidoException, ValorValidoException {
 
         mensagem = null;
-        System.out.println(acessorio.funcao());
-//        Acessorio acessorio= new Acessorio(nomeAcessorio, Integer.parseInt(quantidadeAcessorio), Float.parseFloat(valorAcessorio),
-//             marcaAcessorio, funcaoAcessorio, acompanhaEquipamento, Integer.parseInt(linhaAcessorio), equipamentoAlvo);
+        Acessorio acessorio = new Acessorio(nomeProduto, Integer.parseInt(quantidade),
+                            Float.parseFloat(valor), marca, funcao, acompanhaEquipamento,
+                            Integer.parseInt(linhaAcessorio),equipamentoAlvo);
+
         acessorio.setUsuario(usuario);
         if (!acessorioService.incluirAcessorios(acessorio)) {
             mensagem = "Não foi possivel incluir o acessório!";

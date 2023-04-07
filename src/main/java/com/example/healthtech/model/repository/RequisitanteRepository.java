@@ -11,10 +11,14 @@ import java.util.List;
 @Repository
 public interface RequisitanteRepository extends CrudRepository<Requisitante,Integer> {
 
-    @Query("from Requisitante r where r.usuario.id = :id")
+    @Query("from Requisitante r inner join Endereco e " +
+            " on e.id = r.endereco.id " +
+            "where r.usuario.id = :id ORDER BY r.nomeRequisitante ASC")
     List<Requisitante> obterLista(Integer id);
 
-    @Query("from Requisitante r ORDER BY r.nomeRequisitante ASC")
+    @Query("from Requisitante r inner join Endereco e " +
+            " on e.id = r.endereco.id " +
+            " ORDER BY r.nomeRequisitante ASC")
     List<Requisitante> obterListaCompleta();
 
 }

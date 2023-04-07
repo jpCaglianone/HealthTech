@@ -25,6 +25,13 @@ public class SolicitacaoLoader implements ApplicationRunner {
     @Autowired
     private RequisicaoService requisicaoService;
 
+    @Autowired
+    private EquipamentoService equipamentoService;
+    @Autowired
+    private AcessorioService acessorioService;
+
+    @Autowired
+    private InsumoService insumoService;
 
     @Autowired
     private UsuarioService usuarioService;

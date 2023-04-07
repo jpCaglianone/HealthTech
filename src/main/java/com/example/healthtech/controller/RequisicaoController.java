@@ -26,17 +26,13 @@ public class RequisicaoController {
 
     @PostMapping(value = "cadastroRequisitante/incluir")
     public String postCadRequester(@SessionAttribute("user")Usuario usuario,
-                                    Requisitante requisitante, Endereco endereco,
-                                    Model model) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+                                    Endereco endereco,
+                                    Requisitante requisitante,Model model) {
 
-       System.out.println(endereco.getCep());
-
-     //   Requisitante requisitante = new Requisitante(nome, Integer.parseInt(tipoRequisitante), orgao,  Long.parseLong(registroRequisitante));
-//        requisitante.setEndereco(endereco);
-
+        System.out.println(endereco.getLogradouro());
         requisitante.setUsuario(usuario);
+        requisitante.setEndereco(endereco);
         requisicaoService.inclusaoRequisitante(requisitante);
-
         model.addAttribute("mensagem", true);
 
         return "redirect:/";
@@ -46,6 +42,10 @@ public class RequisicaoController {
     public String listRequesterPage(Model model, @SessionAttribute("user") Usuario usuario) {
 
         int nivelUsuario = usuario.getNivel();
+
+
+        System.out.println(requisicaoService.listaRequisitante(usuario.getId()));
+
 
         if (nivelUsuario!=4) {
             model.addAttribute("listaRequisitantes", requisicaoService.listaRequisitante(usuario.getId()));

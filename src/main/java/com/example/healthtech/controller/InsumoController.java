@@ -29,15 +29,17 @@ public class InsumoController {
 
 
         @PostMapping("/cadastroInsumo/incluir")
-        public String AcessorioInclusao(Model model, @RequestParam String nomeInsumo, @RequestParam String quantidadeInsumo,
-                                        @RequestParam String valorInsumo, @RequestParam String marcaInsumo,
-                                        @RequestParam String tipoInsumo, @RequestParam String quantidadeLote,
-                                        @RequestParam String durabilidadeInsumo,@SessionAttribute("user") Usuario usuario
-                                        ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
+        public String AcessorioInclusao(Model model,  @RequestParam String nomeProduto
+                , @RequestParam String quantidade, @RequestParam String valor
+                , @RequestParam String marca,
+                @RequestParam String tipoInsumo, @RequestParam String quantidadeLote,
+                @RequestParam String durabilidadeInsumo,@SessionAttribute("user") Usuario usuario
+                ) throws TipoInsumoException, NomeInvalidoException, ValorValidoException {
 
             mensagem = null;
 
-            Insumo insumo= new Insumo(nomeInsumo, Integer.parseInt(quantidadeInsumo),Float.parseFloat(valorInsumo),marcaInsumo,tipoInsumo,durabilidadeInsumo,Integer.parseInt(quantidadeLote));
+            Insumo insumo= new Insumo(nomeProduto, Integer.parseInt(quantidade),Float.parseFloat(valor),marca,
+                    tipoInsumo,durabilidadeInsumo,Integer.parseInt(quantidadeLote));
             insumo.setUsuario(usuario);
             if (!insumoService.incluirInsumos(insumo)) {
                 mensagem = "Não foi possivel incluir o insumo!";

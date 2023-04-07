@@ -65,7 +65,7 @@
                     <label class="form-check-label" for="nivel0">Nível 3 - Administrador </label>
                 </div>
                 <div class="mb-3">
-                    <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel4" value="4">
+                    <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel4" value="4" disabled>
                     <label class="form-check-label" for="nivel0">Nível 4 - Super Administrador</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>

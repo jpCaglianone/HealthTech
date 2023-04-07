@@ -44,8 +44,8 @@
 
         <form action="/cep" class="orm-inline" method="post">
             <div class="form-group">
-                <label for="cep">CEP:</label>
-                <input type="number" class="form-control" id="cep" name="cep"  placeholder="Insira o cep" required>
+                <label for="cepPesquisa">CEP:</label>
+                <input type="number" class="form-control" id="cepPesquisa" name="cepPesquisa"  placeholder="Insira o cep" required>
                 <button type="submit" class="btn btn-primary">Busca CEP</button>
             </div>
         </form>

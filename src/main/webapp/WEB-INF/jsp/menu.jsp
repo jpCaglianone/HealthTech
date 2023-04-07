@@ -23,6 +23,19 @@
         #log{
             float:right;
         }
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -50,6 +63,9 @@
                     <a class="dropdown-item" href="listaAcessorio">Acessórios</a>
                     <a class="dropdown-item" href="listaInsumo">Insumos</a>
                     <a class="dropdown-item" href="listaEquipamento">Equipamentos</a>
+                    <c:if test="${user.getNivel() >= 2 or user.getNivel() == 0}">
+                        <a class="dropdown-item" href="listaSolicitacao">Solicitacao</a>
+                    </c:if>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -61,6 +77,9 @@
                     <a class="dropdown-item" href="cadastroAcessorio">Acessórios</a>
                     <a class="dropdown-item" href="cadastroInsumo">Insumos</a>
                     <a class="dropdown-item" href="cadastroEquipamento">Equipamentos</a>
+                    <c:if test="${user.getNivel() >= 2 or user.getNivel() == 0}">
+                        <a class="dropdown-item" href="cadastroSolicitacao">Solicitacao</a>
+                    </c:if>
                 </div>
             </li>
                 </c:if>
@@ -69,11 +88,7 @@
                 <a class="nav-link" href="controleUsuarios">Controle de Usuários</a>
             </li>
                 </c:if>
-                <c:if test="${user.getNivel() == 0}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Solicitacao</a>
-                    </li>
-                </c:if>
+
             </c:if>
             <li class="nav-item">
                 <a class="nav-link" href="sobre">Sobre nós</a>
@@ -107,15 +122,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(".dropdown").mouseenter(function() {
-            $(this).addClass("show");
-            $(this).find(".dropdown-menu").addClass("show");
-        });
-        $(".dropdown").mouseleave(function() {
-            $(this).removeClass("show");
-            $(this).find(".dropdown-menu").removeClass("show");
-        });
+    $(window).on('load', function() {
+        $('nav').addClass('fade-in');
     });
 </script>
 </body>

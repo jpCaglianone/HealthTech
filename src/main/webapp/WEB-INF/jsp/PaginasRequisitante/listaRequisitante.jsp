@@ -23,6 +23,7 @@
     <thead>
     <tr>
         <th>Nome</th>
+        <th>Endereco</th>
         <th>Tipo de instituição</th>
         <th>Tipo de orgao</th>
 <%--        <th>Endereço</th>--%>
@@ -38,6 +39,9 @@
     <c:forEach var="requisitante" items="${listaRequisitantes}">
         <tr>
             <td>${requisitante.getNomeRequisitante()}</td>
+            <td>
+                    ${requisitante.getEndereco().logradouro}, ${requisitante.getEndereco().complemento} - ${requisitante.getEndereco().bairro}, ${requisitante.getEndereco().cep} - ${requisitante.getEndereco().localidade}/${requisitante.getEndereco().uf}
+            </td>
             <td>${requisitante.dominioRequisitante()}</td>
             <td>${requisitante.descricaoOrgao()}</td>
 <%--            <td>${requisitante.getEnderecoRequisitante()}</td>--%>
@@ -50,6 +54,7 @@
                     <div class="lixeira"> </div>
                 </a>
             </td>
+
         </tr>
     </c:forEach>
     </tbody>

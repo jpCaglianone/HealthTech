@@ -23,7 +23,7 @@ public class Solicitacao {
 
 
     @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "idSolicitante")
+    @JoinColumn(name = "idRequisitante")
     private Requisitante requisitante;
     @ManyToMany(cascade = CascadeType.DETACH)
     private List<Produto> produtos;

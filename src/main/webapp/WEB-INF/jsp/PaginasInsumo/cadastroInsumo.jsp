@@ -48,29 +48,7 @@
         <h1>Cadastro de Insumos</h1>
         <form action="cadastroInsumo/incluir" method="post">
 
-            <div id="produto">
-                <div class="form-group">
-                    <label for="nomeInsumo">Nome:</label>
-                    <input type="text" class="form-control" id="nomeInsumo" name="nomeInsumo" placeholder="Insira o nome do insumo" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="quantidadeInsumo">Quantidade:</label>
-                    <input type="number" class="form-control" id="quantidadeInsumo" name="quantidadeInsumo" placeholder="Insira a quantidade" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="valorInsumo">Preço:</label>
-                    <input type="number" class="form-control" id="valorInsumo" name="valorInsumo" placeholder="Insira preço"  required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="marcaInsumo">Marca:</label>
-                    <input type="text" class="form-control" id="marcaInsumo" name="marcaInsumo" placeholder="Insira a marca" required>
-                </div>
+            <c:import url="../PaginasProduto/cadastroProduto.jsp" />
 
             <div id="tipoInsumo">
                 <span>Tipo do insumo</span>
@@ -108,9 +86,9 @@
                     <label for="quantidadeLote">Quantidade por lote:</label>
                     <input type="number" class="form-control" id="quantidadeLote" name="quantidadeLote" placeholder="Insira a quantidade por lote" required>
                 </div>
-
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+
         </form>
     </div>
 

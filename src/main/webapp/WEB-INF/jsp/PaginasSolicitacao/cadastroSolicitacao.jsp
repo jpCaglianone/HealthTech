@@ -9,82 +9,71 @@
         Cadastro de Requisitante - HealthTech
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-            label{margin-left: 20px;}
+            label{margin-left: 40px;}
     </style>
 </head>
 <body>
 <c:import url="../menu.jsp" />
-    <div class="container">
-        <h1>Cadastro de usuário</h1>
-        <form action="cadastroRequisitante/incluir" method="post">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o seu nome">
-            </div>
-            <div class="form-group">
-                <label for="enderecoRequisitante">Endereço do requisitante:</label>
-                <input type="text" class="form-control" id="enderecoRequisitante" name="enderecoRequisitante" placeholder="Insira o tipo de requisitante">
-            </div>
-            <div class="form-group">
-                <label for="registroRequisitante">Registro do requisitante:</label>
-                <input type="number" class="form-control" id="registroRequisitante" name="registroRequisitante" placeholder="Insira o Registro do requisitante">
-            </div>
-            <div id="orgao">
-                <fieldset>
-                    <legend>Tipo de orgão</legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="orgao" value="Público" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Público
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="orgao" id="flexRadioDefault2" value="Privado" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Privado
-                    </label>
-                </div>
-                </fieldset>
-            </div>
 
-            <div id="entidade">
-                <fieldset>
-                    <legend>Tipo de entidade</legend>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" value="1" id="radioEntidade1">
-                <label class="form-check-label" for="radioEntidade1">
-                    Hospital
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" id="radioEntidade2" value="2" checked>
-                <label class="form-check-label" for="radioEntidade2">
-                    Clinica
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" value="3" id="radioEntidade3">
-                <label class="form-check-label" for="radioEntidade3">
-                    Empresa/Instituição
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoRequisitante" id="radioEntidade4" value="4">
-                <label class="form-check-label" for="radioEntidade4">
-                    Outro
-                </label>
-            </div>
-                </fieldset>
-            </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+<div class="container">
+
+    <form action="cadastroSolicitacao/incluir" method="post">
+        <h3>Cadastro de Pedidos</h3>
+
+        <div class="form-group">
+
+            <c:if test="${not empty listaProdutos}">
+                <label>Produtos:</label>
+                <c:forEach var="produtos" items="${listaProdutos}">
+                    <div class="form-check">
+                        <label class="form-check-label">  ${produtos.getNomeProduto()} - ${produtos.getMarca()} - ( ${produtos.getValor()} )
+                            <input type="checkbox" name="produtos" value="${produtos.getId()}"  class="form-check-input">
+                        </label>
+                    </div>
+                </c:forEach>
+            </c:if>
+
+            <c:if test="${not empty listaRequisitantes}">
+                <label>Requisitantes:</label>
+                <select>
+                    <c:forEach var="requisitantes" items="${listaRequisitantes}">
+                            <option name="requisitantes" value="" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onchange="teste(requisitante.getId())">
+                                    ${requisitantes.getNomeRequisitante()}
+
+0                              </option>
+                    </c:forEach>
+                </select>
+            </c:if>
+
+            <c:if test="${empty listaRequisitantes}">
+                <c:set var="botao" value="disabled"/>
+                <label>Não existem requisitantes cadastrados!</label>
+            </c:if>
+
+            <c:if test="${empty listaProdutos}">
+                <c:set var="botao" value="disabled"/>
+                <label>Não existem produtos cadastrados!</label>
+            </c:if>
+
+        </div>
+
+        <button ${botao} class="btn btn-primary" type="submit">Solicitar</button>
+    </form>
+</div>
+
+
+<Script>
+    function  teste (i) {
+        alert(i)
+    }
+
+</Script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -18,10 +18,24 @@ public class Endereco {
     @JoinColumn(name = "idRequisitante")
     private Requisitante requisitante;
 
+    public Endereco() {
+
+    }
+
 
     public Requisitante getRequisitante() {
         return requisitante;
     }
+
+    public Endereco(String cep, String logradouro, String complemento, String bairro, String localidade, String uf){
+        setCep(cep);
+        setLogradouro(logradouro);
+        setComplemento(complemento);
+        setBairro(bairro);
+        setLocalidade(localidade);
+        setUf(uf);
+    }
+
 
     public void setRequisitante(Requisitante requisitante) {
         this.requisitante = requisitante;

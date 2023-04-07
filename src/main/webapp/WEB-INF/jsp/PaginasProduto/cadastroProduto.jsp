@@ -1,9 +1,5 @@
 
 
-
-
-
-
             <div id="produto">
                 <div class="form-group">
                     <label for="nomeProduto">Nome:</label>
