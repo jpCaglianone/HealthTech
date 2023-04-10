@@ -46,7 +46,7 @@ public class ProdutoService {
     }
 
     public Produto retornarProduto (Integer id){
-        return produtoRepository.obterListaCompleta().get(id);
+        return produtoRepository.retornarProduto(id);
     }
 
 }

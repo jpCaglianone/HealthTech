@@ -44,13 +44,12 @@ public class Solicitacao {
         this.requisitante = requisitante;
         this.produtos = produtos;
         this.dataSolicitacao = LocalDateTime.now();
-        if (tipoAquisicao == "A") {
+        if ("A".equalsIgnoreCase(tipoAquisicao)) {
             this.tipoAquisicao = false;
         }else {
             this.tipoAquisicao = true;
         }
-        this.valorSolicitacao = calculoTotalSolicitacao();
-
+        this.valorSolicitacao = calculoTotalSolicitacao(produtos);
        Metodos.setId();
 
     }
@@ -114,7 +113,7 @@ public class Solicitacao {
 
 
     public float getValorSolicitacao() {
-        return valorSolicitacao;
+        return this.valorSolicitacao;
     }
 
     public String imprimirSolicitacao(){
@@ -150,11 +149,11 @@ public class Solicitacao {
         return this.isTipoAquisicao()?"Compra":"Aluguel";
     }
 
-    public float calculoTotalSolicitacao(){
+    public float calculoTotalSolicitacao(List<Produto> p){
         float total = 0;
 
-        for (Produto p: produtos){
-            total += (p.calcularValorTotal());
+        for (int i = 0; i < p.size(); i++){
+            total += (p.get(i).getValor());
         }
         if (requisitante.isOrgaoPublico()){
             total *= 1.1;

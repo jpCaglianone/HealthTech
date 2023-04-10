@@ -25,10 +25,14 @@
 </head>
 <body>
 <c:import url="../menu.jsp" />
-<table border="2px" cellspacing="5px" cellpadding="10px">
+
+<div class="table-responsive col-10" id="tabela">
+    <table class="table table-striped table-hover">
+
     <thead>
     <tr>
         <th>Registro da solicitação</th>
+        <th>Nome do Solicitante</th>
         <th>Valor Total</th>
         <th>Data da Soilicitação</th>
         <th>Tipo de Aquisição</th>
@@ -40,6 +44,7 @@
     <c:forEach var="solicitacao" items="${listaSolicitacoes}">
         <tr>
             <td>${solicitacao.getId()}</td>
+            <td>${solicitacao.getRequisitante().getNomeRequisitante()}</td>
             <td>R$${solicitacao.getValorSolicitacao()}</td>
             <td>${solicitacao.getDataSolicitacao()}</td>
             <td>${solicitacao.tipoAquisicao()}</td>
@@ -52,7 +57,7 @@
     </c:forEach>
     </tbody>
 </table>
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

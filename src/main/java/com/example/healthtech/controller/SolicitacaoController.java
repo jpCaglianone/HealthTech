@@ -57,13 +57,14 @@ public class SolicitacaoController {
 
             List<Produto> produtoSolicitado = new ArrayList<>();
             for(int iProdutos = 0; iProdutos < produtos.length; iProdutos++) {
-                produtoSolicitado.add(produtoService.retornarProduto(iProdutos));
+                produtoSolicitado.add(produtoService.retornarProduto(Integer.parseInt(produtos[iProdutos])));
             }
+
             Solicitacao solicitacao = new Solicitacao(requisitanteSolicitado, produtoSolicitado, tipoSolicitacao);
             solicitacao.setUsuario(usuario);
             solicitacaoService.incluirSolicitacoes(solicitacao);
 
-         return "redirect:/";
+         return "redirect:/cadastroSolicitacao";
         }
 
 }

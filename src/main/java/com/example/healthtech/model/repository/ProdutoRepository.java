@@ -16,4 +16,7 @@ public interface ProdutoRepository extends CrudRepository<Produto,Integer> {
 
     @Query("from Produto p ORDER BY p.valor ASC")
     List<Produto> obterListaCompleta();
+
+    @Query("from Produto p where p.id = :id")
+    Produto retornarProduto(Integer id);
 }
