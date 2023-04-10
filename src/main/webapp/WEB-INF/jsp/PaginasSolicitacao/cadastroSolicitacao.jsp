@@ -41,12 +41,9 @@
 
             <c:if test="${not empty listaRequisitantes}">
                 <label>Requisitantes:</label>
-                <select>
+                <select name="requisitantes" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <c:forEach var="requisitantes" items="${listaRequisitantes}">
-                            <option name="requisitantes" value="" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onchange="teste(requisitante.getId())">
-                                    ${requisitantes.getNomeRequisitante()}
-
-0                              </option>
+                        <option value="${requisitantes.getId()}">${requisitantes.getNomeRequisitante()}</option>
                     </c:forEach>
                 </select>
             </c:if>
@@ -61,6 +58,21 @@
                 <label>Não existem produtos cadastrados!</label>
             </c:if>
 
+
+            <span>Tipo da solicitação:</span>
+            <div class="form-check" id="tipoSolicitacao">
+                <label class="form-check-label" for="tipoSolicitacao">
+                    Compra
+                </label>
+                <input class="form-check-input" type="radio" name="tipoSolicitacao" value="C" checked>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="tipoSolicitacao">
+                    Aluguel
+                </label>
+                <input class="form-check-input" type="radio" name="tipoSolicitacao"  value="A"  >
+
+            </div>
         </div>
 
         <button ${botao} class="btn btn-primary" type="submit">Solicitar</button>
@@ -68,12 +80,6 @@
 </div>
 
 
-<Script>
-    function  teste (i) {
-        alert(i)
-    }
-
-</Script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

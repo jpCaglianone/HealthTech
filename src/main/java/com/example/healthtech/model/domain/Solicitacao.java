@@ -9,18 +9,17 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
+
 @Entity
 @Table(name = "solicitacao_tabela")
 public class Solicitacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
-
     private float valorSolicitacao;
-    private int idSolicitacao;
     private LocalDateTime dataSolicitacao;
     private boolean tipoAquisicao; //true = compra , false - aluguel
-
 
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "idRequisitante")
@@ -50,8 +49,13 @@ public class Solicitacao {
         }else {
             this.tipoAquisicao = true;
         }
+        this.valorSolicitacao = calculoTotalSolicitacao();
 
        Metodos.setId();
+
+    }
+
+    public Solicitacao(Optional<Requisitante> requisitanteSolicitado, List<Produto> produtoSolicitado, String tipoSolicitacao) {
 
     }
 
@@ -108,9 +112,6 @@ public class Solicitacao {
         return tipoAquisicao;
     }
 
-    public int getIdSolicitacao() {
-        return idSolicitacao;
-    }
 
     public float getValorSolicitacao() {
         return valorSolicitacao;
@@ -120,9 +121,9 @@ public class Solicitacao {
 
         StringBuilder descricaoSolicitacao = new StringBuilder();
 
-        this.idSolicitacao = Metodos.getId();
 
-        descricaoSolicitacao.append(String.format("O numero do pedido é %s  \n", this.getIdSolicitacao()));
+
+        descricaoSolicitacao.append(String.format("O numero do pedido é %s  \n", this.getId()));
         descricaoSolicitacao.append(String.format("O nome do requisitante do pedido é %s \n", this.requisitante.getNomeRequisitante()));
         descricaoSolicitacao.append(String.format("O requisitante se trata de um(a) %s de dominio %s \n", this.requisitante.dominioRequisitante(), this.requisitante.isOrgaoPublico()?"Público":"Privado"));
         descricaoSolicitacao.append(String.format("A data da solicitação foi %s \n", this.getDataSolicitacao()));
@@ -139,12 +140,15 @@ public class Solicitacao {
         descricaoSolicitacao.append(String.format("Para orgãos públicos é acrescido uma taxa de 20%%  |"));
         descricaoSolicitacao.append(String.format("Para acessórios que acompanham equipamento, o valor sai no subtotal, porém não é considerado no valor total  "));
         descricaoSolicitacao.append("\n");
-        this.valorSolicitacao = calculoTotalSolicitacao();
+
         descricaoSolicitacao.append(String.format("O total da solicitação foi de R$%.2f" , this.getValorSolicitacao()));
 
         return String.valueOf(descricaoSolicitacao);
     }
 
+    public String tipoAquisicao(){
+        return this.isTipoAquisicao()?"Compra":"Aluguel";
+    }
 
     public float calculoTotalSolicitacao(){
         float total = 0;
@@ -155,8 +159,6 @@ public class Solicitacao {
         if (requisitante.isOrgaoPublico()){
             total *= 1.1;
         }
-        //calcular desconto?
-
         return total;
     }
 }

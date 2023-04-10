@@ -1,6 +1,5 @@
 package com.example.healthtech.model.service;
 
-import com.example.healthtech.model.domain.Insumo;
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.repository.RequisitanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RequisicaoService {
@@ -54,6 +54,10 @@ public class RequisicaoService {
         catch (Exception e){
             return "Requisitante não pode ser deletado. Log do erro: " + e;
         }
+    }
+
+    public Requisitante retornarRequisitante (Integer id){
+        return requisitanteRepository.retornaRequisitante(id);
     }
 
 }

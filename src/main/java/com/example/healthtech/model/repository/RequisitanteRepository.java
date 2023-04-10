@@ -21,4 +21,7 @@ public interface RequisitanteRepository extends CrudRepository<Requisitante,Inte
             " ORDER BY r.nomeRequisitante ASC")
     List<Requisitante> obterListaCompleta();
 
+    @Query("from Requisitante r where r.id = :id")
+    Requisitante retornaRequisitante (Integer id);
+
 }

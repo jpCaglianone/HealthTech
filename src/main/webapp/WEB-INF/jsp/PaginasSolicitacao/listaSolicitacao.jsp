@@ -28,23 +28,21 @@
 <table border="2px" cellspacing="5px" cellpadding="10px">
     <thead>
     <tr>
-        <th>Nome</th>
-        <th>Tipo de instituição</th>
-        <th>Tipo de orgao</th>
-        <th>Endereço</th>
-        <th>Registro</th>
+        <th>Registro da solicitação</th>
+        <th>Valor Total</th>
+        <th>Data da Soilicitação</th>
+        <th>Tipo de Aquisição</th>
         <th>Exclusão</th>
     </tr>
     </thead>
     <tbody>
 
-    <c:forEach var="requisitante" items="${listaRequisitantes}">
+    <c:forEach var="solicitacao" items="${listaSolicitacoes}">
         <tr>
-            <td>${requisitante.getNomeRequisitante()}</td>
-            <td>${requisitante.dominioRequisitante()}</td>
-            <td>${requisitante.descricaoOrgao()}</td>
-            <td>${requisitante.getEnderecoRequisitante()}</td>
-            <td>${requisitante.getRegistroRequisitante()}</td>
+            <td>${solicitacao.getId()}</td>
+            <td>R$${solicitacao.getValorSolicitacao()}</td>
+            <td>${solicitacao.getDataSolicitacao()}</td>
+            <td>${solicitacao.tipoAquisicao()}</td>
             <td>
                 <a href="listaRequisitante/${requisitante.getId()}/excluir">
                     <div class="lixeira"> </div>

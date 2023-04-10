@@ -1,9 +1,6 @@
 package com.example.healthtech.model.service;
 
-import com.example.healthtech.model.domain.Equipamento;
-import com.example.healthtech.model.domain.Insumo;
-import com.example.healthtech.model.domain.Produto;
-import com.example.healthtech.model.domain.Usuario;
+import com.example.healthtech.model.domain.*;
 import com.example.healthtech.model.repository.EquipamentoRepository;
 import com.example.healthtech.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +45,8 @@ public class ProdutoService {
         return (Collection<Produto>) produtoRepository.obterListaCompleta();
     }
 
-
+    public Produto retornarProduto (Integer id){
+        return produtoRepository.obterListaCompleta().get(id);
+    }
 
 }

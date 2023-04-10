@@ -37,8 +37,7 @@ public class SolicitacaoLoader implements ApplicationRunner {
     private UsuarioService usuarioService;
     @Override
     public void run(ApplicationArguments args) {
-//        Metodos.arqEnergia();
-//
+
         List<Produto> p1 = new ArrayList<>();
 
         try {
@@ -71,8 +70,6 @@ public class SolicitacaoLoader implements ApplicationRunner {
         }
         requisicaoService.inclusaoRequisitante(requisitante);
 
-
-
         Solicitacao s1 = null;
         try {
             s1 = new Solicitacao(requisitante, p1, "C");
@@ -87,7 +84,6 @@ public class SolicitacaoLoader implements ApplicationRunner {
 
         s1.setUsuario(admin0);
         solicitacaoService.incluirSolicitacoes(s1);
-
 
     }
 }
