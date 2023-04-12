@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes("user")
 public class InsumoController {
 
-    String mensagem;
+    private String mensagem;
 
     @Autowired
     InsumoService insumoService;

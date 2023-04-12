@@ -17,4 +17,11 @@ label{
 
 main {
     display: none;
+    min-width:1200px;
+    width: 1500px;
+    margin: 50px auto;
+    background-color: cornsilk;
+    border-radius: 25px;
+    padding: 20px 0;
+    box-shadow: 5px 5px 10px 5px black;
 }

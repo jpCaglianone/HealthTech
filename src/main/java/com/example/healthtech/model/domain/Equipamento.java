@@ -56,7 +56,7 @@ public class Equipamento extends Produto{
             this.usado = false;
         }
 
-
+        setValor(valorEstado());
     }
 
     public Equipamento() {

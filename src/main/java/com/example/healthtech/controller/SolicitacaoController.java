@@ -16,12 +16,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
 @SessionAttributes("user")
 public class SolicitacaoController {
 
+    private String mensagem;
     @Autowired
     SolicitacaoService solicitacaoService;
     @Autowired
@@ -34,13 +36,11 @@ public class SolicitacaoController {
     public String listaSolicitacoes(Model model){
 
         model.addAttribute("listaSolicitacoes", solicitacaoService.listarSolicitacoes());
-
         return "PaginasSolicitacao/listaSolicitacao";
     }
 
     @GetMapping("/cadastroSolicitacao")
     public String novaSolicitacao(Model model){
-
 
         model.addAttribute("listaProdutos", produtoService.listarTodosProdutos());
         model.addAttribute("listaRequisitantes", requisicaoService.listarTodosRequisitantes());
@@ -66,5 +66,12 @@ public class SolicitacaoController {
 
          return "redirect:/cadastroSolicitacao";
         }
+
+    @GetMapping("listaSolicitacao/{indice}/excluir")
+    public String excluirSolicitacao(@PathVariable Integer indice){
+        solicitacaoService.excluirSolicitacao(indice);
+        mensagem = "A solicitação de id " + indice + " foi excluída com sucesso!";
+        return "redirect:/listaSolicitacao";
+    }
 
 }

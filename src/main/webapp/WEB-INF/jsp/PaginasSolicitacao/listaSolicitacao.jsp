@@ -49,7 +49,7 @@
             <td>${solicitacao.getDataSolicitacao()}</td>
             <td>${solicitacao.tipoAquisicao()}</td>
             <td>
-                <a href="listaRequisitante/${requisitante.getId()}/excluir">
+                <a href="listaSolicitacao/${solicitacao.getId()}/excluir">
                     <div class="lixeira"> </div>
                 </a>
             </td>

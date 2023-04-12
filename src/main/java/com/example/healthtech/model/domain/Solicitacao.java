@@ -120,8 +120,6 @@ public class Solicitacao {
 
         StringBuilder descricaoSolicitacao = new StringBuilder();
 
-
-
         descricaoSolicitacao.append(String.format("O numero do pedido é %s  \n", this.getId()));
         descricaoSolicitacao.append(String.format("O nome do requisitante do pedido é %s \n", this.requisitante.getNomeRequisitante()));
         descricaoSolicitacao.append(String.format("O requisitante se trata de um(a) %s de dominio %s \n", this.requisitante.dominioRequisitante(), this.requisitante.isOrgaoPublico()?"Público":"Privado"));
