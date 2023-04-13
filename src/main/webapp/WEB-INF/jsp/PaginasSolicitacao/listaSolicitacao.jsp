@@ -36,6 +36,7 @@
         <th>Valor Total</th>
         <th>Data da Soilicitação</th>
         <th>Tipo de Aquisição</th>
+        <th>USuário responsável</th>
         <th>Exclusão</th>
     </tr>
     </thead>
@@ -48,6 +49,7 @@
             <td>R$${solicitacao.getValorSolicitacao()}</td>
             <td>${solicitacao.getDataSolicitacao()}</td>
             <td>${solicitacao.tipoAquisicao()}</td>
+            <td>${solicitacao.getUsuario().getNome()}</td>
             <td>
                 <a href="listaSolicitacao/${solicitacao.getId()}/excluir">
                     <div class="lixeira"> </div>

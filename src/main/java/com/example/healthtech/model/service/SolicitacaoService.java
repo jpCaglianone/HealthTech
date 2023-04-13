@@ -12,8 +12,12 @@ public class SolicitacaoService {
     @Autowired
     SolicitacaoRepository solicitacaoRepository;
 
-    public List listarSolicitacoes() {
+    public List listarTodasSolicitacoes() {
         return  solicitacaoRepository.obterListaCompleta();
+    }
+
+    public List listarSolicitacoesPorId(int id) {
+        return  solicitacaoRepository.obterListaPorId(id);
     }
 
     public void excluirSolicitacao  (Integer id){
@@ -27,7 +31,22 @@ public class SolicitacaoService {
             }catch (Exception e){
                 System.out.println(e);
             }
+    }
 
+
+
+
+
+    public int retornaRequisitateSolicitacao (Integer id){
+
+        if (solicitacaoRepository.retornaRequisitateSolicitacao(id) == null){
+            return (-1);
+        }
+        else{
+            return solicitacaoRepository.retornaRequisitateSolicitacao(id);
+        }
 
     }
+
+
 }

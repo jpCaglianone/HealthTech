@@ -33,7 +33,10 @@
         <th>Nivel</th>
         <th>Id</th>
         <th>Senha</th>
-        <th>Exclusão</th>
+        <th>Status</th>
+        <c:if test="${usuario.getNivel() != 4}">
+            <th>Bloqueio/Desbloqueio</th>
+        </c:if>
     </tr>
     </thead>
     <tbody>
@@ -45,16 +48,19 @@
             <td>${usuario.getNivel()}</td>
             <td>${usuario.getId()}</td>
             <td>${usuario.getSenha()}</td>
+            <td>${usuario.statusUsuario()}</td>
             <c:if test="${usuario.getNivel() != 4}">
                 <td>
-                    <a href="/controleUsuarios/${usuario.getId()}/excluir">
-                        <div class="lixeira"> </div>
+                    <a href="/controleUsuarios/${usuario.getId()}/status">
+                        <button>
+                                <c:if test="${usuario.isBloqueado()}">
+                                    Desbloquear
+                                </c:if>
+                                <c:if test="${!usuario.isBloqueado()}">
+                                    Bloquear
+                                </c:if>
+                        </button>
                     </a>
-                </td>
-            </c:if>
-            <c:if test="${usuario.getNivel() == 4}">
-                <td>
-                        <div class="lixeira"> </div>
                 </td>
             </c:if>
         </tr>
@@ -62,9 +68,6 @@
     </tbody>
 </table>
 </div>
-<form action="/" method="get">
-    <button class="btn btn-danger">Voltar</button>
-</form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

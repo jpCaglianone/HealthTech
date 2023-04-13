@@ -16,7 +16,6 @@ public class EnderecoController {
     @PostMapping("/cep")
     public String buscaCep(@RequestParam String cepPesquisa, Model model){
 
-        System.out.println(enderecoService.buscaPorCep(cepPesquisa).getCep());
         model.addAttribute("endereco", enderecoService.buscaPorCep(cepPesquisa));
 
         return "PaginasRequisitante/cadastroRequisitante";

@@ -33,9 +33,16 @@ public class SolicitacaoController {
     RequisicaoService requisicaoService;
 
     @GetMapping("/listaSolicitacao")
-    public String listaSolicitacoes(Model model){
+    public String listaSolicitacoes(@SessionAttribute("user")Usuario usuario,Model model){
 
-        model.addAttribute("listaSolicitacoes", solicitacaoService.listarSolicitacoes());
+        if (usuario.getNivel() == 4) {
+            model.addAttribute("listaSolicitacoes", solicitacaoService.listarTodasSolicitacoes());
+        }
+        else {
+            model.addAttribute("listaSolicitacoes", solicitacaoService.listarSolicitacoesPorId(usuario.getId()));
+        }
+
+        model.addAttribute("listaSolicitacoes", solicitacaoService.listarTodasSolicitacoes());
         return "PaginasSolicitacao/listaSolicitacao";
     }
 

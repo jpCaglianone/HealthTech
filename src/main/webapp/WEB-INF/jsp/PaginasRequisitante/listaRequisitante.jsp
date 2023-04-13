@@ -15,8 +15,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+
 </head>
 <body>
+
+
+<c:if test="${not empty mensagem}">
+    <c:if test="${!alerta}">
+        <div class="alert alert-success" id="mensagem">
+                ${mensagem}
+        </div>
+    </c:if>
+    <c:if test="${alerta}">
+        <div class="alert alert-danger" id="mensagem">
+                ${mensagem}
+        </div>
+    </c:if>
+    <style>
+
+        #mensagem {
+            display: flex;
+            justify-content: center;
+            float:top;
+        }
+    </style>
+    <script defer>
+        setTimeout(function() {
+            $("#mensagem").fadeOut(5000);
+        }, 2500);
+    </script>
+</c:if>
+
 <c:import url="../menu.jsp" />
 <div class="table-responsive col-10" id="tabela">
     <table class="table table-striped table-hover">
@@ -62,8 +92,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </body>

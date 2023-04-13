@@ -2,6 +2,7 @@ package com.example.healthtech.model.repository;
 
 import com.example.healthtech.model.domain.Produto;
 import com.example.healthtech.model.domain.Requisitante;
+import feign.Param;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -23,5 +24,6 @@ public interface RequisitanteRepository extends CrudRepository<Requisitante,Inte
 
     @Query("from Requisitante r where r.id = :id")
     Requisitante retornaRequisitante (Integer id);
+
 
 }

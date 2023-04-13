@@ -41,8 +41,9 @@ public class AcessoController {
         alerta = null;
         Usuario user = new Usuario(email,senha);
         user = usuarioService.validacao(user);
+        Usuario u = usuarioService.listaUsuariosPorId(user.getId());
 
-        if(user != null){
+        if(user != null && !u.isBloqueado()){
             model.addAttribute("mensagem","Usuário " + user.getNome() + " logado com sucesso!");
             model.addAttribute("user", user);
             return "redirect:/";
@@ -61,7 +62,7 @@ public class AcessoController {
     @PostMapping("signin/inclusao")
     public String UsuarioInclusao(Model model, @RequestParam String nomeUsuario, @RequestParam String emailUsuario, @RequestParam String senhaUsuario, @RequestParam int nivelUsuario){
 
-        Usuario user = new Usuario( emailUsuario, nomeUsuario, senhaUsuario, nivelUsuario);
+        Usuario user = new Usuario( emailUsuario, nomeUsuario, senhaUsuario, nivelUsuario,false);
 
          if (!usuarioService.incluirUsuario(user)){
             model.addAttribute("mensagem",  "Não foi possivel cadastrar o usuário!");
@@ -72,17 +73,23 @@ public class AcessoController {
 
     }
         @GetMapping("controleUsuarios")
-        public String listaUsuarios(Model model){
-            model.addAttribute("usuarios", usuarioService.listaUsuarios());
+        public String listaUsuarios(Model model,@SessionAttribute("user")Usuario usuario){
+            if (usuario!=null) {
+                model.addAttribute("usuarios", usuarioService.listaUsuarios());
 
-            return "/acesso/controleUsuarios";
+                return "/acesso/controleUsuarios";
+            }
+            return "redirect:/";
         }
 
 
 
-        @GetMapping("/controleUsuarios/{indice}/excluir")
+        @GetMapping("/controleUsuarios/{indice}/status")
         public String excluirUsuario(@PathVariable Integer indice){
-            usuarioService.excluirUsuario(indice);
+
+            Usuario u = usuarioService.listaUsuariosPorId(indice);
+
+            usuarioService.editaUsuario(u.getId(), !u.isBloqueado());
             return "redirect:/controleUsuarios";
         }
 

@@ -79,7 +79,7 @@ public class SolicitacaoLoader implements ApplicationRunner {
             System.out.println(e.getMessage());
         }
 
-        Usuario admin0 = new Usuario("admin0@ht.com","admin0", "admin123", 4);
+        Usuario admin0 = new Usuario("admin0@ht.com","admin0", "admin123", 4,true);
         usuarioService.incluirUsuario(admin0);
 
         s1.setUsuario(admin0);

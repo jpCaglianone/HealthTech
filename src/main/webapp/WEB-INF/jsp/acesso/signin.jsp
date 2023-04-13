@@ -48,10 +48,11 @@
                     <label for="senha" class="form-label">Senha</label>
                     <input type="password" class="form-control" id="senha" name="senhaUsuario" minlength="6" required>
                 </div>
-                <div class="mb-3">
-                        <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel0" value="0" checked>
-                        <label class="form-check-label" for="nivel0">Nível 0 - Cliente/Requisitante</label>
-                </div>
+<%--                <div class="mb-3">--%>
+<%--                        <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel0" value="0" checked>--%>
+<%--                        <label class="form-check-label" for="nivel0">Nível 0 - Cliente/Requisitante</label>--%>
+<%--                </div>--%>
+<%--                RETIRADO PROVISORIAMENTE    --%>
                 <div class="mb-3">
                     <input class="form-check-input" type="radio" name="nivelUsuario" id="nivel1" value="1">
                     <label class="form-check-label" for="nivel0">Nível 1 - Usuário consultor</label>

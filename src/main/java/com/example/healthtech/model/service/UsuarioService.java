@@ -3,6 +3,7 @@ package com.example.healthtech.model.service;
 import com.example.healthtech.model.domain.Requisitante;
 import com.example.healthtech.model.domain.Usuario;
 import com.example.healthtech.model.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,13 @@ public class UsuarioService {
         return  usuarioRepository.findAll();
 
     }
-
-
+    @Transactional
+    public void editaUsuario (Integer id, Boolean status){
+        usuarioRepository.editarUsuario(id, status);
+    }
+    public Usuario listaUsuariosPorId (Integer id){
+        return usuarioRepository.listaUsuariosPorId(id);
+    }
     public Usuario validacao (Usuario usuario){
         try{
             return usuarioRepository.validacao(usuario.getEmail(), usuario.getSenha());

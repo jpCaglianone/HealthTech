@@ -2,12 +2,12 @@
 
 <div class="form-group">
     <label>Cep:</label>
-    <input type="text" name="cep" value="${endereco.cep}" class="form-control">
+    <input type="text" name="cep" value="${endereco.cep}" class="form-control" readonly>
 </div>
 
 <div class="form-group">
     <label>Logradouro:</label>
-    <input type="text" name="logradouro" value="${endereco.logradouro}" class="form-control">
+    <input type="text" name="logradouro" value="${endereco.logradouro}" class="form-control" readonly>
 </div>
 
 <div class="form-group">
@@ -17,15 +17,15 @@
 
 <div class="form-group">
     <label>Bairro:</label>
-    <input type="text" name="bairro" value="${endereco.bairro}" class="form-control">
+    <input type="text" name="bairro" value="${endereco.bairro}" class="form-control" readonly>
 </div>
 
 <div class="form-group">
     <label>Localidade:</label>
-    <input type="text" name="localidade" value="${endereco.localidade}" class="form-control">
+    <input type="text" name="localidade" value="${endereco.localidade}" class="form-control" readonly>
 </div>
 
 <div class="form-group">
     <label>UF:</label>
-    <input type="text" name="uf" value="${endereco.uf}" class="form-control">
+    <input type="text" name="uf" value="${endereco.uf}" class="form-control" readonly>
 </div>

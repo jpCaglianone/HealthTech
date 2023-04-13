@@ -14,6 +14,8 @@ public class Usuario {
     private String emailUsuario;
     private String nomeUsuario;
     private String senhaUsuario;
+
+    private boolean bloqueado;
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Requisitante> requisitantes;
@@ -32,20 +34,21 @@ public class Usuario {
         setEmail(emailUsuario);
     }
 
-    public Usuario(String email, String nome, String senha, int nivel){
+    public Usuario(String email, String nome, String senha, int nivel, boolean bloqueado){
         setNivel(nivel);
         setEmail(email);
         setNome(nome);
         setSenha(senha);
+        setBloqueado(bloqueado);
     }
 
-//    public Endereco getEndereco() {
-//        return endereco;
-//    }
-//
-//    public void setEndereco(Endereco endereco) {
-//        this.endereco = endereco;
-//    }
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
+
+    public boolean isBloqueado() {
+        return bloqueado;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -95,5 +98,8 @@ public class Usuario {
         this.requisitantes = requisitantes;
     }
 
+    public String statusUsuario(){
+        return this.isBloqueado()?"Inativo/Bloqueado":"Ativo";
+    }
 
 }

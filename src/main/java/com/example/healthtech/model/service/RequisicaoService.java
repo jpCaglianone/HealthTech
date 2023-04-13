@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RequisicaoService {
@@ -27,9 +26,10 @@ public class RequisicaoService {
         }
     }
 
-    public List<Requisitante> listaRequisitante(int id){
-        return  requisitanteRepository.obterLista(id);
+    public List<Requisitante> listaRequisitantePorUsuario(int id){
+        return requisitanteRepository.obterLista(id);
     }
+
 
     public Collection<Requisitante> listarTodosRequisitantes(){
         return requisitanteRepository.obterListaCompleta();
@@ -56,8 +56,10 @@ public class RequisicaoService {
         }
     }
 
-    public Requisitante retornarRequisitante (Integer id){
+    public Requisitante retornarRequisitante(Integer id){
         return requisitanteRepository.retornaRequisitante(id);
     }
+
+
 
 }
